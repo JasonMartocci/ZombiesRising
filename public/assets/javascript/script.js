@@ -5,7 +5,6 @@ window.addEventListener("load",function() {
     .setup({
         width: 1080,
         height: 720,
-        maximize: true,
         scaleToFit: true
     });
 
