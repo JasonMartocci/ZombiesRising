@@ -6,7 +6,7 @@ Quintus.ZombiesGameplay = function(Q) {
         this._super(p, { 
           asset: '/assets/images/background.png',
           type: Q.SPRITE_GROUND,
-          x: 120 + 1024/2,
+          x: 90 + 1024/2,
           y: 768/2,
           w: 1024,
           h: 768,

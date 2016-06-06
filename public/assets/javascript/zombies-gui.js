@@ -5,12 +5,12 @@ Quintus.ZombiesGUI = function(Q) {
       init: function(p) {
         this._super(Q._defaults(p, {
           fill: '#E1DEB7',
-          x: 120/2,
+          x: 90/2,
           y: 768/2,
           radius: 0,
           border: 0,
           shadow: 0,
-          w: 120,
+          w: 90,
           h: 768,
         }));
 
@@ -26,13 +26,13 @@ Quintus.ZombiesGUI = function(Q) {
         //now we can access the stage with this.stage
         this.stage.insert(new Q.Sprite({
           asset: '/assets/images/sun.png',
-          x: 60,
+          x: 42,
           y: 40
         }));
 
         this.totalSun = this.stage.insert(new Q.UI.Text({
-          x: 60,
-          y: 100,
+          x: 42,
+          y: 80,
           label: '100'
         }));
 
@@ -40,12 +40,12 @@ Quintus.ZombiesGUI = function(Q) {
         this.refreshStats();
 
         //insert plant type buttons
-        var x = 40, y = 180, plantObject;
+        var x = 42, y = 145, plantObject;
         Q._each(this.p.plantTypes, function(element, index, list) {
           plantObject = Q.plantTypes[element];
           this.stage.insert(new Q.PlantButton({x: x, y: y, asset: plantObject.asset, plant: plantObject}));
           this.stage.insert(new Q.UI.Text({x: x, y: y+50, label: plantObject.cost+''}));
-          y += 90;
+          y += 110;
         }, this);
       },
       //you could have other game stats here
