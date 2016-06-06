@@ -2,7 +2,10 @@ window.addEventListener("load",function() {
   var Q = window.Q = Quintus({development: true})
     .include('Sprites, Scenes, 2D, UI, Input, Touch, Audio')
     .include('ZombiesEnemies, ZombiesGUI, ZombiesPlants, ZombiesGameplay')
-    .setup({ maximize: true })
+    .setup({ 
+      height: 728,
+      maximize: true 
+    })
   //enable sound  , this will find the best way to play audio according to the device 
   Q.enableSound();
 
