@@ -4,13 +4,13 @@ Quintus.ZombiesGUI = function(Q) {
     Q.UI.Container.extend('SidePanel', {
       init: function(p) {
         this._super(Q._defaults(p, {
-          fill: '#E1DEB7',
-          x: 90/2,
+          fill: '#555756',
+          x: 145/2,
           y: 768/2,
           radius: 0,
           border: 0,
           shadow: 0,
-          w: 90,
+          w: 145,
           h: 768,
         }));
 
@@ -31,8 +31,8 @@ Quintus.ZombiesGUI = function(Q) {
         }));
 
         this.totalSun = this.stage.insert(new Q.UI.Text({
-          x: 42,
-          y: 80,
+          x: 105,
+          y: 40,
           label: '100'
         }));
 
@@ -40,12 +40,17 @@ Quintus.ZombiesGUI = function(Q) {
         this.refreshStats();
 
         //insert plant type buttons
-        var x = 42, y = 145, plantObject;
+        var x = 72, y = 120, plantObject;
         Q._each(this.p.plantTypes, function(element, index, list) {
           plantObject = Q.plantTypes[element];
-          this.stage.insert(new Q.PlantButton({x: x, y: y, asset: plantObject.asset, plant: plantObject}));
-          this.stage.insert(new Q.UI.Text({x: x, y: y+20, label: plantObject.cost+''}));
-          y += 70;
+          this.stage.insert(new Q.Sprite({
+            asset: '/assets/images/buttonBg1.png',
+            x: x,
+            y: y
+          }));
+          this.stage.insert(new Q.PlantButton({x: x-15, y: y, asset: plantObject.asset, plant: plantObject}));
+          this.stage.insert(new Q.UI.Text({x: x+20, y: y+21, label: plantObject.cost+''}));
+          y += 90;
         }, this);
       },
       //you could have other game stats here
