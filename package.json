@@ -14,6 +14,7 @@
     "express": "^4.13.4",
     "express-handlebars": "^3.0.0",
     "method-override": "^2.3.6",
-    "mysql": "^2.10.2"
+    "mysql": "^2.10.2",
+    "quintus": "^0.2.0"
   }
 }

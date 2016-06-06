@@ -1,8 +1,11 @@
 /* Space out content a bit */
-body {
-	 background-color: black;
-	 margin: 0px;
-	 border: 0px;
-}
 #quintus{
+}
+html, body {
+	 background-color: black;
+    padding: 0; margin: 0;
+    overflow:hidden;
+}
+canvas {
+    border: 1px solid #f00;
 }
