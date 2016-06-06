@@ -34,7 +34,7 @@ Quintus.ZombiesEnemies = function(Q) {
       this._super(p, { 
           type: Q.SPRITE_ZOMBIE,
           collisionMask: Q.SPRITE_PLANT | Q.SPRITE_BULLET,
-          x: 1024+30,
+          x: $(window).width()+30,
       });
       this.add('2d');
 

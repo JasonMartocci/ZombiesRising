@@ -149,7 +149,7 @@ Quintus.ZombiesPlants = function(Q) {
     },
     step: function(dt) {
       //destroy if out of range
-      if(this.p.x >= 1110) {
+      if(this.p.x >= $(window).width()) {
         this.destroy();
       }
     }
