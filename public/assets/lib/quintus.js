@@ -1382,7 +1382,7 @@ var Quintus = function Quintus(opts) {
       Q.wrapper.id = Q.el.id + '_container';
       Q.wrapper.style.width = w + "px";
       // Q.wrapper.style.margin = "0 auto";
-      // Q.wrapper.style.position = "relative";
+      Q.wrapper.style.position = "relative";
 
 
       elParent.insertBefore(Q.wrapper,Q.el);
