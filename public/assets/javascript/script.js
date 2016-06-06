@@ -3,8 +3,10 @@ window.addEventListener("load",function() {
     .include('Sprites, Scenes, 2D, UI, Input, Touch, Audio')
     .include('ZombiesEnemies, ZombiesGUI, ZombiesPlants, ZombiesGameplay')
     .setup({ 
-      height: 728,
-      maximize: true 
+      width: 1080,
+      height: 720,
+      scaleToFit: true
+      // maximize: true 
     })
   //enable sound  , this will find the best way to play audio according to the device 
   Q.enableSound();

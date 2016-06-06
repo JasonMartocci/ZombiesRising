@@ -44,8 +44,8 @@ Quintus.ZombiesGUI = function(Q) {
         Q._each(this.p.plantTypes, function(element, index, list) {
           plantObject = Q.plantTypes[element];
           this.stage.insert(new Q.PlantButton({x: x, y: y, asset: plantObject.asset, plant: plantObject}));
-          this.stage.insert(new Q.UI.Text({x: x, y: y+50, label: plantObject.cost+''}));
-          y += 110;
+          this.stage.insert(new Q.UI.Text({x: x, y: y+20, label: plantObject.cost+''}));
+          y += 70;
         }, this);
       },
       //you could have other game stats here
