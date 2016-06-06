@@ -2,6 +2,7 @@
 #quintus{
 }
 html, body {
+	background-image: url('/assets/images/background_side.png');
 	background-color: black;
 	padding: 0; margin: 0;
 	overflow: hidden;
