@@ -8,6 +8,7 @@ html, body {
 	overflow: hidden;
 }
 canvas {
+    border-right: 8px solid green;
 }
 .sidePanel {
     border: 1px solid green;

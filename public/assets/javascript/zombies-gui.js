@@ -4,13 +4,13 @@ Quintus.ZombiesGUI = function(Q) {
     Q.UI.Container.extend('SidePanel', {
       init: function(p) {
         this._super(Q._defaults(p, {
-          fill: '#555756',
-          x: 145/2,
+          fill: '#421800',
+          x: 160/2,
           y: 768/2,
           radius: 0,
           border: 0,
-          shadow: 0,
-          w: 145,
+          shadow: 10,
+          w: 160,
           h: 768,
         }));
 
@@ -25,14 +25,14 @@ Quintus.ZombiesGUI = function(Q) {
       inserted: function() {  
         //now we can access the stage with this.stage
         this.stage.insert(new Q.Sprite({
-          asset: '/assets/images/sun.png',
-          x: 42,
+          asset: '/assets/images/scoreBoard.png',
+          x: 78,
           y: 40
         }));
 
         this.totalSun = this.stage.insert(new Q.UI.Text({
-          x: 105,
-          y: 40,
+          x: 100,
+          y: 37,
           label: '100'
         }));
 
@@ -40,7 +40,7 @@ Quintus.ZombiesGUI = function(Q) {
         this.refreshStats();
 
         //insert plant type buttons
-        var x = 72, y = 120, plantObject;
+        var x = 78, y = 120, plantObject;
         Q._each(this.p.plantTypes, function(element, index, list) {
           plantObject = Q.plantTypes[element];
           this.stage.insert(new Q.Sprite({
