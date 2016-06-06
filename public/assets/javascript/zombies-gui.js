@@ -40,7 +40,7 @@ Quintus.ZombiesGUI = function(Q) {
         this.refreshStats();
 
         //insert plant type buttons
-        var x = 78, y = 120, plantObject;
+        var x = 79, y = 120, plantObject;
         Q._each(this.p.plantTypes, function(element, index, list) {
           plantObject = Q.plantTypes[element];
           this.stage.insert(new Q.Sprite({
