@@ -4,7 +4,7 @@ Quintus.ZombiesGUI = function(Q) {
     Q.UI.Container.extend('SidePanel', {
       init: function(p) {
         this._super(Q._defaults(p, {
-          fill: '#421800',
+          fill: '#000000',
           x: 160/2,
           y: 768/2,
           radius: 0,

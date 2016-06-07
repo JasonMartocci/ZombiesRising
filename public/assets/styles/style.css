@@ -25,6 +25,12 @@ canvas {
 .whtText{
   color: #ffffff;
 }
+.modal-header{
+  background-color: #000000;
+}
+.modal-footer{
+  background-color: #000000;
+}
 /*#container { display:block; }
 @media only screen and (orientation:portrait){
   #container {  
