@@ -1,29 +1,36 @@
+/*
+Here is where you setup a model for how to interface with the database.
+*/
+
 var orm = require('../config/orm.js');
 
-var projectX = {
-	allUsers: function(cb) {
+var user = {
+	findOne: function(condition, cb) {
+	  orm.findOne('users', condition, function(res){
+	      cb(res);
+	  });
+  },
+	all: function(cb) {
 		orm.all('users', function(res){
 			cb(res);
 		});
 	},
-
+	//cols and vals are arrays
 	createUser: function(cols, vals, cb) {
 		orm.createUser('users', cols, vals, function(res){
 			cb(res);
 		});
 	},
-
-	updateUser: function(objColVals, condition, cb) {
+	update: function(objColVals, condition, cb) {
 		orm.update('users', objColVals, condition, function(res){
 			cb(res);
 		});
 	},
-
-	deleteUser: function(condition, cb) {
+	delete: function(condition, cb){
 		orm.delete('users', condition, function(res){
 			cb(res);
 		});
-	},
+	}
 };
 
-module.exports = projectX;
+module.exports = user;

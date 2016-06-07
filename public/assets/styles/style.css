@@ -14,6 +14,17 @@ canvas {
     border: 1px solid green;
 }
 
+.sign_in{
+  color: white;
+  background-color: #438EB9;
+}
+.register{
+  color: white;
+  background-color: #438EB9;
+}
+.whtText{
+  color: #ffffff;
+}
 /*#container { display:block; }
 @media only screen and (orientation:portrait){
   #container {  

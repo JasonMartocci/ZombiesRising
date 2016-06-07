@@ -6,7 +6,9 @@ var router = express.Router();
 var burger = require('../models/projectX.js');
 
 router.get('/', function(req,res) {
-	res.render('index')
+	var hbsObject = {logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
+	//console.log(hbsObject)
+	res.render('index', hbsObject);
 });
 
 // router.get('/burgers', function(req,res) {

@@ -44,3 +44,21 @@ window.addEventListener("load",function() {
       Q.stageScene("sun",1);                
   });
 });
+
+$(window).load(function(){
+    $('#sign-in').modal('show');
+});
+
+$(document).ready(function() {
+  $("#register").hide();
+
+  $("#register_btn").click(function(){
+      $("#sign_in").hide();
+      $("#register").show();
+  });
+
+  $("#signIn_btn").click(function(){
+      $("#sign_in").show();
+      $("#register").hide();
+  });
+});

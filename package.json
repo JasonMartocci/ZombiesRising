@@ -9,10 +9,13 @@
   "author": "Jason Martocci",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.1",
     "bootstrap": "^3.3.6",
+    "cookie-parser": "^1.4.3",
     "express": "^4.13.4",
     "express-handlebars": "^3.0.0",
+    "express-session": "^1.13.0",
     "method-override": "^2.3.6",
     "mysql": "^2.10.2",
     "quintus": "^0.2.0"
