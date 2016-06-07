@@ -132,7 +132,7 @@ Quintus.ZombiesPlants = function(Q) {
     },    
     touch: function(touch) {
       Q.state.inc('sun', 25);  
-      Q.audio.play('/assets/audio/collect.mp3');
+      Q.audio.play('/assets/audio/Homer_Mmmm_donuts.mp3');
       this.destroy();
     }
   });
