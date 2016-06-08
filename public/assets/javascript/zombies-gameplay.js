@@ -38,11 +38,42 @@ Quintus.ZombiesGameplay = function(Q) {
           Q.stageScene("level", {
             levelData: Q.assets[this.p.levelData.nextLevel]                        
           });
+          
+          // Q.stageScene("nextLevel",1, { label: "LEVEL COMPLETED!" });
+
+          // Q.scene('nextLevel',function(stage) {
+          //   var container = stage.insert(new Q.UI.Container({
+          //     x: Q.width/2, y: Q.height/2, fill: "rgba(0,0,0,0.5)"
+          //   }));
+
+          //   var nextLevelButton = container.insert(new Q.UI.Button({ x: 0, y: 0, fill: "#CCCCCC",
+          //                                                   label: "Next Level" }))         
+          //   var label = container.insert(new Q.UI.Text({x:10, y: -10 - nextLevelButton.p.h, fill: "#FFFFFF", 
+          //                                                    label: stage.options.label }));
+          //   this.on("click",function() {
+          //     Q.clearStages();
+          //     Q.stageScene("level", {levelData: Q.assets[this.p.levelData.nextLevel] });
+          //   });
+          //   container.fit(20);
+          // });
         }
         else {
-          console.log('YOU HAVE WON THE GAME!!');
-          Q.stageScene("level", {
-            levelData: Q.assets["level1.json"]                        
+          Q.stageScene("endGame",1, { label: "You Have Won The Game!" });
+
+          Q.scene('endGame',function(stage) {
+            var container = stage.insert(new Q.UI.Container({
+              x: Q.width/2, y: Q.height/2, fill: "rgba(0,0,0,0.5)"
+            }));
+
+            var button = container.insert(new Q.UI.Button({ x: 0, y: 0, fill: "#CCCCCC",
+                                                            label: "Play Again" }))         
+            var label = container.insert(new Q.UI.Text({x:10, y: -10 - button.p.h, fill: "#FFFFFF", 
+                                                             label: stage.options.label }));
+            button.on("click",function() {
+              Q.clearStages();
+              Q.stageScene('level', {levelData: Q.assets['/assets/data/level1.json']});
+            });
+            container.fit(20);
           });
         }
         

@@ -6,7 +6,7 @@ Quintus.ZombiesEnemies = function(Q) {
       asset: '/assets/images/zombie1.png',  //image file      
       damage: 1,  //how much damage it causes              
       vx: -8, //speed
-      energy: 10,
+      energy: 10, //energy
     },
     skelleton: {
       asset: '/assets/images/zombie2.png', 
@@ -65,8 +65,24 @@ Quintus.ZombiesEnemies = function(Q) {
     step: function(dt) {
       if(this.p.x <= 240) {
         this.destroy();
-        console.log('The zombies ate your brain!');  
-        //restart game                          
+        console.log('The zombies ate your brain!'); 
+        Q.stageScene("endGame",1, { label: "The zombies ate your brain!" });
+
+        Q.scene('endGame',function(stage) {
+          var container = stage.insert(new Q.UI.Container({
+            x: Q.width/2, y: Q.height/2, fill: "rgba(0,0,0,0.5)"
+          }));
+
+          var button = container.insert(new Q.UI.Button({ x: 0, y: 0, fill: "#CCCCCC",
+                                                          label: "Play Again" }))         
+          var label = container.insert(new Q.UI.Text({x:10, y: -10 - button.p.h, fill: "#FFFFFF", 
+                                                           label: stage.options.label }));
+          button.on("click",function() {
+            Q.clearStages();
+            Q.stageScene('level', {levelData: Q.assets['/assets/data/level1.json']});
+          });
+          container.fit(20);
+        });                        
         Q.stageScene('level', {levelData: Q('Level').items[0].p.levelData});           
       }
       //check for death
