@@ -1,7 +1,7 @@
 {
     "availablePlants": ["carnivorous", "corn", "chilli", "sunflower"],
     "nextLevel" : "/assets/data/level2.json",
-    "duration": 20,
+    "duration": 120,
     "zombies": [
       {
           "time": 2,

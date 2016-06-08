@@ -1,7 +1,7 @@
 {
     "availablePlants": ["carnivorous", "corn", "sunflower"],
     "nextLevel" : false,
-    "duration": 20,
+    "duration": 120,
     "zombies": [
       {
           "time": 15,
