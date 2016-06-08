@@ -2,8 +2,15 @@
 	<div class="row">
 		<div class="col-md-4"></div>
 	    <div class="col-md-4" id="sign_in">
-		    <h4>Sign In</h4>
+	    	<div class="row siginInHdr">
+	    		<div class="col-md-4"><img src="/assets/images/logo.png" alt="Zombies Rising"></div>
+	    		<div class="col-md-4"></div>
+	    		<div class="col-md-4"></div>
+	    	</div>
+		    
 		    <form class="form center-block" action="/users/login" method="POST">
+		        <div class="form-group">
+		        </div>
 		        <div class="form-group">
 		          <input type="text" class="form-control input-lg" placeholder="Email" name="email">
 		        </div>
@@ -23,8 +30,15 @@
 	<div class="row">
 	    <div class="col-md-4"></div>
 	    <div class="col-md-4" id="register">
-		    <h4>Register</h4>
+		    <div class="row siginInHdr">
+	    		<div class="col-md-4"><img src="/assets/images/logo.png" alt="Zombies Rising"></div>
+	    		<div class="col-md-4"></div>
+	    		<div class="col-md-4"></div>
+	    	</div>
+		    
 		    <form class="form center-block" action="/users/create" method="POST">
+		        <div class="form-group">
+		        </div>
 		        <div class="form-group">
 		          <input type="text" class="form-control input-lg" placeholder="User Name" name="username">
 		        </div>
@@ -41,7 +55,7 @@
 		          <input type="hidden" value='user' class="form-control input-lg" placeholder="Role" name="role">
 		        </div>
 		        <div class="form-group">
-		          <button class="btn btn-primary btn-lg btn-block">Sign Up</button>
+		          <button class="btn btn-primary btn-lg btn-block">Register Now</button>
 		        </div>
 		    </form>
 		    <p>
@@ -51,3 +65,20 @@
 	    <div class="col-md-4"></div>
 	 </div>
 {{/unless}}
+
+{{#if logged_in}}
+	<div class="row">
+		<div class="col-md-4"></div>
+	    <div class="col-md-4" id="sign_in">
+			<div class="row siginInHdr">
+	    		<div class="col-md-4"><img src="/assets/images/logo.png" alt="Zombies Rising"></div>
+	    		<div class="col-md-4"></div>
+	    		<div class="col-md-4"></div>
+			</div><br /><br />
+		    <a href="/game"><button class="btn btn-primary btn-lg btn-block">Play Zombies Rising</button></a><br /><br />
+		    <button class="btn btn-disabled btn-lg btn-block">Account Information</button><br /><br />
+	    <a href="/users/sign-out"><button class="btn btn-danger btn-lg btn-block">Sign Out</button></a><br /><br />
+	    </div>
+	    <div class="col-md-4"></div>
+	</div>
+{{/if}}
