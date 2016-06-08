@@ -25,9 +25,9 @@ router.get('/', function(req,res) {
 	res.render('sign_in');
 });
 
-router.get('/', function(req,res) {
-	res.render('sign_in');
-});
+// router.get('/', function(req,res) {
+// 	res.render('sign_in');
+// });
 
 router.get('/sign-out', function(req,res) {
   req.session.destroy(function(err) {

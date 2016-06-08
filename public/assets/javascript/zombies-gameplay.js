@@ -50,8 +50,7 @@ Quintus.ZombiesGameplay = function(Q) {
           //                                                   label: "Next Level" }))         
           //   var label = container.insert(new Q.UI.Text({x:10, y: -10 - nextLevelButton.p.h, fill: "#FFFFFF", 
           //                                                    label: stage.options.label }));
-          //   this.on("click",function() {
-          //     Q.clearStages();
+          //   nextLevelButton.on("click",function() {
           //     Q.stageScene("level", {levelData: Q.assets[this.p.levelData.nextLevel] });
           //   });
           //   container.fit(20);
