@@ -14,13 +14,15 @@ canvas {
     border: 1px solid green;
 }
 
-.sign_in{
-  color: white;
-  background-color: #438EB9;
+#sign_in{
+  margin-top: 10px;
+  color: #438EB9;
+  background-color: white;
 }
-.register{
-  color: white;
-  background-color: #438EB9;
+#register{
+  margin-top: 10px;
+  color: #438EB9;
+  background-color: white;
 }
 .whtText{
   color: #ffffff;
