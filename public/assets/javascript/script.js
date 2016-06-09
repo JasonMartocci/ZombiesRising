@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  $('#inventory').DataTable();
   $("#register").hide();
 
   $("#register_btn").click(function(){

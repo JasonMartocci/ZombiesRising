@@ -42,5 +42,10 @@ window.addEventListener("load",function() {
       Q.state.reset({sun: 200, currentPlant: null});
       Q.stageScene('level', {levelData: Q.assets['/assets/data/level1.json']});  
       Q.stageScene("sun",1);                
+  },{
+  progressCallback: function(loaded,total) {
+      var element = document.getElementById("loading_progress");
+      element.style.width = Math.floor(loaded/total*100) + "%";
+    }
   });
 });

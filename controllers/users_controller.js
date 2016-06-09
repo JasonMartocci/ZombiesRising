@@ -1,6 +1,7 @@
 var bcrypt = require('bcryptjs');
 var express = require('express');
 var router = express.Router();
+var shop = require('../models/shop.js');
 var user = require('../models/user.js');
 var connection = require('../config/connection.js');
 
@@ -21,9 +22,9 @@ router.get('/profile/:id', function(req, res){
   });
 });
 
-router.get('/', function(req,res) {
-	res.render('sign_in');
-});
+// router.get('/', function(req,res) {
+// 	res.render('sign_in');
+// });
 
 // router.get('/', function(req,res) {
 // 	res.render('sign_in');
@@ -61,7 +62,7 @@ router.post('/login', function(req, res) {
 							console.log('This is user - ', req.session.isUser);
 						}
 
-						res.redirect('/game');
+						res.redirect('/index');
 					}else{
             res.send('You put in the wrong password.')
           }
