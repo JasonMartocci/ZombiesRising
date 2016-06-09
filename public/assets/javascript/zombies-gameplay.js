@@ -24,7 +24,8 @@ Quintus.ZombiesGameplay = function(Q) {
         this.plantsGrid = new Array(new Array(7), new Array(7), new Array(7), new Array(7), new Array(7), new Array(7));
 
         this.on('touch');
-        // Q.audio.play('/assets/audio/ZombiesOnYourLawn.mp3');
+        
+        Q.audio.play('/assets/audio/ZombiesOnYourLawn.mp3');
     },
     step: function(dt) {
       //update level duration

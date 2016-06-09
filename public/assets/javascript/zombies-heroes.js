@@ -1,31 +1,31 @@
-Quintus.ZombiesPlants = function(Q) {
+Quintus.ZombiesHeroes = function(Q) {
   //plant types
   Q.plantTypes = {
-    carnivorous: {
-      asset: '/assets/images/carnivorousplant.png',
+    levelOneShooter: {
+      asset: '/assets/images/levelOneShooter.png',
       cost: 100,
       energy: 10,
       isShooter: true,
       shootingFrequency: 3,
       damage: 2,    
     },
-    corn: {
-      asset: '/assets/images/corn.png',
+    levelTwoShooter: {
+      asset: '/assets/images/levelTwoShooter.png',
       cost: 150,
       energy: 20,
       isShooter: true,
       shootingFrequency: 5,
       damage: 3,   
     },
-    chilli: {
-      asset: '/assets/images/chilli.png',
+    levelOneBomber: {
+      asset: '/assets/images/levelOneBomber.png',
       cost: 50,
       energy: 10,
       isExploding: true,
       damage: 50
     },
-    sunflower: {
-      asset: '/assets/images/sunflower.png',
+    levelOneEnergy: {
+      asset: '/assets/images/levelOneEnergy.png',
       cost: 75,
       energy: 15,
       isSunProducer: true,

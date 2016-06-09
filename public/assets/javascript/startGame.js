@@ -1,13 +1,14 @@
 window.addEventListener("load",function() {
   var Q = window.Q = Quintus({development: true})
     .include('Sprites, Scenes, 2D, UI, Input, Touch, Audio')
-    .include('ZombiesEnemies, ZombiesGUI, ZombiesPlants, ZombiesGameplay')
+    .include('ZombiesEnemies, ZombiesGUI, ZombiesHeroes, ZombiesGameplay')
     .setup({ 
       width: 1317,
       height: 720,
       scaleToFit: true
       // maximize: true 
     })
+    
   //enable sound  , this will find the best way to play audio according to the device 
   Q.enableSound();
 
@@ -38,12 +39,13 @@ window.addEventListener("load",function() {
   });
 
   //load assets
-  Q.load('/assets/images/scoreBoard.png, /assets/audio/Homer_Mmmm_donuts.mp3, /assets/images/background.png, /assets/images/buttonBg1.png, /assets/images/sun.png, /assets/images/zombie1.png, /assets/images/zombie2.png, /assets/images/chicken.png, /assets/images/zombie3.png, /assets/images/carnivorousplant.png, /assets/images/corn.png, /assets/images/chilli.png, /assets/images/sunflower.png, /assets/images/bullet.png, /assets/data/level1.json, /assets/data/level2.json, /assets/audio/boom.mp3, /assets/audio/collect.mp3, /assets/audio/hit.mp3', function() {
+  Q.load('/assets/audio/ZombiesOnYourLawn.mp3, /assets/images/scoreBoard.png, /assets/audio/Homer_Mmmm_donuts.mp3, /assets/images/background.png, /assets/images/buttonBg1.png, /assets/images/sun.png, /assets/images/zombie1.png, /assets/images/zombie2.png, /assets/images/zombie3.png, /assets/images/zombie4.png, /assets/images/levelOneShooter.png, /assets/images/levelTwoShooter.png, /assets/images/levelOneBomber.png, /assets/images/levelOneEnergy.png, /assets/images/bullet.png, /assets/data/level1.json, /assets/data/level2.json, /assets/audio/boom.mp3, /assets/audio/hit.mp3', function() {
       Q.state.reset({sun: 200, currentPlant: null});
       Q.stageScene('level', {levelData: Q.assets['/assets/data/level1.json']});  
       Q.stageScene("sun",1);                
-  },{
-  progressCallback: function(loaded,total) {
+  },
+  {
+    progressCallback: function(loaded,total) {
       var element = document.getElementById("loading_progress");
       element.style.width = Math.floor(loaded/total*100) + "%";
     }
