@@ -1,4 +1,5 @@
 -- Schema - Structure of Zombies Rising
+
 CREATE TABLE users
 (
   userId int NOT NULL AUTO_INCREMENT,
@@ -11,17 +12,29 @@ CREATE TABLE users
   PRIMARY KEY (userId)
 );
 
+CREATE TABLE enemies
+(
+  enemiesId int NOT NULL AUTO_INCREMENT,
+  zombieTypes varchar(255) NOT NULL,
+  asset varchar(255) NOT NULL,
+  damage int NOT NULL,
+  vx int NOT NULL,
+  energy int NOT NULL,
+  PRIMARY KEY (enemiesId)
+);
+
 CREATE TABLE heroes
 (
-  level varchar(255) NOT NULL,
+  heroesId int NOT NULL AUTO_INCREMENT,
+  plantTypes varchar(255) NOT NULL,
   asset varchar(255) NOT NULL,
-  cost varchar(255) NOT NULL,
-  energy varchar(255) NOT NULL,
-  isSunProducer booleen() NOT NULL,
-  isShooter booleen() NOT NULL,
-  isExploding booleen() NOT NULL,
-  sunFrequency varchar(255) NOT NULL,
-  shootingFrequency varchar(255) NOT NULL,
-  damage varchar(255) NOT NULL,
-  PRIMARY KEY (type)
+  cost int NOT NULL,
+  energy int NOT NULL,
+  isSunProducer boolean NOT NULL,
+  isShooter boolean NOT NULL,
+  isExploding boolean NOT NULL,
+  sunFrequency int NOT NULL,
+  shootingFrequency int NOT NULL,
+  damage int NOT NULL,
+  PRIMARY KEY (heroesId)
 );
