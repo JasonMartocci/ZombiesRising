@@ -49,6 +49,68 @@ router.put('/users/update/:userId', function(req,res) {
 	});
 });
 
+router.get('/characters', function(req,res) {
+	var hbsObject = {logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
+	res.render('characters', hbsObject);
+});
+
+router.get('/heroes', function(req,res) {
+	shop.allHeroes(function(data){
+		var hbsObject = {heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
+		res.render('heroes', hbsObject);
+	});
+});
+
+router.post('/heroes/createNewHero', function(req,res) {
+	shop.createHeroes(['userName', 'name', 'emailAddress', 'password', 'role'], [req.body.username, req.body.name, req.body.emailAddress, req.body.password, req.body.role], function(data){
+		res.redirect('/heroes')
+	});
+});
+
+router.delete('/heroes/delete/:heroesId', function(req,res) {
+	var condition = 'heroesId = ' + req.params.heroesId;
+	console.log('condition', condition);
+	shop.deleteHeroes(condition, function(data){
+		res.redirect('/heroes')
+	});
+});
+
+router.put('/heroes/update/:heroesId', function(req,res) {
+	var condition = 'heroesId = ' + req.params.heroesId;
+	console.log('condition', condition);
+	shop.updateHeroes({'userName ' : req.body.username, ', name ' : req.body.name, ', emailAddress ' : req.body.emailAddress, ', role ' : req.body.role}, condition, function(data){
+		res.redirect('/heroes');
+	});
+});
+router.get('/enemies', function(req,res) {
+	shop.allEnemies(function(data){
+		var hbsObject = {enemies : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
+		res.render('enemies', hbsObject);
+	});
+});
+
+router.post('/enemies/createNewHero', function(req,res) {
+	shop.createEnemies(['userName', 'name', 'emailAddress', 'password', 'role'], [req.body.username, req.body.name, req.body.emailAddress, req.body.password, req.body.role], function(data){
+		res.redirect('/enemies')
+	});
+});
+
+router.delete('/enemies/delete/:enemiesId', function(req,res) {
+	var condition = 'enemiesId = ' + req.params.enemiesId;
+	console.log('condition', condition);
+	shop.deleteEnemies(condition, function(data){
+		res.redirect('/enemies')
+	});
+});
+
+router.put('/enemies/update/:enemiesId', function(req,res) {
+	var condition = 'enemiesId = ' + req.params.enemiesId;
+	console.log('condition', condition);
+	shop.updateEnemies({'userName ' : req.body.username, ', name ' : req.body.name, ', emailAddress ' : req.body.emailAddress, ', role ' : req.body.role}, condition, function(data){
+		res.redirect('/enemies');
+	});
+});
+
 router.get('/game', function(req,res) {
 	var hbsObject = {logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
 	res.render('game', hbsObject);

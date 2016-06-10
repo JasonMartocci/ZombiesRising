@@ -1,19 +1,20 @@
 <div class="container">
   <div class="row tableHeader">
     <div class="col-md-2">
-      <a href="/admin"><img src="/assets/images/logo.png" alt="Zombies Rising"></a>
+      <a href="/"><img src="/assets/images/logo.png" alt="Zombies Rising"></a>
     </div>
     <div class="col-md-10">
       <ul class="nav nav-pills">
         {{#if isUser}}
-          <li role="presentation"><a href="/game" class="whtNavText">Play Zombies Rising</a></li>
+          <li role="presentation"><a href="/admin" class="whtNavText">Play Zombies Rising</a></li>
         {{/if}}       
 
         {{#if isAdmin}}
-          <li role="presentation"><a href="/users" class="whtNavText">Users Information</a></li>
-          <li role="presentation"><a href="/characters" class="whtNavText">Character Editor</a></li>
+          <li role="presentation"><a href="/users" class="whtNavText">Users</a></li>
           <li role="presentation"><a href="/levels" class="whtNavText">Level Creator</a></li>
+          <li role="presentation"><a href="/characters" class="whtNavText">Character Creator</a></li>
         {{/if}}
+
         {{#unless logged_in}}
             <li role="presentation"><a href="/" class="whtNavText">Sign In</a></li>
         {{/unless}}
@@ -24,34 +25,47 @@
       </ul>
     </div>
   </div>
+
+  <!-- Start Heroes Section -->
   <div class="row inventory tableDetails">
     <div class="col-md-12">&nbsp;</div>
     <div class="col-md-12">
-      <button data-toggle="modal" data-target="#addNew" class="btn btn-success btn-sm newUserBtn">Enter New User</button>
+      <button data-toggle="modal" data-target="#addNew" class="btn btn-success btn-sm newUserBtn">Enter New Heroes</button>
+      <a href="/enemies" class="btn btn-info  btn-sm">Enemies Editor</a>
     </div>
     <div class="col-md-12">&nbsp;</div>
   </div>
   <div class="row inventory tableDetails">
     <div class="col-md-12">
-      <table id="inventory" class="display" cellspacing="0" width="100%">
+      <table id="heroes" class="display" cellspacing="0" width="100%">
           <thead>
               <tr class="tableDetails">
-                  <th>User Id</th>
-                  <th>User Name</th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Role</th>
+                  <th>Heroes Type</th>
+                  <th>Asset</th>
+                  <th>Cost</th>
+                  <th>Energy</th>
+                  <th>Sun Producer</th>
+                  <th>Sun Frequency</th>
+                  <th>Shooter</th>
+                  <th>Shooter Frequency</th>
+                  <th>Exploding</th>
+                  <th>Damage</th>
                   <th>Edit</th>
               </tr>
           </thead>
           <tbody>
-              {{#each users}}
+              {{#each heroes}}
                   <tr>
-                      <td data-search="{{this.userId}}">{{this.userId}}</td>
-                      <td data-search="{{this.userName}}">{{this.userName}}</td>
-                      <td data-search="{{this.name}}">{{this.name}}</td>
-                      <td data-search="{{this.emailAddress}}">{{this.emailAddress}}</td>
-                      <td data-search="{{this.role}}">{{this.role}}</td>
+                      <td data-search="{{this.plantTypes}}">{{this.plantTypes}}</td>
+                      <td data-search="{{this.asset}}"><img src="{{this.asset}}"></td>
+                      <td data-search="{{this.cost}}">{{this.cost}}</td>
+                      <td data-search="{{this.energy}}">{{this.energy}}</td>
+                      <td data-search="{{this.isSunProducer}}">{{this.isSunProducer}}</td>
+                      <td data-search="{{this.sunFrequency}}">{{this.sunFrequency}}</td>
+                      <td data-search="{{this.isShooter}}">{{this.isShooter}}</td>
+                      <td data-search="{{this.shootingFrequency}}">{{this.shootingFrequency}}</td>
+                      <td data-search="{{this.isExploding}}">{{this.isExploding}}</td>
+                      <td data-search="{{this.damage}}">{{this.damage}}</td>
                       <td width="70" align="center">
                         <span>
                         <a href="#" data-toggle="modal" data-target="#users-{{this.userId}}"><img src="/assets/images/edit_btn.png" alt="edit"></a> <a href="#" data-toggle="modal" data-target="#delete-{{this.userId}}"><img src="/assets/images/delete_btn.png" alt="delete"></a>
@@ -162,4 +176,5 @@
       </div>
     </div>
   </div>
+  <!-- End Heroes Section -->
 </div>

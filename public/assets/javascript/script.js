@@ -1,5 +1,7 @@
 $(document).ready(function() {
   $('#inventory').DataTable();
+  $('#enemies').DataTable();
+  $('#heroes').DataTable();
   $("#register").hide();
 
   $("#register_btn").click(function(){

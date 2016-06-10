@@ -1,86 +1,67 @@
-{{#unless logged_in}}
+<div class="container siginInHdr">
 	<div class="row">
-		<div class="col-md-4"></div>
-	    <div class="col-md-4" id="sign_in">
-	    	<div class="row siginInHdr">
-	    		<div class="col-md-4"><img src="/assets/images/logo.png" alt="Zombies Rising"></div>
-	    		<div class="col-md-4"></div>
-	    		<div class="col-md-4"></div>
-	    	</div>
-		    
-		    <form class="form center-block" action="/users/login" method="POST">
-		        <div class="form-group">
-		        </div>
-		        <div class="form-group">
-		          <input type="text" class="form-control input-lg" placeholder="Email" name="email">
-		        </div>
-		        <div class="form-group">
-		          <input type="password" class="form-control input-lg" placeholder="Password" name="password">
-		        </div>
-		        <div class="form-group">
-		          <button class="btn btn-primary btn-lg btn-block">Sign In</button>
-		        </div>
-		    </form>
-		    <p class="blkText">
-		        Not already on Zombies Rising? <a href="#" id="register_btn">Register Now</a>.
-		    </p>
-	    </div>
-	    <div class="col-md-4"></div>
+		<div class="col-md-12"><img src="/assets/images/logo.png" alt="Zombies Rising"></div>
 	</div>
 	<div class="row">
-	    <div class="col-md-4"></div>
-	    <div class="col-md-4" id="register">
-		    <div class="row siginInHdr">
-	    		<div class="col-md-4"><img src="/assets/images/logo.png" alt="Zombies Rising"></div>
-	    		<div class="col-md-4"></div>
-	    		<div class="col-md-4"></div>
-	    	</div>
-		    
-		    <form class="form center-block" action="/users/create" method="POST">
-		        <div class="form-group">
-		        </div>
-		        <div class="form-group">
-		          <input type="text" class="form-control input-lg" placeholder="User Name" name="username">
-		        </div>
-		        <div class="form-group">
-		          <input type="text" class="form-control input-lg" placeholder="Name" name="name">
-		        </div>
-		        <div class="form-group">
-		          <input type="text" class="form-control input-lg" placeholder="Email" name="emailAddress">
-		        </div>
-		        <div class="form-group">
-		          <input type="password" class="form-control input-lg" placeholder="Password" name="password">
-		        </div>
-		        <div class="form-group">
-		          <input type="hidden" value='user' class="form-control input-lg" placeholder="Role" name="role">
-		        </div>
-		        <div class="form-group">
-		          <button class="btn btn-primary btn-lg btn-block">Register Now</button>
-		        </div>
-		    </form>
-		    <p>
-		        Already on Zombies Rising? <a href="#" id="signIn_btn">Sign In</a>.
-		    </p>
-	    </div>
-	    <div class="col-md-4"></div>
-	 </div>
-{{/unless}}
+		<div class="col-md-12">&nbsp;</div>
+	</div>
+	<div class="row">
+		{{#unless logged_in}}
+		    <div class="col-md-12" id="sign_in">
+		    	<form class="form center-block" action="/users/login" method="POST">
+			        <div class="form-group">
+			        </div>
+			        <div class="form-group">
+			          <input type="text" class="form-control input-lg" placeholder="Email" name="email">
+			        </div>
+			        <div class="form-group">
+			          <input type="password" class="form-control input-lg" placeholder="Password" name="password">
+			        </div>
+			        <div class="form-group">
+			          <button class="btn btn-primary btn-lg btn-block">Sign In</button>
+			        </div>
+			    </form>
+			    <p class="blkText">
+			        Not already on Zombies Rising? <a href="#" id="register_btn">Register Now</a>.
+			    </p>
+		    </div>
+		    <div class="col-md-12" id="register">				    
+			    <form class="form center-block" action="/users/create" method="POST">
+			        <div class="form-group">
+			        </div>
+			        <div class="form-group">
+			          <input type="text" class="form-control input-lg" placeholder="User Name" name="username">
+			        </div>
+			        <div class="form-group">
+			          <input type="text" class="form-control input-lg" placeholder="Name" name="name">
+			        </div>
+			        <div class="form-group">
+			          <input type="text" class="form-control input-lg" placeholder="Email" name="emailAddress">
+			        </div>
+			        <div class="form-group">
+			          <input type="password" class="form-control input-lg" placeholder="Password" name="password">
+			        </div>
+			        <div class="form-group">
+			          <input type="hidden" value='user' class="form-control input-lg" placeholder="Role" name="role">
+			        </div>
+			        <div class="form-group">
+			          <button class="btn btn-primary btn-lg btn-block">Register Now</button>
+			        </div>
+			    </form>
+			    <p>
+			        Already on Zombies Rising? <a href="#" id="signIn_btn">Sign In</a>.
+			    </p>
+		    </div>
+		{{/unless}}
 
-{{#if logged_in}}
-	<div class="row">
-		<div class="col-md-4"></div>
-	    <div class="col-md-4" id="sign_in">
-			<div class="row siginInHdr">
-	    		<div class="col-md-4"><img src="/assets/images/logo.png" alt="Zombies Rising"></div>
-	    		<div class="col-md-4"></div>
-	    		<div class="col-md-4"></div>
-			</div><br /><br />
-		    <a href="/game" class="btn btn-warning  btn-lg btn-block">Play Zombies Rising</a><br /><br />
-		    <a href="/users" class="btn btn-info  btn-lg btn-block">User Information</a><br /><br />
-		    <a href="/users" class="btn btn-info  btn-lg btn-block">Character Editor</a><br /><br />
-		    <a href="#" class="btn btn-default  btn-lg btn-block">Level Editor</a><br /><br />
-		    <a href="/users/sign-out" class="btn btn-danger  btn-lg btn-block">Sign Out</a><br /><br />
-	    </div>
-	    <div class="col-md-4"></div>
+		{{#if logged_in}}
+		    <div class="col-md-12" id="sign_in">
+			    <a href="/game" class="btn btn-warning  btn-lg btn-block">Play Zombies Rising</a><br /><br />
+			    <a href="/users" class="btn btn-info  btn-lg btn-block">Users Information</a><br /><br />
+			    <a href="/characters" class="btn btn-info  btn-lg btn-block">Character Editor</a><br /><br />
+			    <a href="/levels" class="btn btn-default  btn-lg btn-block">Level Editor</a><br /><br />
+			    <a href="/users/sign-out" class="btn btn-danger  btn-lg btn-block">Sign Out</a><br /><br />
+		    </div>
+		{{/if}}
 	</div>
-{{/if}}
+</div>
