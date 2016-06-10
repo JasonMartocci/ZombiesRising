@@ -57,7 +57,7 @@
               {{#each heroes}}
                   <tr>
                       <td data-search="{{this.plantTypes}}">{{this.plantTypes}}</td>
-                      <td data-search="{{this.asset}}"><img src="{{this.asset}}"></td>
+                      <td data-search="{{this.asset}}"><img src="{{this.asset}}" width="100" alt="{{this.plantTypes}}"></td>
                       <td data-search="{{this.cost}}">{{this.cost}}</td>
                       <td data-search="{{this.energy}}">{{this.energy}}</td>
                       <td data-search="{{this.isSunProducer}}">{{this.isSunProducer}}</td>
@@ -79,7 +79,7 @@
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title">Update {{this.productName}}</h4>
+                          <h4 class="modal-title whtText">Update {{this.plantTypes}}</h4>
                         </div>
                         <div class="modal-body">
                           <form action="heroes/update/{{this.heroesId}}?_method=PUT" method="POST" class="form col-md-12 center-block">
@@ -114,13 +114,11 @@
                                 Damage <input type="text" class="form-control input-md" value="{{this.damage}}" name="damage">
                               </div>
                               <div class="form-group">
-                                <button class="btn btn-primary btn-lg btn-block">Update</button>
+                                <button class="btn btn-success btn-lg btn-block">Update</button>
                               </div>
                           </form>
                         </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
+                        <div class="modal-footer">&nbsp;</div>
                       </div>
                     </div>
                   </div>
@@ -138,9 +136,7 @@
                             <button type="submit" class="btn btn-danger btn-lg btn-block">DELETE!</button>
                           </form>
                         </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
+                        <div class="modal-footer">&nbsp;</div>
                       </div>
                     </div>
                   </div>
@@ -158,7 +154,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Enter New Hero</h4>
+          <h4 class="modal-title whtText">Enter New Hero</h4>
         </div>
         <div class="modal-body">
           <form action="heroes/createNewHeroes" method="POST" class="form center-block">
@@ -193,13 +189,11 @@
                 Damage <input type="text" class="form-control input-md" name="damage" required>
               </div>
               <div class="form-group">
-                <button class="btn btn-primary btn-md">Add New</button>
+                <button class="btn btn-success btn-lg btn-block">Enter New Hero</button>
               </div>
           </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
+        <div class="modal-footer">&nbsp;</div>
       </div>
     </div>
   </div>

@@ -106,7 +106,7 @@ router.delete('/enemies/delete/:enemiesId', function(req,res) {
 router.put('/enemies/update/:enemiesId', function(req,res) {
 	var condition = 'enemiesId = ' + req.params.enemiesId;
 	console.log('condition', condition);
-	shop.updateEnemies({'userName ' : req.body.username, ', name ' : req.body.name, ', emailAddress ' : req.body.emailAddress, ', role ' : req.body.role}, condition, function(data){
+	shop.updateEnemies({'zombieTypes ' : req.body.zombieTypes, ', asset ' : req.body.asset, ', damage ' : req.body.damage, ', vx ' : req.body.vx, ', energy ' : req.body.energy}, condition, function(data){
 		res.redirect('/enemies');
 	});
 });
