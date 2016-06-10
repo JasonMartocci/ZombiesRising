@@ -79,25 +79,6 @@ var orm = {
       });
     },
 
-    createCart: function(table, cols, vals, cb) {
-      // var queryString = 'INSERT INTO ' + table;
-
-      // queryString += ' (barcode, quantityPurchased) ';
-
-      // queryString += 'VALUES';
-
-      // queryString += ' (';
-      // queryString = queryString + printQuestionMarks(vals.length);
-      // queryString += ') ';
-
-      // console.log(queryString)
-
-      // connection.query(queryString, vals, function(err, result) {
-      //   if (err) throw err;
-      //   cb(result);
-      // });
-    },
-
     update: function(table, objColVals, condition, cb) {
     var queryString = 'UPDATE ' + table;
     console.log(objToSql(objColVals));
@@ -112,6 +93,7 @@ var orm = {
       cb(result);
     });
   },
+
   delete: function(table, condition, cb){
     var queryString = 'DELETE FROM ' + table;
     queryString += ' WHERE ';
@@ -123,40 +105,22 @@ var orm = {
     });
   },
 
-  orderCreation: function(table,condition,cb){
-  var queryString = 'INSERT INTO ' + table;
-  queryString += condition;
+  createHeroes: function(table, cols, vals, cb) {
+      var queryString = 'INSERT INTO ' + table;
 
-  //Creates the order number and associates it the userID
-  connection.query(queryString, function(err, result) {
-    if (err) throw err;
-  });
-    cb();
-    // this.checkoutOrder()
-  },
+      queryString += ' (plantTypes, asset, cost, energy, isSunProducer, isShooter, isExploding, sunFrequency, shootingFrequency, damage) ';
+      queryString += 'VALUES';
+      queryString += ' (';
+      queryString = queryString + printQuestionMarks(vals.length);
+      queryString += ') ';
 
-  checkoutOrder: function(table,condition,cb){
-  // //grabs the recent created Order Number for later insert the products
-    connection.query('SELECT * FROM ordersGen ORDER BY orderNumber DESC LIMIT 1', function(err, result) {
-      if (err) throw err;
-      currentOrderNumber = result[0].orderNumber;
+      console.log(queryString)
 
-    var queryString = 'INSERT INTO ' + table + '(barcode, quantityPurchased, userId, orderNumber) VALUES ('+condition+',' + currentOrderNumber+')'
-
-    connection.query(queryString, function(err, result) {
-    if (err) throw err;
-    });
-  });
-    cb();
-  },
-  confirmationQ : function(table,condition,cb){
-    var queryString = 'select * from orders where userId = '+condition;
-
-    connection.query(queryString, function(err,result){
-      if (err) throw err;
-      cb(result)
-    });
-  }
+      connection.query(queryString, vals, function(err, result) {
+        if (err) throw err;
+        cb(result);
+      });
+    },
 };
 
 module.exports = orm;

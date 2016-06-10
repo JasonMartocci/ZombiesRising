@@ -61,8 +61,8 @@ router.get('/heroes', function(req,res) {
 	});
 });
 
-router.post('/heroes/createNewHero', function(req,res) {
-	shop.createHeroes(['userName', 'name', 'emailAddress', 'password', 'role'], [req.body.username, req.body.name, req.body.emailAddress, req.body.password, req.body.role], function(data){
+router.post('/heroes/createNewHeroes', function(req,res) {
+	shop.createHeroes(['plantTypes', 'asset', 'cost', 'energy', 'isSunProducer', 'isShooter', 'isExploding', 'sunFrequency', 'shootingFrequency', 'damage'], [req.body.plantTypes, req.body.asset, req.body.cost, req.body.energy, req.body.isSunProducer, req.body.isShooter, req.body.isExploding, req.body.sunFrequency, req.body.shootingFrequency, req.body.damage], function(data){
 		res.redirect('/heroes')
 	});
 });
@@ -78,7 +78,7 @@ router.delete('/heroes/delete/:heroesId', function(req,res) {
 router.put('/heroes/update/:heroesId', function(req,res) {
 	var condition = 'heroesId = ' + req.params.heroesId;
 	console.log('condition', condition);
-	shop.updateHeroes({'userName ' : req.body.username, ', name ' : req.body.name, ', emailAddress ' : req.body.emailAddress, ', role ' : req.body.role}, condition, function(data){
+	shop.updateHeroes({'plantTypes ' : req.body.plantTypes, ', asset ' : req.body.asset, ', cost ' : req.body.cost, ', energy ' : req.body.energy, ', isSunProducer ' : req.body.isSunProducer, ', isShooter ' : req.body.isShooter, ', isExploding ' : req.body.isExploding, ', sunFrequency ' : req.body.sunFrequency, ', shootingFrequency ' : req.body.shootingFrequency, ', damage ' : req.body.damage}, condition, function(data){
 		res.redirect('/heroes');
 	});
 });
@@ -89,7 +89,7 @@ router.get('/enemies', function(req,res) {
 	});
 });
 
-router.post('/enemies/createNewHero', function(req,res) {
+router.post('/enemies/createNewEnemies', function(req,res) {
 	shop.createEnemies(['userName', 'name', 'emailAddress', 'password', 'role'], [req.body.username, req.body.name, req.body.emailAddress, req.body.password, req.body.role], function(data){
 		res.redirect('/enemies')
 	});
