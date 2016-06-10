@@ -121,6 +121,23 @@ var orm = {
         cb(result);
       });
     },
+
+  createEnemies: function(table, cols, vals, cb) {
+      var queryString = 'INSERT INTO ' + table;
+
+      queryString += ' (zombieTypes, asset, damage, vx, energy) ';
+      queryString += 'VALUES';
+      queryString += ' (';
+      queryString = queryString + printQuestionMarks(vals.length);
+      queryString += ') ';
+
+      console.log(queryString)
+
+      connection.query(queryString, vals, function(err, result) {
+        if (err) throw err;
+        cb(result);
+      });
+    },
 };
 
 module.exports = orm;

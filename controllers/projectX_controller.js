@@ -90,7 +90,7 @@ router.get('/enemies', function(req,res) {
 });
 
 router.post('/enemies/createNewEnemies', function(req,res) {
-	shop.createEnemies(['userName', 'name', 'emailAddress', 'password', 'role'], [req.body.username, req.body.name, req.body.emailAddress, req.body.password, req.body.role], function(data){
+	shop.createEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy'], [req.body.zombieTypes, req.body.asset, req.body.damage, req.body.vx, req.body.energy], function(data){
 		res.redirect('/enemies')
 	});
 });
