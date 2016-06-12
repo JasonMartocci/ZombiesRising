@@ -20,8 +20,9 @@
     "nodemailer": "^2.4.2",
     "nodemon": "^1.9.2",
     "normalize.css": "^4.1.1",
-    "underscore": "^1.8.3",
-    "quintus": "^0.2.0"
+    "quintus": "^0.2.0",
+    "sweetalert2": "^3.3.8",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {}
 }
