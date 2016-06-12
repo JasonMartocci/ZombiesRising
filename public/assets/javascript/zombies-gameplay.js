@@ -32,10 +32,18 @@ Quintus.ZombiesGameplay = function(Q) {
       this.levelTime += dt;
 
       //check for level passed
-      if(this.p.levelData.duration < this.levelTime) {
+      if(this.levelTime >= this.p.levelData.duration) {
         if(this.p.levelData.nextLevel) {
-          alert('Click To Start Next Level');
-
+          var nextLevel = this.p.levelData.nextLevel;
+          console.log('Next Level');
+          levelAlert();
+          function levelAlert() {
+              if (confirm("LEVEL COMPLETED - Click OK To Continue!") == true) {
+                  Q.stageScene("level", {levelData: Q.assets[nextLevel]});
+              } else {
+                  alert("You pressed Cancel");
+              };
+          }
             // Q.stageScene("nextLevel",1, { label: "LEVEL COMPLETED!" });
 
             // Q.scene('nextLevel',function(stage) {
@@ -49,37 +57,38 @@ Quintus.ZombiesGameplay = function(Q) {
             //                                                    label: stage.options.label }));
             //   nextLevelButton.on("click",function() {
             //     alert("test");
-            //     Q.stageScene("level", {levelData: Q.assets[this.p.levelData.nextLevel] });
+            //     Q.stageScene("level",2, {levelData: Q.assets[this.p.levelData.nextLevel] });
             //   });
             //   container.fit(20);
             // });
 
-          Q.stageScene("level", {levelData: Q.assets[this.p.levelData.nextLevel]});
+          // Q.stageScene("level", {levelData: Q.assets[this.p.levelData.nextLevel]});
           // Q.stage().pause();
-          // Q.stage().unpause();
+          // Q.stage(1).unpause();
         }else {
-          alert('YOU WON!');
+          console.log('YOU WON!');
   
-          // Q.stageScene("endGame",1, { label: "You Have Won The Game!" });
+          Q.stageScene("endGame",1, { label: "You Have Won The Game!" });
 
-          // Q.scene('endGame',function(stage) {
-          //   var container = stage.insert(new Q.UI.Container({
-          //     x: Q.width/2, y: Q.height/2, fill: "rgba(0,0,0,0.5)"
-          //   }));
+          Q.scene('endGame',function(stage) {
+            var container = stage.insert(new Q.UI.Container({
+              x: Q.width/2, y: Q.height/2, fill: "rgba(0,0,0,0.5)"
+            }));
 
-          //   var button = container.insert(new Q.UI.Button({ x: 0, y: 0, fill: "#CCCCCC",
-          //                                                   label: "Play Again" }))         
-          //   var label = container.insert(new Q.UI.Text({x:10, y: -10 - button.p.h, fill: "#FFFFFF", 
-          //                                                    label: stage.options.label }));
-          //   button.on("click",function() {
-          //     Q.clearStages();
-          //     Q.stageScene('level', {levelData: Q.assets['/assets/data/level1.json']});
-          //   });
+            var button = container.insert(new Q.UI.Button({ x: 0, y: 0, fill: "#CCCCCC",
+                                                            label: "Play Again" }))         
+            var label = container.insert(new Q.UI.Text({x:10, y: -10 - button.p.h, fill: "#FFFFFF", 
+                                                             label: stage.options.label }));
+            button.on("click",function() {
+              Q.clearStages();
+              Q.stageScene('level', {levelData: Q.assets['/assets/data/level1.json']});
+            });
 
-          //   container.fit(20);
-          // });
+            container.fit(20);
+          });
+          Q.stage().pause();
 
-          Q.stageScene('level', {levelData: Q.assets['/assets/data/level1.json']});
+          // Q.stageScene('level', {levelData: Q.assets['/assets/data/level1.json']});
           // Q.stage().pause();
           // Q.stage().unpause();
         };
