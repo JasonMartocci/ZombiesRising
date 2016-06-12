@@ -1,5 +1,4 @@
 Quintus.ZombiesEnemies = function(Q) {
-    
   //types of zombies
   Q.zombieTypes = {
     levelOne: {

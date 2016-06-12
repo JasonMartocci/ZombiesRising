@@ -34,17 +34,55 @@ Quintus.ZombiesGameplay = function(Q) {
       //check for level passed
       if(this.p.levelData.duration < this.levelTime) {
         if(this.p.levelData.nextLevel) {
+          alert('Click To Start Next Level');
+
+            // Q.stageScene("nextLevel",1, { label: "LEVEL COMPLETED!" });
+
+            // Q.scene('nextLevel',function(stage) {
+            //   var container = stage.insert(new Q.UI.Container({
+            //     x: Q.width/2, y: Q.height/2, fill: "rgba(0,0,0,0.5)"
+            //   }));
+
+            //   var nextLevelButton = container.insert(new Q.UI.Button({ x: 0, y: 0, fill: "#CCCCCC",
+            //                                                   label: "Next Level" }))         
+            //   var label = container.insert(new Q.UI.Text({x:10, y: -10 - nextLevelButton.p.h, fill: "#FFFFFF", 
+            //                                                    label: stage.options.label }));
+            //   nextLevelButton.on("click",function() {
+            //     alert("test");
+            //     Q.stageScene("level", {levelData: Q.assets[this.p.levelData.nextLevel] });
+            //   });
+            //   container.fit(20);
+            // });
+
           Q.stageScene("level", {levelData: Q.assets[this.p.levelData.nextLevel]});
           // Q.stage().pause();
           // Q.stage().unpause();
-          // nextLevel();
         }else {
-          endGame();
-          // Q.stageScene('level', {levelData: Q.assets['/assets/data/level1.json']});
+          alert('YOU WON!');
+  
+          // Q.stageScene("endGame",1, { label: "You Have Won The Game!" });
+
+          // Q.scene('endGame',function(stage) {
+          //   var container = stage.insert(new Q.UI.Container({
+          //     x: Q.width/2, y: Q.height/2, fill: "rgba(0,0,0,0.5)"
+          //   }));
+
+          //   var button = container.insert(new Q.UI.Button({ x: 0, y: 0, fill: "#CCCCCC",
+          //                                                   label: "Play Again" }))         
+          //   var label = container.insert(new Q.UI.Text({x:10, y: -10 - button.p.h, fill: "#FFFFFF", 
+          //                                                    label: stage.options.label }));
+          //   button.on("click",function() {
+          //     Q.clearStages();
+          //     Q.stageScene('level', {levelData: Q.assets['/assets/data/level1.json']});
+          //   });
+
+          //   container.fit(20);
+          // });
+
+          Q.stageScene('level', {levelData: Q.assets['/assets/data/level1.json']});
           // Q.stage().pause();
           // Q.stage().unpause();
-          
-        } 
+        };
       }
 
       //create zombies at the defined times
@@ -95,53 +133,3 @@ Quintus.ZombiesGameplay = function(Q) {
     },
   });
 }
-
-function nextLevel(){
-  console.log('NEXT LEVEL');
-
-  Q.stageScene("nextLevel",1, { label: "LEVEL COMPLETED!" });
-
-  Q.scene('nextLevel',function(stage) {
-    var container = stage.insert(new Q.UI.Container({
-      x: Q.width/2, y: Q.height/2, fill: "rgba(0,0,0,0.5)"
-    }));
-
-    var nextLevelButton = container.insert(new Q.UI.Button({ x: 0, y: 0, fill: "#CCCCCC",
-                                                    label: "Next Level" }))         
-    var label = container.insert(new Q.UI.Text({x:10, y: -10 - nextLevelButton.p.h, fill: "#FFFFFF", 
-                                                     label: stage.options.label }));
-    nextLevelButton.on("click",function() {
-      alert("test");
-      Q.stageScene("level", {levelData: Q.assets[this.p.levelData.nextLevel] });
-    });
-    container.fit(20);
-  });
-  // pauseGame();
-};
-
-function endGame(){
-  console.log('YOU WON!');
-  
-  Q.stageScene("endGame",1, { label: "You Have Won The Game!" });
-
-  Q.scene('endGame',function(stage) {
-    var container = stage.insert(new Q.UI.Container({
-      x: Q.width/2, y: Q.height/2, fill: "rgba(0,0,0,0.5)"
-    }));
-
-    var button = container.insert(new Q.UI.Button({ x: 0, y: 0, fill: "#CCCCCC",
-                                                    label: "Play Again" }))         
-    var label = container.insert(new Q.UI.Text({x:10, y: -10 - button.p.h, fill: "#FFFFFF", 
-                                                     label: stage.options.label }));
-    button.on("click",function() {
-      Q.clearStages();
-      Q.stageScene('level', {levelData: Q.assets['/assets/data/level1.json']});
-    });
-    container.fit(20);
-  });
-  // pauseGame();
-};
-
-function pauseGame(){
-  Q.stage().pause()
-};

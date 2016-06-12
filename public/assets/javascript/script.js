@@ -14,3 +14,6 @@ $(document).ready(function() {
       $("#register").hide();
   });
 });
+  function outputUpdate(vol) {
+    document.querySelector('#volume').value = vol;
+  }
