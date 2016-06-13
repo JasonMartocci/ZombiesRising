@@ -40,7 +40,6 @@ Quintus.ZombiesGameplay = function(Q) {
           swal({
             title: 'LEVEL COMPLETED',
             text: "Do you wish to continue?",
-            type: 'success',
             showCancelButton: true,
             html: '<img src="/assets/images/levelOne.png" alt="Level Complete">',
             confirmButtonColor: '#5CB85C',
@@ -63,7 +62,6 @@ Quintus.ZombiesGameplay = function(Q) {
           swal({
             title: 'YOU WON!<br>All work and no play makes Homer a dull boy.',
             text: 'All work and no play makes Homer a dull boy',
-            type: 'success',
             showCancelButton: false,
             html: '<img src="/assets/images/youWon.png" alt="You Won">',
             confirmButtonColor: '#5CB85C',

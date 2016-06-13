@@ -69,7 +69,6 @@ Quintus.ZombiesEnemies = function(Q) {
         swal({
           title: 'The Zombies Ate Your Brains!',
           html: '<img src="/assets/images/brains.png" alt="BRAINS">',
-          type: 'error',
           showCancelButton: false,
           confirmButtonColor: '#5CB85C',
           cancelButtonColor: '#d33',
