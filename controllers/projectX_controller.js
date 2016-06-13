@@ -119,6 +119,22 @@ router.get('/game', function(req,res) {
 	});
 });
 
+router.get('/api/heroes', function(req,res) {
+	projectX.allHeroes(function(data){
+		var hbsObject = {heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
+		console.log(data);
+		res.send(hbsObject);
+	});
+});
+
+router.get('/api/enemies', function(req,res) {
+	projectX.allEnemies(function(data){
+		var hbsObject = {enemies : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
+		console.log(data);
+		res.send(hbsObject);
+	});
+});
+
 router.get('/signIn', function(req,res) {
 	var hbsObject = {logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
 	res.render('signIn', hbsObject);

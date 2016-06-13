@@ -1,6 +1,11 @@
-Quintus.ZombiesHeroes = function(Q, data) {
-  console.log(data);
-
+Quintus.ZombiesHeroes = function(Q) {
+  $.ajax({
+    url: '/api/heroes',
+    method: 'get',
+    success: function(data){
+      console.log(data);
+    }
+  });
   //plant types
   Q.plantTypes = {
     shooterOne: {
@@ -24,7 +29,7 @@ Quintus.ZombiesHeroes = function(Q, data) {
       cost: 50,
       energy: 10,
       isExploding: true,
-      damage: 50
+      damage: 50,
     },
     energyOne: {
       asset: '/assets/images/energyOne.png',
