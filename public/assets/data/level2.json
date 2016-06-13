@@ -1,7 +1,7 @@
 {
     "availablePlants": ["shooterOne", "shooterTwo", "bomberOne", "energyOne"],
     "nextLevel" : false,
-    "duration": 150,
+    "duration": 180,
     "zombies": [
       {
          "time": 15,

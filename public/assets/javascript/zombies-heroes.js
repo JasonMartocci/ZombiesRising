@@ -1,4 +1,6 @@
-Quintus.ZombiesHeroes = function(Q) {
+Quintus.ZombiesHeroes = function(Q, data) {
+  console.log(data);
+
   //plant types
   Q.plantTypes = {
     shooterOne: {

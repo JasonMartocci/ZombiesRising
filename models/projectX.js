@@ -78,6 +78,12 @@ var projectX = {
 			cb(res);
 		});
 	},
+
+	allGameData: function(cb) {
+		orm.all('heroes', function(res){
+			cb(res);
+		});
+	}
 };
 
 module.exports = projectX;

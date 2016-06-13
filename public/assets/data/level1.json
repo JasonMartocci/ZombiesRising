@@ -1,7 +1,7 @@
 {
     "availablePlants": ["shooterOne", "shooterTwo", "energyOne"],
     "nextLevel" : "/assets/data/level2.json",
-    "duration": 150,
+    "duration": 180,
     "zombies": [
       {
          "time": 2,

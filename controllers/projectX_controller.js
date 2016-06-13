@@ -112,8 +112,11 @@ router.put('/enemies/update/:enemiesId', function(req,res) {
 });
 
 router.get('/game', function(req,res) {
-	var hbsObject = {logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
-	res.render('game', hbsObject);
+	projectX.allGameData(function(data){
+		var hbsObject = {heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
+		console.log(data);
+		res.render('game', hbsObject, data);
+	});
 });
 
 router.get('/signIn', function(req,res) {
