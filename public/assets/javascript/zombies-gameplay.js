@@ -61,7 +61,8 @@ Quintus.ZombiesGameplay = function(Q) {
           console.log('YOU WON!');
   
           swal({
-            title: 'YOU WON!',
+            title: 'YOU WON!<br>All work and no play makes Homer a dull boy.',
+            text: 'All work and no play makes Homer a dull boy',
             type: 'success',
             showCancelButton: false,
             html: '<img src="/assets/images/youWon.png" alt="You Won">',

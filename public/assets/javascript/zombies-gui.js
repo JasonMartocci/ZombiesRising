@@ -70,12 +70,12 @@ Quintus.ZombiesGUI = function(Q) {
             element.trigger("unselected");
           }, this);
 
-          this.p.opacity = 0.5;
+          this.p.opacity = 1;
           Q.state.set("currentPlant", this.p.plant);
         });
 
         this.on("unselected", function() {
-          this.p.opacity = 1;
+          this.p.opacity = 0.5;
         });
       } 
     });
