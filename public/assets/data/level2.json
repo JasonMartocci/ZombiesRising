@@ -1,7 +1,7 @@
 {
     "availablePlants": ["levelOneShooter", "levelTwoShooter", "levelOneBomber", "levelOneEnergy"],
     "nextLevel" : false,
-    "duration": 10,
+    "duration": 120,
     "zombies": [
       {
           "time": 15,

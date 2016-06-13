@@ -64,25 +64,25 @@ Quintus.ZombiesEnemies = function(Q) {
     step: function(dt) {
       if(this.p.x <= 240) {
         this.destroy();
-        console.log('The zombies ate your brain!'); 
-        Q.stageScene("endGame",1, { label: "The zombies ate your brain!" });
+        // console.log('The Zombies ate your brains!'); 
 
-        Q.scene('endGame',function(stage) {
-          var container = stage.insert(new Q.UI.Container({
-            x: Q.width/2, y: Q.height/2, fill: "rgba(0,0,0,0.5)"
-          }));
-
-          var button = container.insert(new Q.UI.Button({ x: 0, y: 0, fill: "#CCCCCC",
-                                                          label: "Play Again" }))         
-          var label = container.insert(new Q.UI.Text({x:10, y: -10 - button.p.h, fill: "#FFFFFF", 
-                                                           label: stage.options.label }));
-          button.on("click",function() {
-            Q.clearStages();
+        swal({
+          title: 'The Zombies Ate Your Brains!',
+          html: '<img src="/assets/images/brains.png" alt="BRAINS">',
+          type: 'error',
+          showCancelButton: false,
+          confirmButtonColor: '#5CB85C',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'RETRY',
+          cancelButtonText: 'No Thank You'
+        }).then(function(isConfirm) {
+          if (isConfirm) {
             Q.stageScene('level', {levelData: Q.assets['/assets/data/level1.json']});
-          });
-          container.fit(20);
-        });                        
-        Q.stageScene('level', {levelData: Q('Level').items[0].p.levelData});           
+          }else{
+            Q.stageScene('level', {levelData: Q.assets['/assets/data/level1.json']});
+          }
+        })  
+        Q.stage().pause();             
       }
       //check for death
       if(this.p.energy <= 0) {

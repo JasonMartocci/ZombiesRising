@@ -42,10 +42,11 @@ Quintus.ZombiesGameplay = function(Q) {
             text: "Do you wish to continue?",
             type: 'success',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
+            html: '<img src="/assets/images/levelOne.png" alt="Level Complete">',
+            confirmButtonColor: '#5CB85C',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, Continue!',
-            cancelButtonText: 'Start Over'
+            confirmButtonText: 'NEXT LEVEL',
+            cancelButtonText: 'START OVER'
           }).then(function(isConfirm) {
             if (isConfirm) {
               Q.stageScene("level", {levelData: Q.assets[nextLevel]});
@@ -55,19 +56,18 @@ Quintus.ZombiesGameplay = function(Q) {
           })
 
           Q.stage().pause();
+          // Q.stage().unpause();
         }else {
           console.log('YOU WON!');
   
-          var nextLevel = this.p.levelData.nextLevel;
-
           swal({
             title: 'YOU WON!',
-            text: "Do you wish to play again?",
             type: 'success',
             showCancelButton: false,
-            confirmButtonColor: '#3085d6',
+            html: '<img src="/assets/images/youWon.png" alt="You Won">',
+            confirmButtonColor: '#5CB85C',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, Continue!',
+            confirmButtonText: 'PLAY AGAIN',
             cancelButtonText: 'No Thank You'
           }).then(function(isConfirm) {
             if (isConfirm) {
@@ -78,11 +78,6 @@ Quintus.ZombiesGameplay = function(Q) {
           })
 
           Q.stage().pause();
-
-          Q.stage().pause();
-
-          // Q.stageScene('level', {levelData: Q.assets['/assets/data/level1.json']});
-          // Q.stage().pause();
           // Q.stage().unpause();
         };
       }
