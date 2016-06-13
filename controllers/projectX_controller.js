@@ -115,7 +115,7 @@ router.get('/game', function(req,res) {
 	projectX.allGameData(function(data){
 		var hbsObject = {heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
 		console.log(data);
-		res.render('game', hbsObject, data);
+		res.render('game', hbsObject);
 	});
 });
 
