@@ -1,26 +1,26 @@
 Quintus.ZombiesEnemies = function(Q) {
   //types of zombies
   Q.zombieTypes = {
-    levelOne: {
-      asset: '/assets/images/zombie1.png', //image file 
+    zombieOne: {
+      asset: '/assets/images/zombieOne.png', //image file 
       damage: 0.5, //how much damage it causes     
       vx: -20, //speed
       energy: 3, //how much damage it can take
     },
-    levelTwo: {
-      asset: '/assets/images/zombie2.png',        
+    zombieTwo: {
+      asset: '/assets/images/zombieTwo.png',        
       damage: 1,            
       vx: -8,
       energy: 10,
     },
-    levelThree: {
-      asset: '/assets/images/zombie3.png', 
+    zombieThree: {
+      asset: '/assets/images/zombieThree.png', 
       damage: 1.25,   
       vx: -10,
       energy: 10,
     },
-    levelFour: {
-      asset: '/assets/images/zombie4.png', 
+    zombieFour: {
+      asset: '/assets/images/zombieFour.png', 
       damage: 1.5,    
       vx: -9,
       energy: 35,

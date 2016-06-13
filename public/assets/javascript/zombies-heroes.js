@@ -1,31 +1,31 @@
 Quintus.ZombiesHeroes = function(Q) {
   //plant types
   Q.plantTypes = {
-    levelOneShooter: {
-      asset: '/assets/images/levelOneShooter.png',
+    shooterOne: {
+      asset: '/assets/images/shooterOne.png',
       cost: 100,
       energy: 10,
       isShooter: true,
       shootingFrequency: 3,
       damage: 2,    
     },
-    levelTwoShooter: {
-      asset: '/assets/images/levelTwoShooter.png',
+    shooterTwo: {
+      asset: '/assets/images/shooterTwo.png',
       cost: 150,
       energy: 20,
       isShooter: true,
       shootingFrequency: 5,
       damage: 3,   
     },
-    levelOneBomber: {
-      asset: '/assets/images/levelOneBomber.png',
+    bomberOne: {
+      asset: '/assets/images/bomberOne.png',
       cost: 50,
       energy: 10,
       isExploding: true,
       damage: 50
     },
-    levelOneEnergy: {
-      asset: '/assets/images/levelOneEnergy.png',
+    energyOne: {
+      asset: '/assets/images/energyOne.png',
       cost: 75,
       energy: 15,
       isSunProducer: true,
