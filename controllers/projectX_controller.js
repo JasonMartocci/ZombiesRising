@@ -114,7 +114,7 @@ router.put('/enemies/update/:enemiesId', function(req,res) {
 router.get('/game', function(req,res) {
 	projectX.allGameData(function(data){
 		var hbsObject = {heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
-		console.log(data);
+		// console.log(data);
 		res.render('game', hbsObject);
 	});
 });
@@ -122,7 +122,7 @@ router.get('/game', function(req,res) {
 router.get('/api/heroes', function(req,res) {
 	projectX.allHeroes(function(data){
 		var hbsObject = {heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
-		console.log(data);
+		// console.log(data);
 		res.send(hbsObject);
 	});
 });
@@ -130,7 +130,7 @@ router.get('/api/heroes', function(req,res) {
 router.get('/api/enemies', function(req,res) {
 	projectX.allEnemies(function(data){
 		var hbsObject = {enemies : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
-		console.log(data);
+		// console.log(data);
 		res.send(hbsObject);
 	});
 });

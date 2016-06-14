@@ -1,4 +1,11 @@
 Quintus.ZombiesEnemies = function(Q) {
+  $.ajax({
+    url: '/api/enemies',
+    method: 'get',
+    success: function(data){
+      // console.log(data);
+    }
+  });
   //types of zombies
   Q.zombieTypes = {
     zombieOne: {

@@ -1,44 +1,59 @@
+
 Quintus.ZombiesHeroes = function(Q) {
+
+  Q.plantTypes = {};
+
   $.ajax({
     url: '/api/heroes',
     method: 'get',
     success: function(data){
-      console.log(data);
+      console.log('success function~~~');
+      console.log(data.heroes.length);
+      for(var i = 0; i < data.heroes.length; i++) {
+        var thingy = data.heroes;
+        var stuff = thingy[i]['plantTypes'];
+        var thing = {'asset': thingy[i].asset};
+        console.log(Q.plantTypes);
+        Q.plantTypes[stuff] = thing;
+      }
+    console.log('THIS IS WHAT I WANT', Q.plantTypes);
     }
   });
+
   //plant types
-  Q.plantTypes = {
-    shooterOne: {
-      asset: '/assets/images/shooterOne.png',
-      cost: 100,
-      energy: 10,
-      isShooter: true,
-      shootingFrequency: 3,
-      damage: 2,    
-    },
-    shooterTwo: {
-      asset: '/assets/images/shooterTwo.png',
-      cost: 150,
-      energy: 20,
-      isShooter: true,
-      shootingFrequency: 5,
-      damage: 3,   
-    },
-    bomberOne: {
-      asset: '/assets/images/bomberOne.png',
-      cost: 50,
-      energy: 10,
-      isExploding: true,
-      damage: 50,
-    },
-    energyOne: {
-      asset: '/assets/images/energyOne.png',
-      cost: 75,
-      energy: 15,
-      isSunProducer: true,
-      sunFrequency: 8, 
-    }
-  };
+  // Q.plantTypes = {
+  //   shooterOne: {
+  //     asset: '/assets/images/shooterOne.png',
+  //     cost: 100,
+  //     energy: 10,
+  //     isShooter: true,
+  //     shootingFrequency: 3,
+  //     damage: 2,    
+  //   },
+  //   shooterTwo: {
+  //     asset: '/assets/images/shooterTwo.png',
+  //     cost: 150,
+  //     energy: 20,
+  //     isShooter: true,
+  //     shootingFrequency: 5,
+  //     damage: 3,   
+  //   },
+  //   bomberOne: {
+  //     asset: '/assets/images/bomberOne.png',
+  //     cost: 50,
+  //     energy: 10,
+  //     isExploding: true,
+  //     damage: 50,
+  //   },
+  //   energyOne: {
+  //     asset: '/assets/images/energyOne.png',
+  //     cost: 75,
+  //     energy: 15,
+  //     isSunProducer: true,
+  //     sunFrequency: 8, 
+  //   }
+  // };
+
 
   //plant
   Q.Sprite.extend('Plant', {
