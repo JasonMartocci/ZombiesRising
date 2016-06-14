@@ -1,38 +1,24 @@
 Quintus.ZombiesEnemies = function(Q) {
+
+  Q.zombieTypes = {};
+
   $.ajax({
     url: '/api/enemies',
     method: 'get',
     success: function(data){
-      // console.log(data);
+      for(var i = 0; i < data.enemies.length; i++) {
+        var enemiesData = data.enemies;
+        var enemiesTypes = enemiesData[i]['zombieTypes'];
+        var enemiesAssets = {
+          'asset': enemiesData[i].asset,
+          'damage': enemiesData[i].damage,
+          'vx': enemiesData[i].vx,
+          'energy': enemiesData[i].energy
+        };
+        Q.zombieTypes[enemiesTypes] = enemiesAssets;
+      }
     }
   });
-  //types of zombies
-  Q.zombieTypes = {
-    zombieOne: {
-      asset: '/assets/images/zombieOne.png', //image file 
-      damage: 0.5, //how much damage it causes     
-      vx: -20, //speed
-      energy: 3, //how much damage it can take
-    },
-    zombieTwo: {
-      asset: '/assets/images/zombieTwo.png',        
-      damage: 1,            
-      vx: -8,
-      energy: 10,
-    },
-    zombieThree: {
-      asset: '/assets/images/zombieThree.png', 
-      damage: 1.25,   
-      vx: -10,
-      energy: 10,
-    },
-    zombieFour: {
-      asset: '/assets/images/zombieFour.png', 
-      damage: 1.5,    
-      vx: -9,
-      energy: 35,
-    },
-  };
   
   //zombie
   Q.Sprite.extend('Zombie', {

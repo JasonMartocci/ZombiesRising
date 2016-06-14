@@ -1,4 +1,3 @@
-
 Quintus.ZombiesHeroes = function(Q) {
 
   Q.plantTypes = {};
@@ -7,53 +6,24 @@ Quintus.ZombiesHeroes = function(Q) {
     url: '/api/heroes',
     method: 'get',
     success: function(data){
-      console.log('success function~~~');
-      console.log(data.heroes.length);
       for(var i = 0; i < data.heroes.length; i++) {
-        var thingy = data.heroes;
-        var stuff = thingy[i]['plantTypes'];
-        var thing = {'asset': thingy[i].asset};
-        console.log(Q.plantTypes);
-        Q.plantTypes[stuff] = thing;
+        var heroesData = data.heroes;
+        var heroesTypes = heroesData[i]['plantTypes'];
+        var heroesAssets = {
+          'asset': heroesData[i].asset,
+          'cost': heroesData[i].cost,
+          'energy': heroesData[i].energy,
+          'isShooter': heroesData[i].isShooter,
+          'shootingFrequency': heroesData[i].shootingFrequency,
+          'damage': heroesData[i].damage,
+          'isExploding': heroesData[i].isExploding,
+          'isSunProducer': heroesData[i].isSunProducer,
+          'sunFrequency': heroesData[i].sunFrequency
+        };
+        Q.plantTypes[heroesTypes] = heroesAssets;
       }
-    console.log('THIS IS WHAT I WANT', Q.plantTypes);
     }
   });
-
-  //plant types
-  // Q.plantTypes = {
-  //   shooterOne: {
-  //     asset: '/assets/images/shooterOne.png',
-  //     cost: 100,
-  //     energy: 10,
-  //     isShooter: true,
-  //     shootingFrequency: 3,
-  //     damage: 2,    
-  //   },
-  //   shooterTwo: {
-  //     asset: '/assets/images/shooterTwo.png',
-  //     cost: 150,
-  //     energy: 20,
-  //     isShooter: true,
-  //     shootingFrequency: 5,
-  //     damage: 3,   
-  //   },
-  //   bomberOne: {
-  //     asset: '/assets/images/bomberOne.png',
-  //     cost: 50,
-  //     energy: 10,
-  //     isExploding: true,
-  //     damage: 50,
-  //   },
-  //   energyOne: {
-  //     asset: '/assets/images/energyOne.png',
-  //     cost: 75,
-  //     energy: 15,
-  //     isSunProducer: true,
-  //     sunFrequency: 8, 
-  //   }
-  // };
-
 
   //plant
   Q.Sprite.extend('Plant', {
