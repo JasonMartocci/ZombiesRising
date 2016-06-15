@@ -7,11 +7,18 @@ var projectX = {
 		});
 	},
 
-	allCharacters: function(cb) {
-		orm.all('enemies', function(res){
-			cb(res);
-		});
-	},
+	// allCharacters: function(cb) {
+	// 	var listCharacters =  [];
+		
+	// 	orm.all('enemies', function(res){
+	// 		listCharacters.push(res);
+	// 		cb(res);
+	// 	});
+	// 	orm.all('heroes', function(res){
+	// 		listCharacters.push(res);
+	// 		cb(res);
+	// 	});
+	// },
 
 	allUsers: function(cb) {
 		orm.all('users', function(res){
