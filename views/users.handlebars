@@ -10,10 +10,12 @@
         {{/if}}       
 
         {{#if isAdmin}}
-          <li role="presentation"><a href="/users" class="whtNavText">Users Information</a></li>
+          <li role="presentation"><a href="/game" class="whtNavText">Play Zombies Rising</a></li>
+          <li role="presentation"><a href="/users" class="whtNavText"><u>Users Information</u></a></li>
           <li role="presentation"><a href="/characters" class="whtNavText">Character Editor</a></li>
-          <li role="presentation"><a href="/levels" class="whtNavText">Level Creator</a></li>
+          <li role="presentation"><a href="/levels" class="whtNavText">Level Editor</a></li>
         {{/if}}
+
         {{#unless logged_in}}
             <li role="presentation"><a href="/" class="whtNavText">Sign In</a></li>
         {{/unless}}
