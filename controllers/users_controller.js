@@ -35,13 +35,13 @@ router.post('/login', function(req, res) {
 
 	user.findOne(condition, function(user){
 
-		if (user){
+		if (user.length > 0){
 			bcrypt.compare(req.body.password, user[0].password, function(err, result) {
 					if (result == true){
 
 						req.session.logged_in = true;
 						req.session.user_id = user[0].userId;
-						req.session.user_email = user.email;
+						req.session.user_email = user[0].email;
 						
 						if (user[0].role == 'admin') {
 							req.session.isAdmin = true;
@@ -55,22 +55,19 @@ router.post('/login', function(req, res) {
 
 						res.redirect('/index');
 					}else{
-            res.send('You put in the wrong password.')
-          }
+						res.redirect('/signInFail');
+          		}			
 			});
 		}else{
-			res.send('an account with this email does not exist - please sign up')
+			res.redirect('/signInFail');
 		}
 	});
 });
 
 router.post('/create', function(req,res) {
 	var queryString = "select * from users where emailAddress = '" + req.body.emailAddress + "'";
-	console.log(req.body);
-	console.log(queryString);
 	connection.query(queryString, function(err, users) {
 		if (err) throw err;
-		console.log(users.length);
 		if (users.length > 0){
 
 			res.send('we already have an email or username for this account');

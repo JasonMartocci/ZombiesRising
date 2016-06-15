@@ -13,6 +13,11 @@ router.get('/index', function(req,res) {
 	res.render('index', hbsObject);
 });
 
+router.get('/signInFail', function(req,res) {
+	var hbsObject = {logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
+	res.render('signInFail', hbsObject);
+});
+
 router.get('/admin', function(req,res) {
 	projectX.allUsers(function(data){
 		var hbsObject = {users : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
