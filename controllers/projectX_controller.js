@@ -140,6 +140,14 @@ router.get('/api/enemies', function(req,res) {
 	});
 });
 
+router.get('/api/characters', function(req,res) {
+	projectX.allCharacters(function(data){
+		var hbsObject = {enemies : data, heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
+		// console.log(data);
+		res.send(hbsObject);
+	});
+});
+
 router.get('/signIn', function(req,res) {
 	var hbsObject = {logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
 	res.render('signIn', hbsObject);

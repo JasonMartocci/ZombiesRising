@@ -7,6 +7,12 @@ var projectX = {
 		});
 	},
 
+	allCharacters: function(cb) {
+		orm.all('enemies', function(res){
+			cb(res);
+		});
+	},
+
 	allUsers: function(cb) {
 		orm.all('users', function(res){
 			cb(res);
