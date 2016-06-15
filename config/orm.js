@@ -19,20 +19,18 @@ function objToSql(ob){
   }
 
   return arr.join(" ");
-  // return "productName='asdfasdf'";
-  /////// method two: should return "product_name = "asdasdasd"
 }
 
 var orm = {
   findOne: function(tableInput, condition, cb) {
-      var queryString = 'SELECT * FROM ' + tableInput;
-      queryString = queryString + ' WHERE ';
-      queryString = queryString + condition;
-      console.log(queryString);
-      connection.query(queryString, function(err, result) {
-          if (err) throw err;
-          cb(result);
-      });
+    var queryString = 'SELECT * FROM ' + tableInput;
+    queryString = queryString + ' WHERE ';
+    queryString = queryString + condition;
+    console.log(queryString);
+    connection.query(queryString, function(err, result) {
+        if (err) throw err;
+        cb(result);
+    });
   },
   createUser: function(table, cols, vals, cb) {
     var queryString = 'INSERT INTO ' + table;
@@ -52,34 +50,32 @@ var orm = {
     });
   },
 
-    all: function(tableInput, cb) {
-        var queryString = 'SELECT * FROM ' + tableInput + ';';
-        connection.query(queryString, function(err, result) {
-            if (err) throw err;
-            cb(result);
-        });
-    },
-
-    //vals is an array of values that we want to save to cols
-    //cols are the columns we want to insert the values into
-    create: function(table, cols, vals, cb) {
-      var queryString = 'INSERT INTO ' + table;
-
-      queryString += ' (productName, productDescription, sku, category, productImage, quantity, price, supplier, barcode) ';
-      queryString += 'VALUES';
-      queryString += ' (';
-      queryString = queryString + printQuestionMarks(vals.length);
-      queryString += ') ';
-
-      console.log(queryString)
-
-      connection.query(queryString, vals, function(err, result) {
+  all: function(tableInput, cb) {
+    var queryString = 'SELECT * FROM ' + tableInput + ';';
+    connection.query(queryString, function(err, result) {
         if (err) throw err;
         cb(result);
-      });
-    },
+    });
+  },
 
-    update: function(table, objColVals, condition, cb) {
+  create: function(table, cols, vals, cb) {
+    var queryString = 'INSERT INTO ' + table;
+
+    queryString += ' (productName, productDescription, sku, category, productImage, quantity, price, supplier, barcode) ';
+    queryString += 'VALUES';
+    queryString += ' (';
+    queryString = queryString + printQuestionMarks(vals.length);
+    queryString += ') ';
+
+    console.log(queryString)
+
+    connection.query(queryString, vals, function(err, result) {
+      if (err) throw err;
+      cb(result);
+    });
+  },
+
+  update: function(table, objColVals, condition, cb) {
     var queryString = 'UPDATE ' + table;
     console.log(objToSql(objColVals));
     queryString += ' SET ';
@@ -106,38 +102,38 @@ var orm = {
   },
 
   createHeroes: function(table, cols, vals, cb) {
-      var queryString = 'INSERT INTO ' + table;
+    var queryString = 'INSERT INTO ' + table;
 
-      queryString += ' (plantTypes, asset, cost, energy, isSunProducer, isShooter, isExploding, sunFrequency, shootingFrequency, damage) ';
-      queryString += 'VALUES';
-      queryString += ' (';
-      queryString = queryString + printQuestionMarks(vals.length);
-      queryString += ') ';
+    queryString += ' (plantTypes, asset, cost, energy, isSunProducer, isShooter, isExploding, sunFrequency, shootingFrequency, damage) ';
+    queryString += 'VALUES';
+    queryString += ' (';
+    queryString = queryString + printQuestionMarks(vals.length);
+    queryString += ') ';
 
-      console.log(queryString)
+    console.log(queryString)
 
-      connection.query(queryString, vals, function(err, result) {
-        if (err) throw err;
-        cb(result);
-      });
-    },
+    connection.query(queryString, vals, function(err, result) {
+      if (err) throw err;
+      cb(result);
+    });
+  },
 
   createEnemies: function(table, cols, vals, cb) {
-      var queryString = 'INSERT INTO ' + table;
+    var queryString = 'INSERT INTO ' + table;
 
-      queryString += ' (zombieTypes, asset, damage, vx, energy) ';
-      queryString += 'VALUES';
-      queryString += ' (';
-      queryString = queryString + printQuestionMarks(vals.length);
-      queryString += ') ';
+    queryString += ' (zombieTypes, asset, damage, vx, energy) ';
+    queryString += 'VALUES';
+    queryString += ' (';
+    queryString = queryString + printQuestionMarks(vals.length);
+    queryString += ') ';
 
-      console.log(queryString)
+    console.log(queryString)
 
-      connection.query(queryString, vals, function(err, result) {
-        if (err) throw err;
-        cb(result);
-      });
-    },
+    connection.query(queryString, vals, function(err, result) {
+      if (err) throw err;
+      cb(result);
+    });
+  },
 
   allHeroes: function(tableInput, cb) {
     var queryString = 'SELECT * FROM ' + tableInput + ';';

@@ -30,27 +30,31 @@ router.get('/sign-out', function(req,res) {
 //if user trys to sign in with the wrong password or email tell them that on the page
 router.post('/login', function(req, res) {
 	var email = req.body.email;
+
 	var condition = "emailAddress = '" + email + "'";
+
 	user.findOne(condition, function(user){
+
 		if (user){
 			bcrypt.compare(req.body.password, user[0].password, function(err, result) {
-			if (result == true){
-				req.session.logged_in = true;
-				req.session.user_id = user[0].userId;
-				req.session.user_email = user.email;
-				
-				if (user[0].role == 'admin') {
-					req.session.isAdmin = true;
-					debugger;
-					console.log('This is admin - ', req.session.isAdmin);
-				} else if (user[0].role == 'user') {
-					req.session.isUser = true;
-					debugger;
-					console.log('This is user - ', req.session.isUser);
-				}
+					if (result == true){
 
-				res.redirect('/index');
-			}else{
+						req.session.logged_in = true;
+						req.session.user_id = user[0].userId;
+						req.session.user_email = user.email;
+						
+						if (user[0].role == 'admin') {
+							req.session.isAdmin = true;
+							debugger;
+							console.log('This is admin - ', req.session.isAdmin);
+						} else if (user[0].role == 'user') {
+							req.session.isUser = true;
+							debugger;
+							console.log('This is user - ', req.session.isUser);
+						}
+
+						res.redirect('/index');
+					}else{
             res.send('You put in the wrong password.')
           }
 			});
