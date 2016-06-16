@@ -83,16 +83,24 @@
                                 Asset <input type="text" class="form-control input-md" value="{{this.asset}}" name="asset">
                               </div>
                               <div class="form-group">
-                                Damage <input type="text" class="form-control input-md" value="{{this.damage}}" name="damage">
+                                Damage
+                                <input type="range" class="form-control input-md" name="damage" id="damage" value="{{this.damage}}" min="1" max="10" oninput="damageOutputId.value = damage.value">
+                                <output name="damageOutputName" id="damageOutputId">{{this.damage}}</output>
                               </div>
                               <div class="form-group">
-                                Speed <input type="text" class="form-control input-md" value="{{this.vx}}" name="vx">
+                                Speed
+                                <input type="range" class="form-control input-md" name="vx" id="vx" value="{{this.vx}}" min="-50" max="5" oninput="vxOutputId.value = vx.value">
+                                <output name="vxOutputName" id="vxOutputId">{{this.vx}}</output> 
                               </div>
                               <div class="form-group">
-                                Energy <input type="text" class="form-control input-md" value="{{this.energy}}" name="energy">
+                                Energy
+                                <input type="range" class="form-control input-md" name="energy" id="energy" value="{{this.energy}}" min="1" max="500" oninput="energyOutputId.value = energy.value">
+                                <output name="energyOutputName" id="energyOutputId">{{this.energy}}</output>                                
                               </div>
                               <div class="form-group">
                                 <button class="btn btn-success btn-lg btn-block">Update</button>
+
+                                    
                               </div>
                           </form>
                         </div>
