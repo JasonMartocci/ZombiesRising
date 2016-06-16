@@ -84,7 +84,7 @@
                               </div>
                               <div class="form-group">
                                 Damage
-                                <input type="range" class="form-control input-md" name="damage" id="damage" value="{{this.damage}}" min="1" max="10" oninput="damageOutputId.value = damage.value">
+                                <input type="range" class="form-control input-md" name="damage" id="damage" value="{{this.damage}}" min="1" max="20" oninput="damageOutputId.value = damage.value">
                                 <output name="damageOutputName" id="damageOutputId">{{this.damage}}</output>
                               </div>
                               <div class="form-group">
@@ -94,13 +94,11 @@
                               </div>
                               <div class="form-group">
                                 Energy
-                                <input type="range" class="form-control input-md" name="energy" id="energy" value="{{this.energy}}" min="1" max="500" oninput="energyOutputId.value = energy.value">
+                                <input type="range" class="form-control input-md" name="energy" id="energy" value="{{this.energy}}" min="1" max="200" oninput="energyOutputId.value = energy.value">
                                 <output name="energyOutputName" id="energyOutputId">{{this.energy}}</output>                                
                               </div>
                               <div class="form-group">
-                                <button class="btn btn-success btn-lg btn-block">Update</button>
-
-                                    
+                                <button class="btn btn-success btn-lg btn-block">Update</button>                                    
                               </div>
                           </form>
                         </div>
@@ -145,19 +143,22 @@
         <div class="modal-body">
           <form action="enemies/createNewEnemies" method="POST" class="form center-block">
               <div class="form-group">
-                Zombie Types <input type="text" class="form-control input-md" value="" name="zombieTypes">
+                Zombie Types <input type="text" class="form-control input-md" value="" name="zombieTypes" required>
               </div>
               <div class="form-group">
-                Asset <input type="text" class="form-control input-md" value="" name="asset">
+                Asset <input type="text" class="form-control input-md" value="" name="asset" required>
               </div>
               <div class="form-group">
-                Damage <input type="text" class="form-control input-md" value="" name="damage">
+                Damage <input type="range" class="form-control input-md" name="damage" id="damage" value="" min="1" max="20" oninput="damageOutputId.value = damage.value">
+                <output name="damageOutputName" id="damageOutputId">{{this.damage}}</output>
               </div>
               <div class="form-group">
-                Speed <input type="text" class="form-control input-md" value="" name="vx">
+                Speed <input type="range" class="form-control input-md" name="vx" id="vx" value="" min="-50" max="5" oninput="vxOutputId.value = vx.value">
+                <output name="vxOutputName" id="vxOutputId">{{this.vx}}</output>
               </div>
               <div class="form-group">
-                Energy <input type="text" class="form-control input-md" value="" name="energy">
+                Energy <input type="range" class="form-control input-md" name="energy" id="energy" value="" min="1" max="200" oninput="energyOutputId.value = energy.value">
+                <output name="energyOutputName" id="energyOutputId">{{this.energy}}</output>
               </div>
               <div class="form-group">
                 <button class="btn btn-success btn-lg btn-block">Enter New Enemy</button>
