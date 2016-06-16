@@ -178,34 +178,50 @@
         <div class="modal-body">
           <form action="heroes/createNewHeroes" method="POST" class="form center-block">
               <div class="form-group">
-                Types <input type="text" class="form-control input-md" name="plantTypes" required>
+                Types <input type="text" class="form-control input-md" value="{{this.plantTypes}}" name="plantTypes" required>
               </div>
               <div class="form-group">
-                Image Location <input type="text" class="form-control input-md" name="asset" required>
+                Image Location <input type="text" class="form-control input-md" value="{{this.asset}}" name="asset" required>
               </div>
               <div class="form-group">
-                Cost <input type="text" class="form-control input-md" name="cost" required>
+                Cost 
+                <input type="range" class="form-control input-md" name="cost" id="cost" value="{{this.cost}}" min="1" max="500" oninput="costOutputId.value = cost.value">
+                <output name="costOutputName" id="costOutputId">{{this.cost}}</output>
               </div>
               <div class="form-group">
-                Energy<input type="text" class="form-control input-md" name="energy" required>
+                Energy
+                <input type="range" class="form-control input-md" name="energy" id="energy" value="{{this.energy}}" min="1" max="50" oninput="energyOutputId.value = energy.value">
+                <output name="energyOutputName" id="energyOutputId">{{this.energy}}</output>
               </div>
               <div class="form-group">
-                Sun Producer <input type="text" class="form-control input-md" name="isSunProducer" required>
+                Sun Producer 
+                <input type="range" class="form-control input-md" name="isSunProducer" id="isSunProducer" value="{{this.isSunProducer}}" min="0" max="1" oninput="isSunProducerOutputId.value = isSunProducer.value">
+                <output name="isSunProducerOutputName" id="isSunProducerOutputId">{{this.isSunProducer}}</output>
               </div>
               <div class="form-group">
-                Sun Frequency <input type="text" class="form-control input-md" name="sunFrequency" required>
+                Sun Frequency
+                <input type="range" class="form-control input-md" name="sunFrequency" id="sunFrequency" value="{{this.sunFrequency}}" min="1" max="20" oninput="sunFrequencyOutputId.value = sunFrequency.value">
+                <output name="sunFrequencyOutputName" id="sunFrequencyOutputId">{{this.sunFrequency}}</output>
               </div>
               <div class="form-group">
-                Shooter <input type="text" class="form-control input-md" name="isShooter" required>
+                Shooter 
+                <input type="range" class="form-control input-md" name="isShooter" id="isShooter" value="{{this.isShooter}}" min="0" max="1" oninput="isShooterOutputId.value = isShooter.value">
+                <output name="isShooterOutputName" id="isShooterOutputId">{{this.isShooter}}</output>
               </div>
               <div class="form-group">
-                Shooting Frequency <input type="text" class="form-control input-md" name="shootingFrequency" required>
+                Shooting Frequency 
+                <input type="range" class="form-control input-md" name="shootingFrequency" id="shootingFrequency" value="{{this.shootingFrequency}}" min="1" max="20" oninput="shootingFrequencyOutputId.value = shootingFrequency.value">
+                <output name="shootingFrequencyOutputName" id="shootingFrequencyOutputId">{{this.shootingFrequency}}</output>
               </div>
               <div class="form-group">
-                Exploding <input type="text" class="form-control input-md" name="isExploding" required>
+                Exploding  
+                <input type="range" class="form-control input-md" name="isExploding" id="isExploding" value="{{this.isExploding}}" min="0" max="1" oninput="isExplodingOutputId.value = isExploding.value">
+                <output name="isExplodingOutputName" id="isExplodingOutputId">{{this.isExploding}}</output>
               </div>
               <div class="form-group">
-                Damage <input type="text" class="form-control input-md" name="damage" required>
+                Damage  
+                <input type="range" class="form-control input-md" name="damage" id="damage" value="{{this.damage}}" min="1" max="100" oninput="damageOutputId.value = damage.value">
+                <output name="damageOutputName" id="damageOutputId">{{this.damage}}</output>
               </div>
               <div class="form-group">
                 <button class="btn btn-success btn-lg btn-block">Enter New Hero</button>
