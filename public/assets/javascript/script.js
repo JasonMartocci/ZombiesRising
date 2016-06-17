@@ -73,6 +73,6 @@ function initUpload(){
 /*
  Bind listeners when the page loads.
 */
-(() => {
-    document.getElementById('file-input').onchange = initUpload;
-})();
+// (() => {
+//     document.getElementById('file-input').onchange = initUpload;
+// })();
