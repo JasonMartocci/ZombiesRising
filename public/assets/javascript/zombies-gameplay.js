@@ -25,7 +25,7 @@ Quintus.ZombiesGameplay = function(Q) {
 
         this.on('touch');
         
-        // Q.audio.play('/assets/audio/ZombiesOnYourLawn.mp3');
+        Q.audio.play('/assets/audio/ZombiesOnYourLawn.mp3');
     },
     step: function(dt) {
       //update level duration
