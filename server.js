@@ -2,7 +2,8 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var express = require('express');
 var bodyParser = require('body-parser');
-var methodOverride = require('method-override')
+var methodOverride = require('method-override');
+const aws = require('aws-sdk');
 
 var app = express();
 
@@ -35,4 +36,48 @@ app.use('/users', users_controller);
 var port = process.env.PORT || 3000;
 app.listen(port, function(){
 	console.log('listening on PORT',port);
+});
+
+app.set('views', './views');
+app.use(express.static('./public'));
+
+
+
+// Start of S3 upload feature
+app.engine('html', require('ejs').renderFile);
+
+const S3_BUCKET = process.env.S3_BUCKET;
+
+console.log(S3_BUCKET);
+
+app.get('/account', (req, res) => res.render('account.html'));
+
+app.get('/sign-s3', (req, res) => {
+  const s3 = new aws.S3();
+  const fileName = req.query['file-name'];
+  const fileType = req.query['file-type'];
+  const s3Params = {
+    Bucket: S3_BUCKET,
+    Key: fileName,
+    Expires: 60,
+    ContentType: fileType,
+    ACL: 'public-read'
+  };
+
+  s3.getSignedUrl('putObject', s3Params, (err, data) => {
+    if(err){
+      console.log(err);
+      return res.end();
+    }
+    const returnData = {
+      signedRequest: data,
+      url: 'https://${S3_BUCKET}.s3.amazonaws.com/${fileName}'
+    };
+    res.write(JSON.stringify(returnData));
+    res.end();
+  });
+});
+
+app.post('/save-details', (req, res) => {
+  // TODO: Read POSTed form data and do something useful
 });
