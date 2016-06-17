@@ -38,39 +38,37 @@ window.addEventListener("load",function() {
     stage.insert(sidePanel);
   });
 
-$.ajax({
+// loading everything 8 times
+
+  $.ajax({
     url: '/api/enemies',
     method: 'get',
     success: function(data){
+      var characterAssets;
       for(var i = 0; i < data.enemies.length; i++) {
         var enemiesData = data.enemies;
         var characterAssets = enemiesData[i].asset + ', ';
         console.log(characterAssets);
         //load assets
-        Q.load(characterAssets + '/assets/audio/ZombiesOnYourLawn.mp3, /assets/images/scoreBoard.png, /assets/audio/Homer_Mmmm_donuts.mp3, /assets/images/background.png, /assets/images/buttonBg1.png, /assets/images/sun.png, /assets/images/bullet.png, /assets/data/level1.json, /assets/data/level2.json, /assets/audio/boom.mp3, /assets/audio/hit.mp3', function() {
+        Q.load(characterAssets + '/assets/audio/ZombiesOnYourLawn.mp3, /assets/images/scoreBoard.png, /assets/audio/Homer_Mmmm_donuts.mp3, /assets/images/background.jpg, /assets/images/buttonBg1.png, /assets/images/sun.png, /assets/images/bullet.png, /assets/data/level1.json, /assets/data/level2.json, /assets/audio/boom.mp3, /assets/audio/hit.mp3', function() {
             Q.state.reset({sun: 200, currentPlant: null});
             Q.stageScene('level', {levelData: Q.assets['/assets/data/level1.json']});  
             Q.stageScene("sun",1);                
-        },
-        {
-          progressCallback: function(loaded,total) {
-            var element = document.getElementById("loading_progress");
-            element.style.width = Math.floor(loaded/total*100) + "%";
-          }
         });
       }
     }
   });
-$.ajax({
+
+  $.ajax({
     url: '/api/heroes',
     method: 'get',
     success: function(data){
       for(var i = 0; i < data.heroes.length; i++) {
         var heroesData = data.heroes;
-        var characterAssets = heroesData[i].asset + ', ';
+        characterAssets = heroesData[i].asset + ', ';
         console.log(characterAssets);
         //load assets
-        Q.load(characterAssets + '/assets/audio/ZombiesOnYourLawn.mp3, /assets/images/scoreBoard.png, /assets/audio/Homer_Mmmm_donuts.mp3, /assets/images/background.png, /assets/images/buttonBg1.png, /assets/images/sun.png, /assets/images/bullet.png, /assets/data/level1.json, /assets/data/level2.json, /assets/audio/boom.mp3, /assets/audio/hit.mp3', function() {
+        Q.load(characterAssets + '/assets/audio/ZombiesOnYourLawn.mp3, /assets/images/scoreBoard.png, /assets/audio/Homer_Mmmm_donuts.mp3, /assets/images/background.jpg, /assets/images/buttonBg1.png, /assets/images/sun.png, /assets/images/bullet.png, /assets/data/level1.json, /assets/data/level2.json, /assets/audio/boom.mp3, /assets/audio/hit.mp3', function() {
             Q.state.reset({sun: 200, currentPlant: null});
             Q.stageScene('level', {levelData: Q.assets['/assets/data/level1.json']});  
             Q.stageScene("sun",1);                

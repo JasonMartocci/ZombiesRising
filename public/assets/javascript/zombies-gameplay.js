@@ -4,7 +4,7 @@ Quintus.ZombiesGameplay = function(Q) {
   Q.Sprite.extend('Level', {
     init: function(p) {
         this._super(p, { 
-          asset: '/assets/images/background.png',
+          asset: '/assets/images/background.jpg',
           type: Q.SPRITE_GROUND,
           x: 90 + 1024/2,
           y: 768/2,
