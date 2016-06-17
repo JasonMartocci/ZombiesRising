@@ -1,11 +1,11 @@
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
-var express = require('express');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+const express = require('express');
+const app = express();
 const aws = require('aws-sdk');
 
-var app = express();
 
 //allow sessions
 app.use(session({ secret: 'app', cookie: { maxAge: 60000 }}));
