@@ -28,7 +28,8 @@ function uploadFile(file, signedRequest, url){
         document.getElementById('avatar-url').value = url;
       }
       else{
-        alert('Could not upload file.');
+
+        alert(xhr.status + 'Could not upload file.');
       }
     }
   };

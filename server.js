@@ -46,18 +46,20 @@ app.use(express.static('./public'));
 // Start of S3 upload feature
 app.engine('html', require('ejs').renderFile);
 
-const S3_BUCKET = process.env.S3_BUCKET;
+//const S3_BUCKET = process.env.S3_BUCKET;
+const S3_BUCKET = "zombiesrising";
 
 console.log(S3_BUCKET);
 
 app.get('/account', (req, res) => res.render('account.html'));
 
 app.get('/sign-s3', (req, res) => {
+	console.log(req.query);
   const s3 = new aws.S3();
   const fileName = req.query['file-name'];
   const fileType = req.query['file-type'];
   const s3Params = {
-    Bucket: S3_BUCKET,
+    Bucket: "zombiesrising",
     Key: fileName,
     Expires: 60,
     ContentType: fileType,
