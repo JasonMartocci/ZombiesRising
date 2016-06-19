@@ -10,7 +10,7 @@ Quintus.ZombiesHeroes = function(Q) {
         var heroesData = data.heroes;
         var heroesTypes = heroesData[i]['plantTypes'];
         var heroesAssets = {
-          'asset': heroesData[i].asset,
+          'asset': 'http://s3.amazonaws.com/zombiesrising/' + heroesData[i].asset,
           'cost': heroesData[i].cost,
           'energy': heroesData[i].energy,
           'isShooter': heroesData[i].isShooter,
