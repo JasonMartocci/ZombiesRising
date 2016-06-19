@@ -201,7 +201,7 @@ router.delete('/enemies/delete/:enemiesId', function(req,res) {
 router.put('/enemies/update/:enemiesId', function(req,res) {
 	var condition = 'enemiesId = ' + req.params.enemiesId;
 	console.log('condition', condition);
-	projectX.updateEnemies({'zombieTypes ' : req.body.zombieTypes, ', asset ' : req.body.asset, ', damage ' : req.body.damage, ', vx ' : req.body.vx, ', energy ' : req.body.energy}, condition, function(data){
+	projectX.updateEnemies({'zombieTypes ' : req.body.zombieTypes, ', damage ' : req.body.damage, ', vx ' : req.body.vx, ', energy ' : req.body.energy}, condition, function(data){
 		res.redirect('/enemies');
 	});
 });
