@@ -79,9 +79,9 @@ router.post('/heroes/createNewHeroes', function(req,res) {
 
 		// Load the AWS SDK for Node.js
 		var AWS = require('aws-sdk');
+		var shortid = require('shortid');
 		var fs = require('fs');
 		var fileStream = fs.createReadStream(files.asset.path);
-		var shortid = require('shortid');
 		var newFilename = shortid.generate()+"_"+files.asset.name;
 
 		// Set your region for future requests.
@@ -90,6 +90,7 @@ router.post('/heroes/createNewHeroes', function(req,res) {
 		AWS.config.secretAccessKey = 'gTTAPSwTYHgswfChCmNYz3vOE6EIm/fE7VKkLO7q';
 
 		console.log(newFilename);
+
 		fileStream.on('error', function (err) {
 		  if (err) { throw err; }
 		});
@@ -97,7 +98,7 @@ router.post('/heroes/createNewHeroes', function(req,res) {
 		fileStream.on('open', function () {
 			var s3bucket = new AWS.S3({params: {Bucket: 'zombiesrising'}});
 			s3bucket.createBucket(function() {
-			  var params = {Key: newFilename, Body: fileStream};
+			  var params = {Key: newFilename, Body: fileStream, ContentType: "image/png"};
 			  s3bucket.upload(params, function(err, data) {
 			    if (err) {
 			      	console.log("Error uploading data: ", err);
