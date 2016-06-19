@@ -132,6 +132,61 @@ router.put('/heroes/update/:heroesId', function(req,res) {
 		res.redirect('/heroes');
 	});
 });
+
+router.post('/heroes/updateImage/:heroesId/:plantTypes/:cost/:energy/:isSunProducer/:isShooter/:isExploding/:sunFrequency/:shootingFrequency/:damage', function(req,res) {
+	var formidable = require('formidable'),
+    http = require('http'),
+    util = require('util');
+
+	var form = new formidable.IncomingForm();
+
+	form.parse(req, function(err, fields, files) {
+		console.log(fields);
+		console.log(files);
+
+		// Load the AWS SDK for Node.js
+		var AWS = require('aws-sdk');
+		var shortid = require('shortid');
+		var fs = require('fs');
+		var fileStream = fs.createReadStream(files.asset.path);
+		var newFilename = shortid.generate()+"_"+files.asset.name;
+
+
+		// Set your region for future requests.
+		AWS.config.region = 'us-west-2';
+		AWS.config.accessKeyId = 'AKIAIECXXO6BFSUJONGQ';
+		AWS.config.secretAccessKey = 'gTTAPSwTYHgswfChCmNYz3vOE6EIm/fE7VKkLO7q';
+
+		console.log(newFilename);
+
+		fileStream.on('error', function (err) {
+		  if (err) { throw err; }
+		});
+
+		fileStream.on('open', function () {
+			var s3bucket = new AWS.S3({params: {Bucket: 'zombiesrising'}});
+			s3bucket.createBucket(function() {
+			  var params = {Key: newFilename, Body: fileStream, ContentType: 'image/png'};
+			  s3bucket.upload(params, function(err, data) {
+			    if (err) {
+			      	console.log("Error uploading data: ", err);
+			    } else {
+					console.log("Successfully uploaded data to zombiesrising/myKey");
+					
+					var condition = 'heroesId = ' + req.params.heroesId;
+					console.log('condition', condition);
+					projectX.updateHeroes({'plantTypes ' : req.params.plantTypes, ', asset ' : newFilename, ', cost ' : req.params.cost, ', energy ' : req.params.energy, ', isSunProducer ' : req.params.isSunProducer, ', isShooter ' : req.params.isShooter, ', isExploding ' : req.params.isExploding, ', sunFrequency ' : req.params.sunFrequency, ', shootingFrequency ' : req.params.shootingFrequency, ', damage ' : req.params.damage}, condition, function(data){
+						res.redirect('/heroes');
+					});
+			    }
+			  });
+			});
+
+		});
+
+    });
+});
+
 router.get('/enemies', function(req,res) {
 	projectX.allEnemies(function(data){
 		var hbsObject = {enemies : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}

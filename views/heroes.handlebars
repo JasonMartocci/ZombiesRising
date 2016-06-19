@@ -82,7 +82,25 @@
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title whtText">Update {{this.plantTypes}}</h4>
+                          <h4 class="modal-title whtText">Update {{this.plantTypes}} Image</h4>
+                        </div>
+                        <div class="modal-body">
+                          <form action="heroes/updateImage/{{this.heroesId}}/{{this.plantTypes}}/{{this.cost}}/{{this.energy}}/{{this.isSunProducer}}/{{this.isShooter}}/{{this.isExploding}}/{{this.sunFrequency}}/{{this.shootingFrequency}}/{{this.damage}}" method="POST" class="form center-block" enctype="multipart/form-data">
+                              <div class="form-group">
+                                Image <input type="file" id="file-input" class="form-control input-md" name="asset" required>
+                              </div>
+                              <div class="form-group">
+                                <input type="hidden" value="{{this.zombieTypes}}" name="zombieTypes">
+                                <input type="hidden" value="{{this.vx}}" name="vx">
+                                <input type="hidden" value="{{this.damage}}" name="damage">
+                                <input type="hidden" value="{{this.energy}}" name="energy">
+                                <button class="btn btn-success btn-lg btn-block">Update Image</button>                                    
+                              </div>
+                          </form>
+                        </div>
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title whtText">Update {{this.plantTypes}} Features</h4>
                         </div>
                         <div class="modal-body">
                           <form action="heroes/update/{{this.heroesId}}?_method=PUT" method="POST" class="form col-md-12 center-block">
