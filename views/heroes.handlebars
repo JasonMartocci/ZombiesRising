@@ -178,7 +178,19 @@
         <div class="modal-body">
           <form action="heroes/createNewHeroes" method="POST" class="form center-block" enctype="multipart/form-data">
               <div class="form-group">
-                Types <input type="text" class="form-control input-md" value="{{this.plantTypes}}" name="plantTypes" required>
+                Character Type 
+                <select class="form-control input-md" value="{{this.plantTypes}}" name="plantTypes">
+                  <option>energyOne</option>
+                  <option>energyTwo</option>
+                  <option>shooterOne</option>
+                  <option>shooterTwo</option>
+                  <option>bomberOne</option>
+                  <option>bomberTwo</option>
+                  <option>wallOne</option>
+                  <option>wallTwo</option>
+                  <option>heroOne</option>
+                  <option>heroTwo</option>
+                </select>
               </div>
               <div class="form-group">
                 Image Location

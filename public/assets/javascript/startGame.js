@@ -71,7 +71,7 @@ window.addEventListener("load",function() {
     success: function(data){
       for(var i = 0; i < data.heroes.length; i++) {
         var heroesData = data.heroes;
-        characterAssets = heroesData[i].asset + ', ';
+        characterAssets = 'https://s3.amazonaws.com/zombiesrising/' + heroesData[i].asset + ', ';
         console.log(characterAssets);
         //load assets
         Q.load(characterAssets + '/assets/audio/ZombiesOnYourLawn.mp3, /assets/images/scoreBoard.png, /assets/audio/Homer_Mmmm_donuts.mp3, /assets/images/background.jpg, /assets/images/buttonBg1.png, /assets/images/sun.png, /assets/images/bullet.png, /assets/data/level1.json, /assets/data/level2.json, /assets/audio/boom.mp3, /assets/audio/hit.mp3', function() {

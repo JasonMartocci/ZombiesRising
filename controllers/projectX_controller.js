@@ -67,62 +67,53 @@ router.get('/heroes', function(req,res) {
 });
 
 router.post('/heroes/createNewHeroes', function(req,res) {
-
 	var formidable = require('formidable'),
-	    http = require('http'),
-	    util = require('util');
+    http = require('http'),
+    util = require('util');
 
-			var form = new formidable.IncomingForm();
+	var form = new formidable.IncomingForm();
 
-			form.parse(req, function(err, fields, files) {
-				console.log(fields);
-				console.log(files);
+	form.parse(req, function(err, fields, files) {
+		console.log(fields);
+		console.log(files);
 
+		// Load the AWS SDK for Node.js
+		var AWS = require('aws-sdk');
+		var fs = require('fs');
+		var fileStream = fs.createReadStream(files.asset.path);
+		var shortid = require('shortid');
+		var newFilename = shortid.generate()+"_"+files.asset.name;
 
-				// Load the AWS SDK for Node.js
-				var AWS = require('aws-sdk');
-				var fs = require('fs');
+		// Set your region for future requests.
+		AWS.config.region = 'us-west-2';
+		AWS.config.accessKeyId = 'AKIAIECXXO6BFSUJONGQ';
+		AWS.config.secretAccessKey = 'gTTAPSwTYHgswfChCmNYz3vOE6EIm/fE7VKkLO7q';
 
-				// Set your region for future requests.
-				AWS.config.region = 'us-west-2';
-				AWS.config.accessKeyId = 'AKIAIECXXO6BFSUJONGQ';
-				AWS.config.secretAccessKey = 'gTTAPSwTYHgswfChCmNYz3vOE6EIm/fE7VKkLO7q';
+		console.log(newFilename);
+		fileStream.on('error', function (err) {
+		  if (err) { throw err; }
+		});
 
+		fileStream.on('open', function () {
+			var s3bucket = new AWS.S3({params: {Bucket: 'zombiesrising'}});
+			s3bucket.createBucket(function() {
+			  var params = {Key: newFilename, Body: fileStream};
+			  s3bucket.upload(params, function(err, data) {
+			    if (err) {
+			      	console.log("Error uploading data: ", err);
+			    } else {
+					console.log("Successfully uploaded data to zombiesrising/myKey");
 
-				var shortid = require('shortid');
-
-				var newFilename = shortid.generate()+"_"+files.asset.name;
-
-//				console.log(files.asset.path);
-				console.log(newFilename);
-
-				var fileStream = fs.createReadStream(files.asset.path);
-				fileStream.on('error', function (err) {
-				  if (err) { throw err; }
-				});
-				fileStream.on('open', function () {
-					var s3bucket = new AWS.S3({params: {Bucket: 'zombiesrising'}});
-					s3bucket.createBucket(function() {
-					  var params = {Key: newFilename, Body: fileStream};
-					  s3bucket.upload(params, function(err, data) {
-					    if (err) {
-					      console.log("Error uploading data: ", err);
-					    } else {
-								console.log("Successfully uploaded data to zombiesrising/myKey");
-
-								projectX.createHeroes(['plantTypes', 'asset', 'cost', 'energy', 'isSunProducer', 'isShooter', 'isExploding', 'sunFrequency', 'shootingFrequency', 'damage'], [fields.plantTypes, newFilename, fields.cost, fields.energy, fields.isSunProducer, fields.isShooter, fields.isExploding, fields.sunFrequency, fields.shootingFrequency, fields.damage], function(data){
-									res.redirect('/heroes')
-								});
-
-					    }
-					  });
+					projectX.createHeroes(['plantTypes', 'asset', 'cost', 'energy', 'isSunProducer', 'isShooter', 'isExploding', 'sunFrequency', 'shootingFrequency', 'damage'], [fields.plantTypes, newFilename, fields.cost, fields.energy, fields.isSunProducer, fields.isShooter, fields.isExploding, fields.sunFrequency, fields.shootingFrequency, fields.damage], function(data){
+						res.redirect('/heroes')
 					});
+			    }
+			  });
+			});
 
-				});
+		});
 
-
-		    });
-
+    });
 });
 
 router.delete('/heroes/delete/:heroesId', function(req,res) {
