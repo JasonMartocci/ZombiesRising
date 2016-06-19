@@ -55,7 +55,7 @@
               {{#each enemies}}
                   <tr>
                       <td data-search="{{this.zombieTypes}}">{{this.zombieTypes}}</td>
-                      <td data-search="{{this.asset}}"><img src="{{this.asset}}"></td>
+                      <td data-search="{{this.asset}}"><img src="http://s3.amazonaws.com/zombiesrising/{{this.asset}}" width="100" alt="{{this.zombieTypes}}"></td>
                       <td data-search="{{this.damage}}">{{this.damage}}</td>
                       <td data-search="{{this.vx}}">{{this.vx}}</td>
                       <td data-search="{{this.energy}}">{{this.energy}}</td>
@@ -141,12 +141,24 @@
           <h4 class="modal-title whtText">Enter New Enemy</h4>
         </div>
         <div class="modal-body">
-          <form action="enemies/createNewEnemies" method="POST" class="form center-block">
+          <form action="enemies/createNewEnemies" method="POST" class="form center-block" enctype="multipart/form-data">
               <div class="form-group">
-                Zombie Types <input type="text" class="form-control input-md" value="" name="zombieTypes" required>
+                Zombie Type 
+                <select class="form-control input-md" value="{{this.zombieTypes}}" name="zombieTypes">
+                  <option value="zombieOne">Zombie One</option>
+                  <option value="zombieTwo">Zombie Two</option>
+                  <option value="zombieThree">Zombie Three</option>
+                  <option value="zombieFour">Zombie Four</option>
+                  <option value="zombieFive">Zombie Five</option>
+                  <option value="bossOne">Boss One</option>
+                  <option value="bossTwo">Boss Two</option>
+                  <option value="bossThree">Boss Three</option>
+                  <option value="bossFour">Boss Four</option>
+                  <option value="bossFive">Boss Five</option>
+                </select>
               </div>
               <div class="form-group">
-                Asset <input type="text" class="form-control input-md" value="" name="asset" required>
+                Asset <input type="file" id="file-input" class="form-control input-md" name="asset" required>
               </div>
               <div class="form-group">
                 Damage <input type="range" class="form-control input-md" name="damage" id="damage" value="" min="1" max="20" oninput="damageOutputId.value = damage.value">

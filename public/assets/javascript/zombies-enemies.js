@@ -10,7 +10,7 @@ Quintus.ZombiesEnemies = function(Q) {
         var enemiesData = data.enemies;
         var enemiesTypes = enemiesData[i]['zombieTypes'];
         var enemiesAssets = {
-          'asset': enemiesData[i].asset,
+          'asset': 'http://s3.amazonaws.com/zombiesrising/' + enemiesData[i].asset,
           'damage': enemiesData[i].damage,
           'vx': enemiesData[i].vx,
           'energy': enemiesData[i].energy

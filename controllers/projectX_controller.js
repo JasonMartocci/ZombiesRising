@@ -140,9 +140,54 @@ router.get('/enemies', function(req,res) {
 });
 
 router.post('/enemies/createNewEnemies', function(req,res) {
-	projectX.createEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy'], [req.body.zombieTypes, req.body.asset, req.body.damage, req.body.vx, req.body.energy], function(data){
-		res.redirect('/enemies')
-	});
+	var formidable = require('formidable'),
+    http = require('http'),
+    util = require('util');
+
+	var form = new formidable.IncomingForm();
+
+	form.parse(req, function(err, fields, files) {
+		console.log(fields);
+		console.log(files);
+
+		// Load the AWS SDK for Node.js
+		var AWS = require('aws-sdk');
+		var shortid = require('shortid');
+		var fs = require('fs');
+		var fileStream = fs.createReadStream(files.asset.path);
+		var newFilename = shortid.generate()+"_"+files.asset.name;
+
+		// Set your region for future requests.
+		AWS.config.region = 'us-west-2';
+		AWS.config.accessKeyId = 'AKIAIECXXO6BFSUJONGQ';
+		AWS.config.secretAccessKey = 'gTTAPSwTYHgswfChCmNYz3vOE6EIm/fE7VKkLO7q';
+
+		console.log(newFilename);
+
+		fileStream.on('error', function (err) {
+		  if (err) { throw err; }
+		});
+
+		fileStream.on('open', function () {
+			var s3bucket = new AWS.S3({params: {Bucket: 'zombiesrising'}});
+			s3bucket.createBucket(function() {
+			  var params = {Key: newFilename, Body: fileStream, ContentType: "image/png"};
+			  s3bucket.upload(params, function(err, data) {
+			    if (err) {
+			      	console.log("Error uploading data: ", err);
+			    } else {
+					console.log("Successfully uploaded data to zombiesrising/myKey");
+					
+					projectX.createEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy'], [fields.zombieTypes, newFilename, fields.damage, fields.vx, fields.energy], function(data){
+						res.redirect('/enemies')
+					});
+			    }
+			  });
+			});
+
+		});
+
+    });
 });
 
 router.delete('/enemies/delete/:enemiesId', function(req,res) {
