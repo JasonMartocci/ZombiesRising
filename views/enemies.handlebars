@@ -44,7 +44,7 @@
           <thead>
               <tr class="tableDetails">
                   <th>Zombie Type</th>
-                  <th>Asset</th>
+                  <th>Image</th>
                   <th>Damage</th>
                   <th>Speed</th>
                   <th>Energy</th>
@@ -72,16 +72,28 @@
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title whtText">Update {{this.zombieTypes}}</h4>
+                          <h4 class="modal-title whtText">Update {{this.zombieTypes}} Image</h4>
                         </div>
                         <div class="modal-body">
+                          <form action="enemies/updateImage/{{this.enemiesId}}/{{this.zombieTypes}}/{{this.vx}}/{{this.damage}}/{{this.energy}}" method="POST" class="form center-block" enctype="multipart/form-data">
+                              <div class="form-group">
+                                Image <input type="file" id="file-input" class="form-control input-md" name="asset" required>
+                              </div>
+                              <div class="form-group">
+                                <input type="hidden" value="{{this.zombieTypes}}" name="zombieTypes">
+                                <input type="hidden" value="{{this.vx}}" name="vx">
+                                <input type="hidden" value="{{this.damage}}" name="damage">
+                                <input type="hidden" value="{{this.energy}}" name="energy">
+                                <button class="btn btn-success btn-lg btn-block">Update Image</button>                                    
+                              </div>
+                          </form>
+                          </div>
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title whtText">Update {{this.zombieTypes}} Features</h4>
+                          </div>
+                        <div class="modal-body">
                           <form action="enemies/update/{{this.enemiesId}}?_method=PUT" method="POST" class="form col-md-12 center-block">
-                              <div class="form-group">
-                                Zombie Types <input type="text" class="form-control input-md" value="{{this.zombieTypes}}" name="zombieTypes">
-                              </div>
-                              <div class="form-group">
-                                Asset <input type="text" class="form-control input-md" value="{{this.asset}}" name="asset">
-                              </div>
                               <div class="form-group">
                                 Damage
                                 <input type="range" class="form-control input-md" name="damage" id="damage" value="{{this.damage}}" min="1" max="20" oninput="damageOutputId.value = damage.value">
@@ -98,7 +110,8 @@
                                 <output name="energyOutputName" id="energyOutputId">{{this.energy}}</output>                                
                               </div>
                               <div class="form-group">
-                                <button class="btn btn-success btn-lg btn-block">Update</button>                                    
+                                <input type="hidden" class="form-control input-md" value="{{this.zombieTypes}}" name="zombieTypes">
+                                <button class="btn btn-success btn-lg btn-block">Update Features</button>                                    
                               </div>
                           </form>
                         </div>
