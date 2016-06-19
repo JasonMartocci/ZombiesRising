@@ -33,7 +33,9 @@
   <div class="row inventory tableDetails">
     <div class="col-md-12">&nbsp;</div>
     <div class="col-md-12">
-      <button data-toggle="modal" data-target="#addNew" class="btn btn-success btn-sm newUserBtn">Enter New Heroes</button>
+      {{#if isAdmin}}
+        <button data-toggle="modal" data-target="#addNew" class="btn btn-success btn-sm newUserBtn">Enter New Heroes</button>
+      {{/if}}
       <a href="/enemies" class="btn btn-info  btn-sm">Enemies Editor</a>
     </div>
     <div class="col-md-12">&nbsp;</div>
@@ -43,8 +45,7 @@
       <table id="heroes" class="display" cellspacing="0" width="100%">
           <thead>
               <tr class="tableDetails">
-                  <th>Heroes Type</th>
-                  <th>Asset</th>
+                  <th>Character</th>
                   <th>Cost</th>
                   <th>Energy</th>
                   <th>Sun Producer</th>
@@ -59,8 +60,7 @@
           <tbody>
               {{#each heroes}}
                   <tr>
-                      <td data-search="{{this.plantTypes}}">{{this.plantTypes}}</td>
-                      <td data-search="{{this.asset}}"><img src="http://s3.amazonaws.com/zombiesrising/{{this.asset}}" width="100" alt="{{this.plantTypes}}"></td>
+                      <td data-search="{{this.asset}}"><img src="http://s3.amazonaws.com/zombiesrising/{{this.asset}}" height="80" alt="{{this.plantTypes}}"></td>
                       <td data-search="{{this.cost}}">{{this.cost}}</td>
                       <td data-search="{{this.energy}}">{{this.energy}}</td>
                       <td data-search="{{this.isSunProducer}}">{{this.isSunProducer}}</td>
@@ -71,8 +71,9 @@
                       <td data-search="{{this.damage}}">{{this.damage}}</td>
                       <td width="70" align="center">
                         <span>
-                        <a href="#" data-toggle="modal" data-target="#heroes-{{this.heroesId}}"><img src="/assets/images/edit_btn.png" alt="edit"></a> <a href="#" data-toggle="modal" data-target="#delete-{{this.heroesId}}"><img src="/assets/images/delete_btn.png" alt="delete"></a>
-                        </span>
+                          <a href="#" data-toggle="modal" data-target="#heroes-{{this.heroesId}}"><img src="/assets/images/edit_btn.png" alt="edit"></a> 
+                          <!-- <a href="#" data-toggle="modal" data-target="#delete-{{this.heroesId}}"><img src="/assets/images/delete_btn.png" alt="delete"></a> -->
+                       </span>
                       </td>
                   </tr>
                   <!-- Modal -->
@@ -104,12 +105,6 @@
                         </div>
                         <div class="modal-body">
                           <form action="heroes/update/{{this.heroesId}}?_method=PUT" method="POST" class="form col-md-12 center-block">
-                              <div class="form-group">
-                                Heroes Type <input type="text" class="form-control input-md" value="{{this.plantTypes}}" name="plantTypes">
-                              </div>
-                              <div class="form-group">
-                                Image Location <input type="text" class="form-control input-md" value="{{this.asset}}" name="asset">
-                              </div>
                               <div class="form-group">
                                 Cost
                                 <input type="range" class="form-control input-md" name="cost" id="cost" value="{{this.cost}}" min="1" max="500" oninput="costOutputId.value = cost.value">
@@ -151,6 +146,8 @@
                                 <output name="damageOutputName" id="damageOutputId">{{this.damage}}</output>
                               </div>
                               <div class="form-group">
+                                <input type="hidden" value="{{this.asset}}" name="asset">
+                                <input type="hidden" value="{{this.plantTypes}}" name="plantTypes">
                                 <button class="btn btn-success btn-lg btn-block">Update</button>
                               </div>
                           </form>
@@ -198,16 +195,16 @@
               <div class="form-group">
                 Character Type 
                 <select class="form-control input-md" value="{{this.plantTypes}}" name="plantTypes">
-                  <option value="energyOne">Energy One</option>
-                  <option value="energyTwo">Energy Two</option>
-                  <option value="shooterOne">Shooter One</option>
-                  <option value="shooterTwo">Shooter Two</option>
-                  <option value="bomberOne">Bomber One</option>
-                  <option value="bomberTwo">Bomber Two</option>
-                  <option value="wallOne">Wall One</option>
-                  <option value="wallTwo">Wall Two</option>
                   <option value="heroOne">Hero One</option>
                   <option value="heroTwo">Hero Two</option>
+                  <option value="heroThree">Hero Three</option>
+                  <option value="heroFour">Hero Four</option>
+                  <option value="heroFive">Hero Five</option>
+                  <option value="heroSix">Hero Six</option>
+                  <option value="heroSeven">Hero Seven</option>
+                  <option value="heroEight">Hero Eight</option>
+                  <option value="heroNine">Hero Nine</option>
+                  <option value="heroTen">Hero Ten</option>
                 </select>
               </div>
               <div class="form-group">

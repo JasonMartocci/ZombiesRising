@@ -1,5 +1,5 @@
 {
-    "availablePlants": ["shooterOne", "shooterTwo", "bomberOne", "energyOne"],
+    "availablePlants": ["heroOne", "heroTwo", "heroThree", "heroFour"],
     "nextLevel" : false,
     "duration": 180,
     "zombies": [
