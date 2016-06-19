@@ -88,7 +88,7 @@
                         <div class="modal-body">
                           <form action="heroes/updateImage/{{this.heroesId}}/{{this.plantTypes}}/{{this.cost}}/{{this.energy}}/{{this.isSunProducer}}/{{this.isShooter}}/{{this.isExploding}}/{{this.sunFrequency}}/{{this.shootingFrequency}}/{{this.damage}}" method="POST" class="form center-block" enctype="multipart/form-data">
                               <div class="form-group">
-                                Image <input type="file" id="file-input" class="form-control input-md" name="asset" required>
+                                Image <input type="file" id="file-input" class="form-control input-md" name="asset" accept="image/png" required>
                               </div>
                               <div class="form-group">
                                 <input type="hidden" value="{{this.zombieTypes}}" name="zombieTypes">
@@ -209,7 +209,7 @@
               </div>
               <div class="form-group">
                 Image Location
-                <input type="file" id="file-input" class="form-control input-md" name="asset" required>
+                <input type="file" id="file-input" class="form-control input-md" name="asset" accept="image/png" required>
               </div>
               <div class="form-group">
                 Cost

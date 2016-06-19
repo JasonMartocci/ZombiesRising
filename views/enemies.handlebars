@@ -80,7 +80,7 @@
                         <div class="modal-body">
                           <form action="enemies/updateImage/{{this.enemiesId}}/{{this.zombieTypes}}/{{this.vx}}/{{this.damage}}/{{this.energy}}" method="POST" class="form center-block" enctype="multipart/form-data">
                               <div class="form-group">
-                                Image <input type="file" id="file-input" class="form-control input-md" name="asset" required>
+                                Image <input type="file" id="file-input" class="form-control input-md" name="asset" accept="image/png" required>
                               </div>
                               <div class="form-group">
                                 <input type="hidden" value="{{this.zombieTypes}}" name="zombieTypes">
@@ -174,7 +174,7 @@
                 </select>
               </div>
               <div class="form-group">
-                Asset <input type="file" id="file-input" class="form-control input-md" name="asset" required>
+                Image <input type="file" id="file-input" class="form-control input-md" name="asset" accept="image/png" required>
               </div>
               <div class="form-group">
                 Damage <input type="range" class="form-control input-md" name="damage" id="damage" value="" min="1" max="20" oninput="damageOutputId.value = damage.value">
