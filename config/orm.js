@@ -32,6 +32,7 @@ var orm = {
         cb(result);
     });
   },
+  
   createUser: function(table, cols, vals, cb) {
     var queryString = 'INSERT INTO ' + table;
 
@@ -42,7 +43,29 @@ var orm = {
     queryString = queryString + printQuestionMarks(vals.length);
     queryString = queryString + ') ';
 
-    console.log(queryString)
+    console.log(queryString);
+
+    connection.query(queryString, vals, function(err, result) {
+      if (err) throw err;
+      cb(result);
+    });
+  },
+
+  createUserEnemies: function(table, cols, vals, cb) {
+    var queryString = "INSERT INTO  enemies (zombieTypes, asset, damage, vx, energy, userId) VALUES ('levelOne','/assets/images/zombieOne.png','0.5','-20','3')";
+
+    console.log(queryString);
+
+    connection.query(queryString, vals, function(err, result) {
+      if (err) throw err;
+      cb(result);
+    });
+  },
+
+  createUserHeroes: function(table, cols, vals, cb) {
+    var queryString = "INSERT INTO  heroes (plantTypes, asset, cost, energy, isSunProducer, isShooter, isExploding, sunFrequency, shootingFrequency, damage, userId) VALUES ('shooterOne','/assets/images/shooterOne.png','100','10',false,true,false,'0','2','2','1')";
+
+    console.log(queryString);
 
     connection.query(queryString, vals, function(err, result) {
       if (err) throw err;
