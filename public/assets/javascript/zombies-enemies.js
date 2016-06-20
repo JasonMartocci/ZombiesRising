@@ -57,8 +57,6 @@ Quintus.ZombiesEnemies = function(Q) {
     step: function(dt) {
       if(this.p.x <= 240) {
         this.destroy();
-        // console.log('The Zombies ate your brains!'); 
-
         swal({
           title: 'The Zombies Ate Your Brains!',
           html: '<img src="/assets/images/brains.png" alt="BRAINS">',

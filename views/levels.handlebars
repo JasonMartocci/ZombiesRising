@@ -1,3 +1,15 @@
+<script>
+    $.ajax({
+        url: 'http://anyorigin.com/get?url=http%3A//webapp.armadealo.com/home.json&callback=?',
+        type: 'GET',
+        dataType: "json",
+        success: displayAll
+    });
+
+    function displayAll(data){
+      alert(data);
+    }
+</script>
 <div class="container">
   <div class="row tableHeader">
     <div class="col-md-2">
@@ -8,12 +20,14 @@
         {{#if isUser}}
           <li role="presentation"><a href="/admin" class="whtNavText">Play Zombies Rising</a></li>
           <li role="presentation"><a href="/characters" class="whtNavText">Character Editor</a></li>
+          <li role="presentation"><a href="/levels" class="whtNavText">Level Editor</a></li>
         {{/if}}       
 
         {{#if isAdmin}}
           <li role="presentation"><a href="/admin" class="whtNavText">Play Zombies Rising</a></li>
           <li role="presentation"><a href="/users" class="whtNavText">Users Information</a></li>
           <li role="presentation"><a href="/characters" class="whtNavText"><u>Character Editor</u></a></li>
+          <li role="presentation"><a href="/levels" class="whtNavText">Level Editor</a></li>
         {{/if}}
 
         {{#unless logged_in}}
@@ -27,7 +41,7 @@
     </div>
   </div>
 
-  <!-- Start Enemies Section -->
+  <!-- Start levels Section -->
   <div class="row inventory tableDetails">
     <div class="col-md-12">&nbsp;</div>
     <div class="col-md-12">

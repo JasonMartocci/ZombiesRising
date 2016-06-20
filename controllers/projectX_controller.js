@@ -54,6 +54,13 @@ router.put('/users/update/:userId', function(req,res) {
 	});
 });
 
+router.get('/levels', function(req,res) {
+	projectX.allLevels(function(data){
+		var hbsObject = {levels : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
+		res.render('levels', hbsObject);
+	});
+});
+
 router.get('/characters', function(req,res) {
 	var hbsObject = {logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
 	res.render('characters', hbsObject);
@@ -111,9 +118,7 @@ router.post('/heroes/createNewHeroes', function(req,res) {
 			    }
 			  });
 			});
-
 		});
-
     });
 });
 
@@ -181,9 +186,7 @@ router.post('/heroes/updateImage/:heroesId/:plantTypes/:cost/:energy/:isSunProdu
 			    }
 			  });
 			});
-
 		});
-
     });
 });
 
@@ -239,9 +242,7 @@ router.post('/enemies/createNewEnemies', function(req,res) {
 			    }
 			  });
 			});
-
 		});
-
     });
 });
 
@@ -309,9 +310,7 @@ router.post('/enemies/updateImage/:enemiesId/:zombieTypes/:vx/:damage/:energy', 
 			    }
 			  });
 			});
-
 		});
-
     });
 });
 

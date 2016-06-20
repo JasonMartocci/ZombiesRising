@@ -44,6 +44,12 @@ var projectX = {
 		});
 	},
 
+	allLevels: function(cb) {
+		orm.allLevels('levels', function(res){
+			cb(res);
+		});
+	},
+
 	allHeroes: function(cb) {
 		orm.all('heroes', function(res){
 			cb(res);
