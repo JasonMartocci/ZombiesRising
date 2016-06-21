@@ -7,19 +7,6 @@ var projectX = {
 		});
 	},
 
-	// allCharacters: function(cb) {
-	// 	var listCharacters =  [];
-		
-	// 	orm.all('enemies', function(res){
-	// 		listCharacters.push(res);
-	// 		cb(res);
-	// 	});
-	// 	orm.all('heroes', function(res){
-	// 		listCharacters.push(res);
-	// 		cb(res);
-	// 	});
-	// },
-
 	allUsers: function(cb) {
 		orm.all('users', function(res){
 			cb(res);
@@ -62,6 +49,12 @@ var projectX = {
 		});
 	},
 
+	createNewUserHeroes: function(cols, vals, cb) {
+		orm.createNewUserHeroes('heroes', cols, vals, function(res){
+			cb(res);
+		});
+	},
+
 	updateHeroes: function(objColVals, condition, cb) {
 		orm.update('heroes', objColVals, condition, function(res){
 			cb(res);
@@ -82,6 +75,12 @@ var projectX = {
 
 	createEnemies: function(cols, vals, cb) {
 		orm.createEnemies('enemies', cols, vals, function(res){
+			cb(res);
+		});
+	},
+
+	createNewUserEnemies: function(cols, vals, cb) {
+		orm.createNewUserEnemies('enemies', cols, vals, function(res){
 			cb(res);
 		});
 	},

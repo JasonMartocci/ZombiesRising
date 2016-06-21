@@ -20,8 +20,9 @@ CREATE TABLE enemies
   damage int NOT NULL,
   vx int NOT NULL,
   energy int NOT NULL,
+  userId int,
   PRIMARY KEY (enemiesId),
-  FOREIGN KEY (enemiesId) REFERENCES users(userId)
+  FOREIGN KEY (userId) REFERENCES users(userId)
 );
 
 CREATE TABLE heroes
@@ -37,6 +38,7 @@ CREATE TABLE heroes
   sunFrequency int NOT NULL,
   shootingFrequency int NOT NULL,
   damage int NOT NULL,
+  userId int,
   PRIMARY KEY (heroesId),
-  FOREIGN KEY (heroesId) REFERENCES users(userId)
+  FOREIGN KEY (userId) REFERENCES users(userId)
 );

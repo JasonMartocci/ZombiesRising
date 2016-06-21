@@ -51,50 +51,11 @@ var orm = {
     });
   },
 
-  createUserEnemies: function(table, cols, vals, cb) {
-    var queryString = "INSERT INTO  enemies (zombieTypes, asset, damage, vx, energy, userId) VALUES ('levelOne','/assets/images/zombieOne.png','0.5','-20','3')";
-
-    console.log(queryString);
-
-    connection.query(queryString, vals, function(err, result) {
-      if (err) throw err;
-      cb(result);
-    });
-  },
-
-  createUserHeroes: function(table, cols, vals, cb) {
-    var queryString = "INSERT INTO  heroes (plantTypes, asset, cost, energy, isSunProducer, isShooter, isExploding, sunFrequency, shootingFrequency, damage, userId) VALUES ('shooterOne','/assets/images/shooterOne.png','100','10',false,true,false,'0','2','2','1')";
-
-    console.log(queryString);
-
-    connection.query(queryString, vals, function(err, result) {
-      if (err) throw err;
-      cb(result);
-    });
-  },
-
   all: function(tableInput, cb) {
     var queryString = 'SELECT * FROM ' + tableInput + ';';
     connection.query(queryString, function(err, result) {
         if (err) throw err;
         cb(result);
-    });
-  },
-
-  create: function(table, cols, vals, cb) {
-    var queryString = 'INSERT INTO ' + table;
-
-    queryString += ' (productName, productDescription, sku, category, productImage, quantity, price, supplier, barcode) ';
-    queryString += 'VALUES';
-    queryString += ' (';
-    queryString = queryString + printQuestionMarks(vals.length);
-    queryString += ') ';
-
-    console.log(queryString)
-
-    connection.query(queryString, vals, function(err, result) {
-      if (err) throw err;
-      cb(result);
     });
   },
 
@@ -151,6 +112,60 @@ var orm = {
     queryString += ') ';
 
     console.log(queryString)
+
+    connection.query(queryString, vals, function(err, result) {
+      if (err) throw err;
+      cb(result);
+    });
+  },
+
+  // createNewUserHeroes: function(table, cols, vals, cb) {
+  //   var queryString = 'INSERT INTO ' + table;
+
+  //   queryString += ' (plantTypes, asset, cost, energy, isSunProducer, isShooter, isExploding, sunFrequency, shootingFrequency, damage, userId) ';
+  //   queryString += 'VALUES';
+  //   queryString += ' (';
+  //   queryString = queryString + printQuestionMarks(vals.length);
+  //   queryString += ')';
+  //   queryString += ', ';
+  //   queryString += '(';
+  //   queryString = queryString + printQuestionMarks(vals.length);
+  //   queryString += ') ';
+
+  //   console.log(queryString)
+
+  //   connection.query(queryString, vals, function(err, result) {
+  //     if (err) throw err;
+  //     cb(result);
+  //   });
+  // },
+  
+  createNewUserHeroes: function(table, cols, vals, cb) {
+    var queryString = 'INSERT INTO ' + table;
+    queryString += ' (plantTypes, asset, cost, energy, isSunProducer, isShooter, isExploding, sunFrequency, shootingFrequency, damage, userId) ';
+    queryString += 'VALUES';
+    queryString += ' (';
+    queryString = queryString + printQuestionMarks(vals.length);
+    queryString += ') ';
+
+    console.log(queryString)
+
+    connection.query(queryString, vals, function(err, result) {
+      if (err) throw err;
+      cb(result);
+    });
+  },
+  
+  createNewUserEnemies: function(table, cols, vals, cb) {
+    var queryString = 'INSERT INTO ' + table;
+
+    queryString += ' (zombieTypes, asset, damage, vx, energy, userId) ';
+    queryString += 'VALUES';
+    queryString += ' (';
+    queryString = queryString + printQuestionMarks(vals.length);
+    queryString += ') ';
+
+    console.log(queryString);
 
     connection.query(queryString, vals, function(err, result) {
       if (err) throw err;

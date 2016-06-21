@@ -48,6 +48,7 @@ Quintus.ZombiesGUI = function(Q) {
             x: x,
             y: y
           }));
+          console.log("this is it " + plantObject.asset + " " + plantObject);
           this.stage.insert(new Q.PlantButton({x: x-15, y: y, asset: plantObject.asset, plant: plantObject}));
           this.stage.insert(new Q.UI.Text({x: x+30, y: y+23, label: plantObject.cost+''}));
           y += 90;

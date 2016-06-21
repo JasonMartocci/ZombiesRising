@@ -5,13 +5,12 @@ var user = {
 	  orm.findOne('users', condition, function(res){
 	      cb(res);
 	  });
-  },
+  	},
 	all: function(cb) {
 		orm.all('users', function(res){
 			cb(res);
 		});
 	},
-	//cols and vals are arrays
 	createUser: function(cols, vals, cb) {
 		orm.createUser('users', cols, vals, function(res){
 			cb(res);
