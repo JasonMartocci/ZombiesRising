@@ -332,6 +332,37 @@ router.get('/api/enemies', function(req,res) {
 	});
 });
 
+// router.get('/game/:userId', function(req,res) {
+// 	var condition = 'userId = ' + req.params.userId;
+// 	console.log('game ', condition);
+// 	projectX.allGameData(function(data){
+// 		var hbsObject = {heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
+// 		// console.log(data);
+// 		res.render('game', hbsObject);
+// 	});
+// });
+
+// router.get('/api/heroes/:userId', function(req,res) {
+// 	var condition = 'userId = ' + req.params.userId;
+// 	console.log('api heroes ', condition);
+// 	projectX.allHeroes(function(data){
+// 		var hbsObject = {heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
+// 		// console.log(data);
+// 		res.send(hbsObject);
+// 	});
+// });
+
+// router.get('/api/enemies/:userId', function(req,res) {
+// 	var condition = 'userId = ' + req.params.userId;
+// 	console.log('api enemies ', condition);
+// 	// var condition = 'userId = ' + req.session.userId;
+// 	projectX.allEnemies(function(data){
+// 		var hbsObject = {enemies : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
+// 		// console.log(data);
+// 		res.send(hbsObject);
+// 	});
+// });
+
 router.get('/api/characters', function(req,res) {
 	projectX.allCharacters(function(data){
 		var hbsObject = {enemies : data, heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
