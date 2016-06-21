@@ -86,6 +86,9 @@ router.post('/create', function(req,res) {
 							
 						// 	console.log("This is the right heroes data: " + data)	
 						// });
+			
+
+						// chain with promises 
 
 						projectX.createNewUserHeroes(['plantTypes', 'asset', 'cost', 'energy', 'isSunProducer', 'isShooter', 'isExploding', 'sunFrequency', 'shootingFrequency', 'damage', 'userId'], ['heroOne', 'BydaCtQr_shooterOne.png',' 100', '10', false, true, false, '0', '2', '2', req.session.user_id], function(data){});
 						
