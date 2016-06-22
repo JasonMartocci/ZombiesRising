@@ -185,7 +185,6 @@ router.post('/heroes/updateImage/:heroesId/:plantTypes/:cost/:energy/:isSunProdu
     });
 });
 
-
 router.get('/enemies', function(req,res) {
 	var condition = 'userId = ' + req.session.user_id;
 	projectX.allEnemies(condition, function(data){
@@ -311,16 +310,25 @@ router.post('/enemies/updateImage/:enemiesId/:zombieTypes/:vx/:damage/:energy', 
     });
 });
 
+// router.get('/game', function(req,res) {
+// 	projectX.allGameData(function(data){
+// 		var hbsObject = {heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
+// 		// console.log(data);
+// 		res.render('game', hbsObject);
+// 	});
+// });
+
 router.get('/game', function(req,res) {
-	projectX.allGameData(function(data){
+	var condition = 'userId = ' + req.session.user_id;
+	projectX.allGameData(condition, function(data){
 		var hbsObject = {heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
-		// console.log(data);
 		res.render('game', hbsObject);
 	});
 });
 
 router.get('/api/heroes', function(req,res) {
-	projectX.allHeroes(function(data){
+	var condition = 'userId = ' + req.session.user_id;
+	projectX.allHeroes(condition, function(data){
 		var hbsObject = {heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
 		// console.log(data);
 		res.send(hbsObject);
@@ -328,7 +336,8 @@ router.get('/api/heroes', function(req,res) {
 });
 
 router.get('/api/enemies', function(req,res) {
-	projectX.allEnemies(function(data){
+	var condition = 'userId = ' + req.session.user_id;
+	projectX.allEnemies(condition, function(data){
 		var hbsObject = {enemies : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
 		// console.log(data);
 		res.send(hbsObject);

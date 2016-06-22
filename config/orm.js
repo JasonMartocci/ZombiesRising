@@ -181,6 +181,17 @@ var orm = {
     });
   },
 
+  allGameData: function(tableInput, condition, cb) {
+    var queryString = 'SELECT * FROM ' + tableInput;
+    queryString += ' WHERE ';
+    queryString += condition;
+    console.log('This is new ' + queryString)
+    connection.query(queryString, function(err, result) {
+        if (err) throw err;
+        cb(result);
+    });
+  },
+
   allHeroes: function(tableInput, condition, cb) {
     var queryString = 'SELECT * FROM ' + tableInput;
     queryString += ' WHERE ';

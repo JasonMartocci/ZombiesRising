@@ -97,8 +97,8 @@ var projectX = {
 		});
 	},
 
-	allGameData: function(cb) {
-		orm.all('heroes', function(res){
+	allGameData: function(condition, cb) {
+		orm.allGameData('heroes', condition, function(res){
 			cb(res);
 		});
 	}
