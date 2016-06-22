@@ -76,25 +76,25 @@ router.post('/create', function(req,res) {
 
 						// chain with promises 
 
-						projectX.createNewUserHeroes(['plantTypes', 'asset', 'cost', 'energy', 'isSunProducer', 'isShooter', 'isExploding', 'sunFrequency', 'shootingFrequency', 'damage', 'userId'], ['heroOne', 'H1EIjKPB_shooterOne.png',' 50', '10', false, true, false, '0', '2', '2', req.session.user_id], function(data){});
+						projectX.createNewUserHeroes(['plantTypes', 'asset', 'cost', 'energy', 'isSunProducer', 'isShooter', 'isExploding', 'sunFrequency', 'shootingFrequency', 'damage', 'userId'], ['heroOne', 'rkIBKNOH_maggie.png',' 50', '10', false, true, false, '0', '2', '2', req.session.user_id], function(data){});
 						
-						projectX.createNewUserHeroes(['plantTypes', 'asset', 'cost', 'energy', 'isSunProducer', 'isShooter', 'isExploding', 'sunFrequency', 'shootingFrequency', 'damage', 'userId'], ['heroTwo', 'H1yvjKDH_shooterTwo.png',' 75', '20', false, true, false, '0', '5', '3', req.session.user_id], function(data){});
+						projectX.createNewUserHeroes(['plantTypes', 'asset', 'cost', 'energy', 'isSunProducer', 'isShooter', 'isExploding', 'sunFrequency', 'shootingFrequency', 'damage', 'userId'], ['heroTwo', 'BkDbF4_H_bart.png',' 75', '20', false, true, false, '0', '5', '3', req.session.user_id], function(data){});
 						
-						projectX.createNewUserHeroes(['plantTypes', 'asset', 'cost', 'energy', 'isSunProducer', 'isShooter', 'isExploding', 'sunFrequency', 'shootingFrequency', 'damage', 'userId'], ['heroThree', 'rkAwoYwB_energyOne.png',' 100', '10', true, false, false, '9', '0', '0', req.session.user_id], function(data){});
+						projectX.createNewUserHeroes(['plantTypes', 'asset', 'cost', 'energy', 'isSunProducer', 'isShooter', 'isExploding', 'sunFrequency', 'shootingFrequency', 'damage', 'userId'], ['heroThree', 'H14iONdr_homerSimpson.png',' 100', '10', true, false, false, '9', '0', '0', req.session.user_id], function(data){});
 						
-						projectX.createNewUserHeroes(['plantTypes', 'asset', 'cost', 'energy', 'isSunProducer', 'isShooter', 'isExploding', 'sunFrequency', 'shootingFrequency', 'damage', 'userId'], ['heroFour', 'B1ytjKDS_bomberOne.png',' 125', '10', false, false, true, '0', '0', '50', req.session.user_id], function(data){});						
+						projectX.createNewUserHeroes(['plantTypes', 'asset', 'cost', 'energy', 'isSunProducer', 'isShooter', 'isExploding', 'sunFrequency', 'shootingFrequency', 'damage', 'userId'], ['heroFour', 'rk_x5E_H_margeSimpson.png',' 125', '10', false, false, true, '0', '0', '50', req.session.user_id], function(data){});						
 
-						projectX.createNewUserHeroes(['plantTypes', 'asset', 'cost', 'energy', 'isSunProducer', 'isShooter', 'isExploding', 'sunFrequency', 'shootingFrequency', 'damage', 'userId'], ['heroFive', 'SkpsoKDB_shooterOne.png',' 150', '15', true, false, false, '8', '0', '0', req.session.user_id], function(data){});
+						projectX.createNewUserHeroes(['plantTypes', 'asset', 'cost', 'energy', 'isSunProducer', 'isShooter', 'isExploding', 'sunFrequency', 'shootingFrequency', 'damage', 'userId'], ['heroFive', 'ByCwcV_r_barney.png',' 150', '15', true, false, false, '8', '0', '0', req.session.user_id], function(data){});
 						
-						projectX.createNewUserHeroes(['plantTypes', 'asset', 'cost', 'energy', 'isSunProducer', 'isShooter', 'isExploding', 'sunFrequency', 'shootingFrequency', 'damage', 'userId'], ['heroSix', 'SJ16jtDH_shooterOne.png',' 175', '15', true, false, false, '8', '0', '0', req.session.user_id], function(data){});
+						projectX.createNewUserHeroes(['plantTypes', 'asset', 'cost', 'energy', 'isSunProducer', 'isShooter', 'isExploding', 'sunFrequency', 'shootingFrequency', 'damage', 'userId'], ['heroSix', 'r15Jo4dH_chiefWiggums.png',' 175', '15', true, false, false, '8', '0', '0', req.session.user_id], function(data){});
 						
-						projectX.createNewUserHeroes(['plantTypes', 'asset', 'cost', 'energy', 'isSunProducer', 'isShooter', 'isExploding', 'sunFrequency', 'shootingFrequency', 'damage', 'userId'], ['heroSeven', 'SJLAitDH_shooterOne.png',' 200', '10', false, true, false, '0', '2', '2', req.session.user_id], function(data){});
+						projectX.createNewUserHeroes(['plantTypes', 'asset', 'cost', 'energy', 'isSunProducer', 'isShooter', 'isExploding', 'sunFrequency', 'shootingFrequency', 'damage', 'userId'], ['heroSeven', 'H1JusEuH_montgomeryBurns.png',' 200', '10', false, true, false, '0', '2', '2', req.session.user_id], function(data){});
 						
-						projectX.createNewUserHeroes(['plantTypes', 'asset', 'cost', 'energy', 'isSunProducer', 'isShooter', 'isExploding', 'sunFrequency', 'shootingFrequency', 'damage', 'userId'], ['heroEight', 'S17-nFDB_shooterOne.png',' 225', '20', false, true, false, '0', '5', '3', req.session.user_id], function(data){});
+						projectX.createNewUserHeroes(['plantTypes', 'asset', 'cost', 'energy', 'isSunProducer', 'isShooter', 'isExploding', 'sunFrequency', 'shootingFrequency', 'damage', 'userId'], ['heroEight', 'Hy3CiEOr_moe.png',' 225', '20', false, true, false, '0', '5', '3', req.session.user_id], function(data){});
 						
-						projectX.createNewUserHeroes(['plantTypes', 'asset', 'cost', 'energy', 'isSunProducer', 'isShooter', 'isExploding', 'sunFrequency', 'shootingFrequency', 'damage', 'userId'], ['heroNine', 'r11fhtDr_shooterOne.png',' 250', '15', true, false, false, '8', '0', '0', req.session.user_id], function(data){});
+						projectX.createNewUserHeroes(['plantTypes', 'asset', 'cost', 'energy', 'isSunProducer', 'isShooter', 'isExploding', 'sunFrequency', 'shootingFrequency', 'damage', 'userId'], ['heroNine', 'H15H3VOH_nedFlanders.png',' 250', '15', true, false, false, '8', '0', '0', req.session.user_id], function(data){});
 						
-						projectX.createNewUserHeroes(['plantTypes', 'asset', 'cost', 'energy', 'isSunProducer', 'isShooter', 'isExploding', 'sunFrequency', 'shootingFrequency', 'damage', 'userId'], ['heroTen', 'Sy5GhYwB_shooterOne.png',' 275', '10', false, false, true, '0', '2', '50', req.session.user_id], function(data){});
+						projectX.createNewUserHeroes(['plantTypes', 'asset', 'cost', 'energy', 'isSunProducer', 'isShooter', 'isExploding', 'sunFrequency', 'shootingFrequency', 'damage', 'userId'], ['heroTen', 'Syto2NdH_cletus.png',' 275', '10', false, false, true, '0', '2', '50', req.session.user_id], function(data){});
 
 						projectX.createNewUserEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy', 'userId'], ["zombieOne", "BysLnKwH_zombieOne.png", 0.5, -20, 3, req.session.user_id], function(data){});
 
