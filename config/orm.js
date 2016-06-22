@@ -26,7 +26,7 @@ var orm = {
     var queryString = 'SELECT * FROM ' + tableInput;
     queryString = queryString + ' WHERE ';
     queryString = queryString + condition;
-    console.log(queryString);
+    
     connection.query(queryString, function(err, result) {
         if (err) throw err;
         cb(result);
@@ -42,8 +42,6 @@ var orm = {
     queryString = queryString + 'VALUES (';
     queryString = queryString + printQuestionMarks(vals.length);
     queryString = queryString + ') ';
-
-    console.log(queryString);
 
     connection.query(queryString, vals, function(err, result) {
       if (err) throw err;
@@ -67,7 +65,6 @@ var orm = {
     queryString += ' WHERE ';
     queryString += condition;
 
-    console.log(queryString)
     connection.query(queryString, function(err, result) {
       if (err) throw err;
       cb(result);
@@ -94,8 +91,6 @@ var orm = {
     queryString = queryString + printQuestionMarks(vals.length);
     queryString += ') ';
 
-    console.log(queryString)
-
     connection.query(queryString, vals, function(err, result) {
       if (err) throw err;
       cb(result);
@@ -111,34 +106,11 @@ var orm = {
     queryString = queryString + printQuestionMarks(vals.length);
     queryString += ') ';
 
-    console.log(queryString)
-
     connection.query(queryString, vals, function(err, result) {
       if (err) throw err;
       cb(result);
     });
   },
-
-  // createNewUserHeroes: function(table, cols, vals, cb) {
-  //   var queryString = 'INSERT INTO ' + table;
-
-  //   queryString += ' (plantTypes, asset, cost, energy, isSunProducer, isShooter, isExploding, sunFrequency, shootingFrequency, damage, userId) ';
-  //   queryString += 'VALUES';
-  //   queryString += ' (';
-  //   queryString = queryString + printQuestionMarks(vals.length);
-  //   queryString += ')';
-  //   queryString += ', ';
-  //   queryString += '(';
-  //   queryString = queryString + printQuestionMarks(vals.length);
-  //   queryString += ') ';
-
-  //   console.log(queryString)
-
-  //   connection.query(queryString, vals, function(err, result) {
-  //     if (err) throw err;
-  //     cb(result);
-  //   });
-  // },
   
   createNewUserHeroes: function(table, cols, vals, cb) {
     var queryString = 'INSERT INTO ' + table;
@@ -147,8 +119,6 @@ var orm = {
     queryString += ' (';
     queryString = queryString + printQuestionMarks(vals.length);
     queryString += ') ';
-
-    console.log(queryString)
 
     connection.query(queryString, vals, function(err, result) {
       if (err) throw err;
@@ -164,8 +134,6 @@ var orm = {
     queryString += ' (';
     queryString = queryString + printQuestionMarks(vals.length);
     queryString += ') ';
-
-    console.log(queryString);
 
     connection.query(queryString, vals, function(err, result) {
       if (err) throw err;
@@ -185,7 +153,6 @@ var orm = {
     var queryString = 'SELECT * FROM ' + tableInput;
     queryString += ' WHERE ';
     queryString += condition;
-    console.log('This is new ' + queryString)
     connection.query(queryString, function(err, result) {
         if (err) throw err;
         cb(result);
@@ -196,7 +163,6 @@ var orm = {
     var queryString = 'SELECT * FROM ' + tableInput;
     queryString += ' WHERE ';
     queryString += condition;
-    console.log('This is new ' + queryString)
     connection.query(queryString, function(err, result) {
         if (err) throw err;
         cb(result);
@@ -207,7 +173,6 @@ var orm = {
     var queryString = 'SELECT * FROM ' + tableInput;
     queryString += ' WHERE ';
     queryString += condition;
-    console.log('This is new ' + queryString)
     connection.query(queryString, function(err, result) {
         if (err) throw err;
         cb(result);
