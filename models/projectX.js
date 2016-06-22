@@ -37,8 +37,8 @@ var projectX = {
 		});
 	},
 
-	allHeroes: function(cb) {
-		orm.all('heroes', function(res){
+	allHeroes: function(condition, cb) {
+		orm.allHeroes('heroes', condition, function(res){
 			cb(res);
 		});
 	},
@@ -67,8 +67,8 @@ var projectX = {
 		});
 	},
 
-	allEnemies: function(cb) {
-		orm.all('enemies', function(res){
+	allEnemies: function(condition, cb) {
+		orm.allEnemies('enemies', condition, function(res){
 			cb(res);
 		});
 	},

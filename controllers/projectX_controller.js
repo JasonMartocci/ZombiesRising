@@ -61,7 +61,8 @@ router.get('/characters', function(req,res) {
 });
 
 router.get('/heroes', function(req,res) {
-	projectX.allHeroes(function(data){
+	var condition = 'userId = ' + req.session.user_id;
+	projectX.allHeroes(condition, function(data){
 		var hbsObject = {heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
 		res.render('heroes', hbsObject);
 	});
@@ -184,8 +185,10 @@ router.post('/heroes/updateImage/:heroesId/:plantTypes/:cost/:energy/:isSunProdu
     });
 });
 
+
 router.get('/enemies', function(req,res) {
-	projectX.allEnemies(function(data){
+	var condition = 'userId = ' + req.session.user_id;
+	projectX.allEnemies(condition, function(data){
 		var hbsObject = {enemies : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
 		res.render('enemies', hbsObject);
 	});

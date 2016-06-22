@@ -181,16 +181,22 @@ var orm = {
     });
   },
 
-  allHeroes: function(tableInput, cb) {
-    var queryString = 'SELECT * FROM ' + tableInput + ';';
+  allHeroes: function(tableInput, condition, cb) {
+    var queryString = 'SELECT * FROM ' + tableInput;
+    queryString += ' WHERE ';
+    queryString += condition;
+    console.log('This is new ' + queryString)
     connection.query(queryString, function(err, result) {
         if (err) throw err;
         cb(result);
     });
   },
 
-  allEnemies: function(tableInput, cb) {
-    var queryString = 'SELECT * FROM ' + tableInput + ';';
+  allEnemies: function(tableInput, condition, cb) {
+    var queryString = 'SELECT * FROM ' + tableInput;
+    queryString += ' WHERE ';
+    queryString += condition;
+    console.log('This is new ' + queryString)
     connection.query(queryString, function(err, result) {
         if (err) throw err;
         cb(result);
