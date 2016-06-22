@@ -102,7 +102,7 @@ router.post('/create', function(req,res) {
 
 						projectX.createNewUserEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy', 'userId'], ["zombieThree", "BJqaYruB_zombieThree.png", 1.25, -10, 10, req.session.user_id], function(data){});
 
-						projectX.createNewUserEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy', 'userId'], ["zombieFour", "BJyYntDS_zombieFour.png", 1.5, -9, 35, req.session.user_id], function(data){});
+						projectX.createNewUserEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy', 'userId'], ["zombieFour", "ryNPR8_S_zombieFour.png", 1.5, -9, 35, req.session.user_id], function(data){});
 
 						projectX.createNewUserEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy', 'userId'], ["zombieFive", "SJTc2YDS_zombieOne.png", 1.75, -8, 40, req.session.user_id], function(data){});
 
