@@ -104,17 +104,17 @@ router.post('/create', function(req,res) {
 
 						projectX.createNewUserEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy', 'userId'], ["zombieFour", "ryNPR8_S_zombieFour.png", 1.5, -9, 35, req.session.user_id], function(data){});
 
-						projectX.createNewUserEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy', 'userId'], ["zombieFive", "SJTc2YDS_zombieOne.png", 1.75, -8, 40, req.session.user_id], function(data){});
+						projectX.createNewUserEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy', 'userId'], ["zombieFive", "HyyIxvOH_zombieFive.png", 1.75, -8, 40, req.session.user_id], function(data){});
 
-						projectX.createNewUserEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy', 'userId'], ["bossOne", "Skdj2YwH_bossOne.png", 2.00, -15, 45, req.session.user_id], function(data){});
+						projectX.createNewUserEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy', 'userId'], ["bossOne", "rkrXGwOB_bossOne.png", 2.00, -15, 45, req.session.user_id], function(data){});
 
-						projectX.createNewUserEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy', 'userId'], ["bossTwo", "ryG2hFvS_bossOne.png", 2.25, -15, 45, req.session.user_id], function(data){});
+						projectX.createNewUserEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy', 'userId'], ["bossTwo", "S1Mj-wdB_bossTwo.png", 2.25, -15, 45, req.session.user_id], function(data){});
 
-						projectX.createNewUserEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy', 'userId'], ["bossThree", "Hki3hKPr_bossOne.png", 2.50, -15, 45, req.session.user_id], function(data){});
+						projectX.createNewUserEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy', 'userId'], ["bossThree", "r1q4VwOB_bossThree.png", 2.50, -15, 45, req.session.user_id], function(data){});
 
-						projectX.createNewUserEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy', 'userId'], ["bossFour", "rJBT3YDB_bossOne.png", 2.75, -15, 45, req.session.user_id], function(data){});
+						projectX.createNewUserEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy', 'userId'], ["bossFour", "SJKgBPOH_bossFour.png", 2.75, -15, 45, req.session.user_id], function(data){});
 
-						projectX.createNewUserEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy', 'userId'], ["bossFive", "rkRa2FDr_bossOne.png", 3, -15, 45, req.session.user_id], function(data){
+						projectX.createNewUserEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy', 'userId'], ["bossFive", "H1eM8vur_bossFive.png", 3, -15, 45, req.session.user_id], function(data){
 		                	res.redirect('/index')
 						});
 
