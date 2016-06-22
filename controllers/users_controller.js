@@ -96,11 +96,11 @@ router.post('/create', function(req,res) {
 						
 						projectX.createNewUserHeroes(['plantTypes', 'asset', 'cost', 'energy', 'isSunProducer', 'isShooter', 'isExploding', 'sunFrequency', 'shootingFrequency', 'damage', 'userId'], ['heroTen', 'Syto2NdH_cletus.png',' 275', '10', false, false, true, '0', '2', '50', req.session.user_id], function(data){});
 
-						projectX.createNewUserEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy', 'userId'], ["zombieOne", "BysLnKwH_zombieOne.png", 0.5, -20, 3, req.session.user_id], function(data){});
+						projectX.createNewUserEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy', 'userId'], ["zombieOne", "HyoyBSdr_zombieOne.png", 0.5, -20, 3, req.session.user_id], function(data){});
 
-						projectX.createNewUserEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy', 'userId'], ["zombieTwo", "HyvwhKvB_zombieTwo.png", 1, -8, 10, req.session.user_id], function(data){});
+						projectX.createNewUserEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy', 'userId'], ["zombieTwo", "HyvWwS_r_zombieTwo.png", 1, -8, 10, req.session.user_id], function(data){});
 
-						projectX.createNewUserEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy', 'userId'], ["zombieThree", "HyN_ntwr_zombieThree.png", 1.25, -10, 10, req.session.user_id], function(data){});
+						projectX.createNewUserEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy', 'userId'], ["zombieThree", "BJqaYruB_zombieThree.png", 1.25, -10, 10, req.session.user_id], function(data){});
 
 						projectX.createNewUserEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy', 'userId'], ["zombieFour", "BJyYntDS_zombieFour.png", 1.5, -9, 35, req.session.user_id], function(data){});
 
