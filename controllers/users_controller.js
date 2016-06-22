@@ -63,6 +63,7 @@ router.post('/create', function(req,res) {
 
 //fix this
 			res.send('we already have an email or username for this account');
+			res.redirect('/signInFail');
 
 		}else{
 			bcrypt.genSalt(10, function(err, salt) {
