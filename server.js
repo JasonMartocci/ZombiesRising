@@ -7,8 +7,8 @@ const app = express();
 const aws = require('aws-sdk');
 
 
-//allow sessions
-app.use(session({ secret: 'app', cookie: { maxAge: 60000 }}));
+//allow sessions cookie set to 30 days.
+app.use(session({ secret: 'app', cookie: { maxAge: 60*60*24*30 }}));
 app.use(cookieParser());
 
 //Serve static content for the app from the "public" directory in the application directory.
