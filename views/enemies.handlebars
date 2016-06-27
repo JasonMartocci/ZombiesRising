@@ -42,7 +42,7 @@
                   <th>Your Enemies</th>
                   <th>Character Type</th>
                   <th>Damage</th>
-                  <th>Speed</th>
+                  <th>Zombie Speed - Lower Faster</th>
                   <th>Hit Points</th>
                   <th>Edit</th>
               </tr>
@@ -97,7 +97,7 @@
                                 <output name="damageOutputName" id="damageOutputId">{{this.damage}}</output>
                               </div>
                               <div class="form-group">
-                                Speed
+                                Zombie Speed - Lower Faster
                                 <input type="range" class="form-control input-md" name="vx" id="vx" value="{{this.vx}}" min="-50" max="5" oninput="vxOutputId.value = vx.value">
                                 <output name="vxOutputName" id="vxOutputId">{{this.vx}}</output> 
                               </div>
@@ -175,12 +175,12 @@
                 <output name="damageOutputName" id="damageOutputId">{{this.damage}}</output>
               </div>
               <div class="form-group">
-                Speed <input type="range" class="form-control input-md" name="vx" id="vx" value="" min="-50" max="5" oninput="vxOutputId.value = vx.value">
+                Zombie Speed - Lower Faster <input type="range" class="form-control input-md" name="vx" id="vx" value="" min="-50" max="5" oninput="vxOutputId.value = vx.value">
                 <output name="vxOutputName" id="vxOutputId">{{this.vx}}</output>
               </div>
               <div class="form-group">
                 Hit Points <input type="range" class="form-control input-md" name="energy" id="energy" value="" min="1" max="200" oninput="energyOutputId.value = energy.value">
-                <output name="energyOutputName" id="energyOutputId">{{this.energy}}</output>
+                <output name="energyOutputName" id="energyOutputId">{{this.energy.reverse}}</output>
               </div>
               <div class="form-group">
                 <button class="btn btn-success btn-lg btn-block">Enter New Enemy</button>
