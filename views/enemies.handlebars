@@ -5,15 +5,11 @@
     </div>
     <div class="col-md-10">
       <ul class="nav nav-pills">
-        {{#if isUser}}
-          <li role="presentation"><a href="/game" class="whtNavText">Play Zombies Rising</a></li>
-          <li role="presentation"><a href="/characters" class="whtNavText">Character Editor</a></li>
-        {{/if}}       
+        <li role="presentation"><a href="/game" class="whtNavText">Play Zombies Rising</a></li>
+        <li role="presentation"><a href="/characters" class="whtNavText">Character Editor</a></li>
 
         {{#if isAdmin}}
-          <li role="presentation"><a href="/game" class="whtNavText">Play Zombies Rising</a></li>
           <li role="presentation"><a href="/users" class="whtNavText">Users Information</a></li>
-          <li role="presentation"><a href="/characters" class="whtNavText"><u>Character Editor</u></a></li>
         {{/if}}
 
         {{#unless logged_in}}
@@ -32,9 +28,9 @@
     <div class="col-md-12">&nbsp;</div>
     <div class="col-md-12">
       {{#if isAdmin}}
-        <button data-toggle="modal" data-target="#addNew" class="btn btn-success btn-sm newUserBtn">Enter New Enemies</button>
+        <button data-toggle="modal" data-target="#addNew" class="btn btn-success btn-md newUserBtn">Enter New Enemies</button>
       {{/if}}
-      <a href="/heroes" class="btn btn-info  btn-sm">Heroes Editor</a>
+      <a href="/heroes" class="btn btn-info  btn-md">Heroes Editor</a>
     </div>
     <div class="col-md-12">&nbsp;</div>
   </div>
@@ -43,11 +39,11 @@
       <table id="enemies" class="display" cellspacing="0" width="100%">
           <thead>
               <tr class="tableDetails">
-                  <th>Character</th>
+                  <th>Your Enemies</th>
                   <th>Character Type</th>
                   <th>Damage</th>
                   <th>Speed</th>
-                  <th>Energy</th>
+                  <th>Hit Points</th>
                   <th>Edit</th>
               </tr>
           </thead>
@@ -78,7 +74,7 @@
                         <div class="modal-body">
                           <form action="enemies/updateImage/{{this.enemiesId}}/{{this.zombieTypes}}/{{this.vx}}/{{this.damage}}/{{this.energy}}" method="POST" class="form center-block" enctype="multipart/form-data">
                               <div class="form-group">
-                                Image <input type="file" id="file-input" class="form-control input-md" name="asset" accept="image/png" required>
+                                Character Image (max height 224px) <input type="file" id="enemies-file-input" class="form-control input-md" name="asset" accept="image/*" required>
                               </div>
                               <div class="form-group">
                                 <input type="hidden" value="{{this.zombieTypes}}" name="zombieTypes">
@@ -172,7 +168,7 @@
                 </select>
               </div>
               <div class="form-group">
-                Image <input type="file" id="file-input" class="form-control input-md" name="asset" accept="image/png" required>
+                Character Image (max height 224px) <input type="file" id="newEnemies-file-input" class="form-control input-md" name="asset" accept="image/*" required>
               </div>
               <div class="form-group">
                 Damage <input type="range" class="form-control input-md" name="damage" id="damage" value="" min="1" max="20" oninput="damageOutputId.value = damage.value">
@@ -183,7 +179,7 @@
                 <output name="vxOutputName" id="vxOutputId">{{this.vx}}</output>
               </div>
               <div class="form-group">
-                Energy <input type="range" class="form-control input-md" name="energy" id="energy" value="" min="1" max="200" oninput="energyOutputId.value = energy.value">
+                Hit Points <input type="range" class="form-control input-md" name="energy" id="energy" value="" min="1" max="200" oninput="energyOutputId.value = energy.value">
                 <output name="energyOutputName" id="energyOutputId">{{this.energy}}</output>
               </div>
               <div class="form-group">

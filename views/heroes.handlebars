@@ -5,15 +5,11 @@
     </div>
     <div class="col-md-10">
       <ul class="nav nav-pills">
-        {{#if isUser}}
-          <li role="presentation"><a href="/game" class="whtNavText">Play Zombies Rising</a></li>
-          <li role="presentation"><a href="/characters" class="whtNavText">Character Editor</a></li>
-        {{/if}}
+        <li role="presentation"><a href="/game" class="whtNavText">Play Zombies Rising</a></li>
+        <li role="presentation"><a href="/characters" class="whtNavText">Character Editor</a></li>
 
         {{#if isAdmin}}
-          <li role="presentation"><a href="/game" class="whtNavText">Play Zombies Rising</a></li>
           <li role="presentation"><a href="/users" class="whtNavText">Users Information</a></li>
-          <li role="presentation"><a href="/characters" class="whtNavText"><u>Character Editor</u></a></li>
         {{/if}}
 
         {{#unless logged_in}}
@@ -32,9 +28,9 @@
     <div class="col-md-12">&nbsp;</div>
     <div class="col-md-12">
       {{#if isAdmin}}
-        <button data-toggle="modal" data-target="#addNew" class="btn btn-success btn-sm newUserBtn">Enter New Heroes</button>
+        <button data-toggle="modal" data-target="#addNew" class="btn btn-success btn-md newUserBtn">Enter New Heroes</button>
       {{/if}}
-      <a href="/enemies" class="btn btn-info  btn-sm">Enemies Editor</a>
+      <a href="/enemies" class="btn btn-info  btn-md">Enemies Editor</a>
     </div>
     <div class="col-md-12">&nbsp;</div>
   </div>
@@ -43,13 +39,13 @@
       <table id="heroes" class="display" cellspacing="0" width="100%">
           <thead>
               <tr class="tableDetails">
-                  <th>Character</th>
+                  <th>Your Heroes</th>
                   <th>Cost</th>
-                  <th>Energy</th>
-                  <th>Sun Producer</th>
-                  <th>Sun Frequency</th>
+                  <th>Hit Points</th>
+                  <th>Money Maker</th>
+                  <th>Money Rate</th>
                   <th>Shooter</th>
-                  <th>Shooter Frequency</th>
+                  <th>Shooter Rate</th>
                   <th>Exploding</th>
                   <th>Damage</th>
                   <th>Edit</th>
@@ -61,11 +57,29 @@
                       <td data-search="{{this.asset}}"><img src="http://s3.amazonaws.com/zombiesrising/{{this.asset}}" height="80" alt="{{this.plantTypes}}"></td>
                       <td data-search="{{this.cost}}">{{this.cost}}</td>
                       <td data-search="{{this.energy}}">{{this.energy}}</td>
-                      <td data-search="{{this.isSunProducer}}">{{this.isSunProducer}}</td>
+                      <td data-search="{{this.isSunProducer}}">
+                        {{#if isSunProducer}}
+                          Yes
+                        {{else}}
+                          No
+                        {{/if}}
+                      </td>
                       <td data-search="{{this.sunFrequency}}">{{this.sunFrequency}}</td>
-                      <td data-search="{{this.isShooter}}">{{this.isShooter}}</td>
+                      <td data-search="{{this.isShooter}}">
+                        {{#if isShooter}}
+                          Yes
+                        {{else}}
+                          No
+                        {{/if}}
+                      </td>
                       <td data-search="{{this.shootingFrequency}}">{{this.shootingFrequency}}</td>
-                      <td data-search="{{this.isExploding}}">{{this.isExploding}}</td>
+                      <td data-search="{{this.isExploding}}">
+                        {{#if isExploding}}
+                          Yes
+                        {{else}}
+                          No
+                        {{/if}}
+                      </td>
                       <td data-search="{{this.damage}}">{{this.damage}}</td>
                       <td width="70" align="center">
                         <span>
@@ -74,7 +88,7 @@
                        </span>
                       </td>
                   </tr>
-                  <!-- Modal -->
+                  <!-- Update Modal Start -->
                   <div id="heroes-{{this.heroesId}}" class="modal fade" role="dialog">
                     <div class="modal-dialog">
                       <!-- Modal content-->
@@ -86,13 +100,19 @@
                         <div class="modal-body">
                           <form action="heroes/updateImage/{{this.heroesId}}/{{this.plantTypes}}/{{this.cost}}/{{this.energy}}/{{this.isSunProducer}}/{{this.isShooter}}/{{this.isExploding}}/{{this.sunFrequency}}/{{this.shootingFrequency}}/{{this.damage}}" method="POST" class="form center-block" enctype="multipart/form-data">
                               <div class="form-group">
-                                Image <input type="file" id="file-input" class="form-control input-md" name="asset" accept="image/png" required>
+                                Character Image (max height 125px) <input type="file" id="heroes-file-input" class="form-control input-md" name="asset" accept="image/*" required>
                               </div>
                               <div class="form-group">
-                                <input type="hidden" value="{{this.zombieTypes}}" name="zombieTypes">
-                                <input type="hidden" value="{{this.vx}}" name="vx">
-                                <input type="hidden" value="{{this.damage}}" name="damage">
+                                <input type="hidden" value="{{this.heroesId}}" name="heroesId">
+                                <input type="hidden" value="{{this.plantTypes}}" name="plantTypes">
+                                <input type="hidden" value="{{this.cost}}" name="cost">
                                 <input type="hidden" value="{{this.energy}}" name="energy">
+                                <input type="hidden" value="{{this.isSunProducer}}" name="isSunProducer">
+                                <input type="hidden" value="{{this.isShooter}}" name="isShooter">
+                                <input type="hidden" value="{{this.isExploding}}" name="isExploding">
+                                <input type="hidden" value="{{this.sunFrequency}}" name="sunFrequency">
+                                <input type="hidden" value="{{this.shootingFrequency}}" name="shootingFrequency">
+                                <input type="hidden" value="{{this.damage}}" name="damage">
                                 <button class="btn btn-success btn-lg btn-block">Update Image</button>                                    
                               </div>
                           </form>
@@ -109,34 +129,52 @@
                                 <output name="costOutputName" id="costOutputId">{{this.cost}}</output>
                               </div>
                               <div class="form-group">
-                                Energy
+                                Hit Points
                                 <input type="range" class="form-control input-md" name="energy" id="energy" value="{{this.energy}}" min="1" max="50" oninput="energyOutputId.value = energy.value">
                                 <output name="energyOutputName" id="energyOutputId">{{this.energy}}</output>
                               </div>
                               <div class="form-group">
-                                Sun Producer
+                                Money Maker
                                 <input type="range" class="form-control input-md" name="isSunProducer" id="isSunProducer" value="{{this.isSunProducer}}" min="0" max="1" oninput="isSunProducerOutputId.value = isSunProducer.value">
-                                <output name="isSunProducerOutputName" id="isSunProducerOutputId">{{this.isSunProducer}}</output>
+                                <output name="isSunProducerOutputName" id="isSunProducerOutputId">
+                                  {{#if isSunProducer}}
+                                    Yes
+                                  {{else}}
+                                    No
+                                  {{/if}}
+                                </output>
                               </div>
                               <div class="form-group">
-                                Sun Frequency
+                                Money Rate
                                 <input type="range" class="form-control input-md" name="sunFrequency" id="sunFrequency" value="{{this.sunFrequency}}" min="1" max="20" oninput="sunFrequencyOutputId.value = sunFrequency.value">
                                 <output name="sunFrequencyOutputName" id="sunFrequencyOutputId">{{this.sunFrequency}}</output>
                               </div>
                               <div class="form-group">
                                 Shooter
                                 <input type="range" class="form-control input-md" name="isShooter" id="isShooter" value="{{this.isShooter}}" min="0" max="1" oninput="isShooterOutputId.value = isShooter.value">
-                                <output name="isShooterOutputName" id="isShooterOutputId">{{this.isShooter}}</output>
+                                <output name="isShooterOutputName" id="isShooterOutputId">
+                                  {{#if isShooter}}
+                                    Yes
+                                  {{else}}
+                                    No
+                                  {{/if}}
+                                </output>
                               </div>
                               <div class="form-group">
-                                Shooting Frequency
+                                Shooter Rate
                                 <input type="range" class="form-control input-md" name="shootingFrequency" id="shootingFrequency" value="{{this.shootingFrequency}}" min="1" max="20" oninput="shootingFrequencyOutputId.value = shootingFrequency.value">
                                 <output name="shootingFrequencyOutputName" id="shootingFrequencyOutputId">{{this.shootingFrequency}}</output>
                               </div>
                               <div class="form-group">
                                 Exploding
                                 <input type="range" class="form-control input-md" name="isExploding" id="isExploding" value="{{this.isExploding}}" min="0" max="1" oninput="isExplodingOutputId.value = isExploding.value">
-                                <output name="isExplodingOutputName" id="isExplodingOutputId">{{this.isExploding}}</output>
+                                <output name="isExplodingOutputName" id="isExplodingOutputId">
+                                  {{#if isExploding}}
+                                    Yes
+                                  {{else}}
+                                    No
+                                  {{/if}}
+                                </output>
                               </div>
                               <div class="form-group">
                                 Damage
@@ -206,8 +244,7 @@
                 </select>
               </div>
               <div class="form-group">
-                Image Location
-                <input type="file" id="file-input" class="form-control input-md" name="asset" accept="image/png" required>
+                Character Image (max height 125px) <input type="file" id="newHeroes-file-input" class="form-control input-md" name="asset" accept="image/*" required>
               </div>
               <div class="form-group">
                 Cost
@@ -215,17 +252,17 @@
                 <output name="costOutputName" id="costOutputId">{{this.cost}}</output>
               </div>
               <div class="form-group">
-                Energy
+                Hit Points
                 <input type="range" class="form-control input-md" name="energy" id="energy" value="{{this.energy}}" min="1" max="50" oninput="energyOutputId.value = energy.value" required>
                 <output name="energyOutputName" id="energyOutputId">{{this.energy}}</output>
               </div>
               <div class="form-group">
-                Sun Producer
+                Money Maker
                 <input type="range" class="form-control input-md" name="isSunProducer" id="isSunProducer" value="{{this.isSunProducer}}" min="0" max="1" oninput="isSunProducerOutputId.value = isSunProducer.value" required>
                 <output name="isSunProducerOutputName" id="isSunProducerOutputId">{{this.isSunProducer}}</output>
               </div>
               <div class="form-group">
-                Sun Frequency
+                Money Rate
                 <input type="range" class="form-control input-md" name="sunFrequency" id="sunFrequency" value="{{this.sunFrequency}}" min="1" max="20" oninput="sunFrequencyOutputId.value = sunFrequency.value" required>
                 <output name="sunFrequencyOutputName" id="sunFrequencyOutputId">{{this.sunFrequency}}</output>
               </div>
@@ -235,7 +272,7 @@
                 <output name="isShooterOutputName" id="isShooterOutputId">{{this.isShooter}}</output>
               </div>
               <div class="form-group">
-                Shooting Frequency
+                Shooter Rate
                 <input type="range" class="form-control input-md" name="shootingFrequency" id="shootingFrequency" value="{{this.shootingFrequency}}" min="1" max="20" oninput="shootingFrequencyOutputId.value = shootingFrequency.value" required>
                 <output name="shootingFrequencyOutputName" id="shootingFrequencyOutputId">{{this.shootingFrequency}}</output>
               </div>

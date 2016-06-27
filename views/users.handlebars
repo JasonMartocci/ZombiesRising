@@ -5,14 +5,11 @@
     </div>
     <div class="col-md-10">
       <ul class="nav nav-pills">
-        {{#if isUser}}
-          <li role="presentation"><a href="/game" class="whtNavText">Play Zombies Rising</a></li>
-        {{/if}}       
+        <li role="presentation"><a href="/game" class="whtNavText">Play Zombies Rising</a></li>
+        <li role="presentation"><a href="/characters" class="whtNavText">Character Editor</a></li>
 
         {{#if isAdmin}}
-          <li role="presentation"><a href="/game" class="whtNavText">Play Zombies Rising</a></li>
-          <li role="presentation"><a href="/users" class="whtNavText"><u>Users Information</u></a></li>
-          <li role="presentation"><a href="/characters" class="whtNavText">Character Editor</a></li>
+          <li role="presentation"><a href="/users" class="whtNavText">Users Information</a></li>
         {{/if}}
 
         {{#unless logged_in}}
@@ -28,7 +25,7 @@
   <div class="row inventory tableDetails">
     <div class="col-md-12">&nbsp;</div>
     <div class="col-md-12">
-      <button data-toggle="modal" data-target="#addNew" class="btn btn-success btn-sm newUserBtn">Enter New User</button>
+      <button data-toggle="modal" data-target="#addNew" class="btn btn-success btn-md newUserBtn">Enter New User</button>
     </div>
     <div class="col-md-12">&nbsp;</div>
   </div>
