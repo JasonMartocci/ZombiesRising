@@ -49,6 +49,8 @@ Quintus.ZombiesEnemies = function(Q) {
       });
       this.add('2d');
 
+      Q.audio.play('/assets/audio/brainzzz.mp3');
+      
       this.p.originalVx = this.p.vx;
 
       this.on("bump.left",function(collision) {
