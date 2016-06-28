@@ -336,14 +336,14 @@ router.get('/api/enemies', function(req,res) {
 	});
 });
 
-// router.get('/game/:userId', function(req,res) {
-// 	var condition = 'userId = ' + req.params.userId;
-// 	console.log('This is game get: ' + condition);
-// 	projectX.allGameData(condition, function(data){
-// 		var hbsObject = {heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
-// 		res.render('game', hbsObject);
-// 	});
-// });
+router.get('/game/:userId', function(req,res) {
+	var condition = 'userId = ' + req.params.userId;
+	console.log('This is game get: ' + condition);
+	projectX.allUsersGameData(condition, function(data){
+		var hbsObject = {heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
+		res.render('game', hbsObject);
+	});
+});
 
 // router.get('/api/heroes/:userId', function(req,res) {
 // 	var condition = 'userId = ' + req.params.userId;
