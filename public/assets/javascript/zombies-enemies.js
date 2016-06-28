@@ -2,26 +2,8 @@ Quintus.ZombiesEnemies = function(Q) {
 
   Q.zombieTypes = {};
 
-  $.ajax({
-    url: '/api/enemies/',
-    method: 'get',
-    success: function(data){
-      for(var i = 0; i < data.enemies.length; i++) {
-        var enemiesData = data.enemies;
-        var enemiesTypes = enemiesData[i]['zombieTypes'];
-        var enemiesAssets = {
-          'asset': 'http://s3.amazonaws.com/zombiesrising/' + enemiesData[i].asset,
-          'damage': enemiesData[i].damage,
-          'vx': enemiesData[i].vx,
-          'energy': enemiesData[i].energy
-        };
-        Q.zombieTypes[enemiesTypes] = enemiesAssets;
-      }
-    }
-  });  
-
   // $.ajax({
-  //   url: '/api/enemies/:userId',
+  //   url: '/api/enemies/',
   //   method: 'get',
   //   success: function(data){
   //     for(var i = 0; i < data.enemies.length; i++) {
@@ -36,7 +18,25 @@ Quintus.ZombiesEnemies = function(Q) {
   //       Q.zombieTypes[enemiesTypes] = enemiesAssets;
   //     }
   //   }
-  // });
+  // });  
+
+  $.ajax({
+    url: '/api/enemies/:userId',
+    method: 'get',
+    success: function(data){
+      for(var i = 0; i < data.enemies.length; i++) {
+        var enemiesData = data.enemies;
+        var enemiesTypes = enemiesData[i]['zombieTypes'];
+        var enemiesAssets = {
+          'asset': 'http://s3.amazonaws.com/zombiesrising/' + enemiesData[i].asset,
+          'damage': enemiesData[i].damage,
+          'vx': enemiesData[i].vx,
+          'energy': enemiesData[i].energy
+        };
+        Q.zombieTypes[enemiesTypes] = enemiesAssets;
+      }
+    }
+  });
   
   //zombie
   Q.Sprite.extend('Zombie', {

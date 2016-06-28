@@ -2,31 +2,8 @@ Quintus.ZombiesHeroes = function(Q) {
 
   Q.plantTypes = {};
 
-  $.ajax({
-    url: '/api/heroes/',
-    method: 'get',
-    success: function(data){
-      for(var i = 0; i < data.heroes.length; i++) {
-        var heroesData = data.heroes;
-        var heroesTypes = heroesData[i]['plantTypes'];
-        var heroesAssets = {
-          'asset': 'http://s3.amazonaws.com/zombiesrising/' + heroesData[i].asset,
-          'cost': heroesData[i].cost,
-          'energy': heroesData[i].energy,
-          'isShooter': heroesData[i].isShooter,
-          'shootingFrequency': heroesData[i].shootingFrequency,
-          'damage': heroesData[i].damage,
-          'isExploding': heroesData[i].isExploding,
-          'isSunProducer': heroesData[i].isSunProducer,
-          'sunFrequency': heroesData[i].sunFrequency
-        };
-        Q.plantTypes[heroesTypes] = heroesAssets;
-      }
-    }
-  });
-
   // $.ajax({
-  //   url: '/api/heroes/:userId',
+  //   url: '/api/heroes/',
   //   method: 'get',
   //   success: function(data){
   //     for(var i = 0; i < data.heroes.length; i++) {
@@ -47,6 +24,29 @@ Quintus.ZombiesHeroes = function(Q) {
   //     }
   //   }
   // });
+
+  $.ajax({
+    url: '/api/heroes/:userId',
+    method: 'get',
+    success: function(data){
+      for(var i = 0; i < data.heroes.length; i++) {
+        var heroesData = data.heroes;
+        var heroesTypes = heroesData[i]['plantTypes'];
+        var heroesAssets = {
+          'asset': 'http://s3.amazonaws.com/zombiesrising/' + heroesData[i].asset,
+          'cost': heroesData[i].cost,
+          'energy': heroesData[i].energy,
+          'isShooter': heroesData[i].isShooter,
+          'shootingFrequency': heroesData[i].shootingFrequency,
+          'damage': heroesData[i].damage,
+          'isExploding': heroesData[i].isExploding,
+          'isSunProducer': heroesData[i].isSunProducer,
+          'sunFrequency': heroesData[i].sunFrequency
+        };
+        Q.plantTypes[heroesTypes] = heroesAssets;
+      }
+    }
+  });
 
   //plant
   Q.Sprite.extend('Plant', {

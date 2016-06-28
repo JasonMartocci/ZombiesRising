@@ -178,6 +178,7 @@ var orm = {
     var queryString = 'SELECT * FROM ' + tableInput;
     queryString += ' WHERE ';
     queryString += condition;
+    console.log('This is all heroes ' + queryString);
     connection.query(queryString, function(err, result) {
         if (err) throw err;
         cb(result);
@@ -188,6 +189,7 @@ var orm = {
     var queryString = 'SELECT * FROM ' + tableInput;
     queryString += ' WHERE ';
     queryString += condition;
+    console.log('This is all enemies ' + queryString);
     connection.query(queryString, function(err, result) {
         if (err) throw err;
         cb(result);
