@@ -318,23 +318,23 @@ router.get('/game', function(req,res) {
 	});
 });
 
-// router.get('/api/heroes', function(req,res) {
-// 	var condition = 'userId = ' + req.session.user_id;
-// 	projectX.allHeroes(condition, function(data){
-// 		var hbsObject = {heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
-// 		// console.log(data);
-// 		res.send(hbsObject);
-// 	});
-// });
+router.get('/api/heroes', function(req,res) {
+	var condition = 'userId = ' + req.session.user_id;
+	projectX.allHeroes(condition, function(data){
+		var hbsObject = {heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
+		// console.log(data);
+		res.send(hbsObject);
+	});
+});
 
-// router.get('/api/enemies', function(req,res) {
-// 	var condition = 'userId = ' + req.session.user_id;
-// 	projectX.allEnemies(condition, function(data){
-// 		var hbsObject = {enemies : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
-// 		// console.log(data);
-// 		res.send(hbsObject);
-// 	});
-// });
+router.get('/api/enemies', function(req,res) {
+	var condition = 'userId = ' + req.session.user_id;
+	projectX.allEnemies(condition, function(data){
+		var hbsObject = {enemies : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
+		// console.log(data);
+		res.send(hbsObject);
+	});
+});
 
 router.get('/game/:userId', function(req,res) {
 	var condition = 'userId = ' + req.params.userId;
@@ -348,7 +348,9 @@ router.get('/game/:userId', function(req,res) {
 // Start I need to figure out how to pass the user id into these two router.gets
 
 router.get('/api/heroes/:userId', function(req,res) {
-	var condition = 'userId = 77';
+	
+	// hardcoded to work
+	var condition = 'userId = 76';
 	projectX.allHeroes(condition, function(data){
 		var hbsObject = {heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
 		// console.log(data);
@@ -357,7 +359,9 @@ router.get('/api/heroes/:userId', function(req,res) {
 });
 
 router.get('/api/enemies/:userId', function(req,res) {
-	var condition = 'userId = 77';
+
+	// hardcoded to work
+	var condition = 'userId = 76';
 	projectX.allEnemies(condition, function(data){
 		var hbsObject = {enemies : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
 		// console.log(data);
