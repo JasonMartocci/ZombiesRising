@@ -47,7 +47,7 @@ window.addEventListener("load",function() {
       for(var i = 0; i < data.enemies.length; i++) {
         var enemiesData = data.enemies;
         var enemiesAssets = 'http://s3.amazonaws.com/zombiesrising/' + enemiesData[i].asset + ', ';
-        console.log(enemiesAssets);
+        console.log('Enemies assets with sessionId: ' + enemiesAssets);
         characterAssets.push(enemiesAssets);        
         characterAssetsString = characterAssets.join(" ");
       }
@@ -74,7 +74,7 @@ window.addEventListener("load",function() {
       for(var i = 0; i < data.heroes.length; i++) {
         var heroesData = data.heroes;
         var heroesAssets = 'http://s3.amazonaws.com/zombiesrising/' + heroesData[i].asset + ', ';
-        console.log(heroesAssets);
+        console.log('Heroes assets with sessionId: ' + heroesAssets);
         characterAssets.push(heroesAssets);        
         characterAssetsString = characterAssets.join(" ");
       }
@@ -101,7 +101,7 @@ window.addEventListener("load",function() {
   //     for(var i = 0; i < data.enemies.length; i++) {
   //       var enemiesData = data.enemies;
   //       var enemiesAssets = 'http://s3.amazonaws.com/zombiesrising/' + enemiesData[i].asset + ', ';
-  //       console.log(enemiesAssets);
+  //       console.log('Enemies assets with param userId: ' + enemiesAssets);
   //       characterAssets.push(enemiesAssets);        
   //       characterAssetsString = characterAssets.join(" ");
   //     }
@@ -128,7 +128,7 @@ window.addEventListener("load",function() {
   //     for(var i = 0; i < data.heroes.length; i++) {
   //       var heroesData = data.heroes;
   //       var heroesAssets = 'http://s3.amazonaws.com/zombiesrising/' + heroesData[i].asset + ', ';
-  //       console.log(heroesAssets);
+  //       console.log('Heroes assets with param userId: ' + heroesAssets);
   //       characterAssets.push(heroesAssets);        
   //       characterAssetsString = characterAssets.join(" ");
   //     }

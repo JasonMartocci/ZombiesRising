@@ -1,0 +1,124 @@
+<div class="container">
+  <div class="row tableHeader">
+    <div class="col-md-2">
+      <a href="/admin"><img src="/assets/images/logo.png" alt="Zombies Rising"></a>
+    </div>
+    <div class="col-md-10">
+      <ul class="nav nav-pills">
+        <li role="presentation"><a href="/game" class="whtNavText">Play Zombies Rising</a></li>
+        <li role="presentation"><a href="/zombieSocial" class="whtNavText">Zombie Social</a></li>
+        <li role="presentation"><a href="/heroes" class="whtNavText">Character Editor</a></li>
+
+        {{#if isAdmin}}
+          <li role="presentation"><a href="/users" class="whtNavText">Users Information</a></li>
+        {{/if}}
+
+        {{#unless logged_in}}
+            <li role="presentation"><a href="/" class="whtNavText">Sign In</a></li>
+        {{/unless}}
+
+        {{#if logged_in}}
+          <li role="presentation"><a href="/users/sign-out" class="whtNavText">Sign Out</a></li>
+        {{/if}}
+      </ul>
+    </div>
+  </div>
+
+  <!-- Start zombieSocial Section -->
+  <div class="row inventory tableDetails">
+    <div class="col-md-12">&nbsp;</div>
+    <div class="col-md-12">
+      {{#if isAdmin}}
+        <button data-toggle="modal" data-target="#addNew" class="btn btn-success btn-md newUserBtn">Enter New Heroes</button>
+      {{/if}}
+      <a href="/game" class="btn btn-warning  btn-md">Kill Time</a>
+    </div>
+    <div class="col-md-12">&nbsp;</div>
+  </div>
+  <div class="row inventory tableDetails">
+    <div class="col-md-12">
+      WOrkin HaRd To BUiLd tHis.
+    </div>
+    <div class="col-md-12">&nbsp;</div>
+  </div>
+
+  <!-- Modal Add New -->
+  <div id="addNew" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title whtText">Enter New Hero</h4>
+        </div>
+        <div class="modal-body">
+          <form action="heroes/createNewHeroes" method="POST" class="form center-block" enctype="multipart/form-data">
+              <div class="form-group">
+                Character Type 
+                <select class="form-control input-md" value="{{this.plantTypes}}" name="plantTypes">
+                  <option value="heroOne">Hero One</option>
+                  <option value="heroTwo">Hero Two</option>
+                  <option value="heroThree">Hero Three</option>
+                  <option value="heroFour">Hero Four</option>
+                  <option value="heroFive">Hero Five</option>
+                  <option value="heroSix">Hero Six</option>
+                  <option value="heroSeven">Hero Seven</option>
+                  <option value="heroEight">Hero Eight</option>
+                  <option value="heroNine">Hero Nine</option>
+                  <option value="heroTen">Hero Ten</option>
+                </select>
+              </div>
+              <div class="form-group">
+                Character Image (max height 125px) <input type="file" id="newHeroes-file-input" class="form-control input-md" name="asset" accept="image/*" required>
+              </div>
+              <div class="form-group">
+                Cost
+                <input type="range" class="form-control input-md" name="cost" id="cost" value="{{this.cost}}" min="1" max="500" oninput="costOutputId.value = cost.value" required>
+                <output name="costOutputName" id="costOutputId">{{this.cost}}</output>
+              </div>
+              <div class="form-group">
+                Hit Points
+                <input type="range" class="form-control input-md" name="energy" id="energy" value="{{this.energy}}" min="1" max="50" oninput="energyOutputId.value = energy.value" required>
+                <output name="energyOutputName" id="energyOutputId">{{this.energy}}</output>
+              </div>
+              <div class="form-group">
+                Money Maker
+                <input type="range" class="form-control input-md" name="isSunProducer" id="isSunProducer" value="{{this.isSunProducer}}" min="0" max="1" oninput="isSunProducerOutputId.value = isSunProducer.value" required>
+                <output name="isSunProducerOutputName" id="isSunProducerOutputId">{{this.isSunProducer}}</output>
+              </div>
+              <div class="form-group">
+                Money Rate
+                <input type="range" class="form-control input-md" name="sunFrequency" id="sunFrequency" value="{{this.sunFrequency}}" min="1" max="20" oninput="sunFrequencyOutputId.value = sunFrequency.value" required>
+                <output name="sunFrequencyOutputName" id="sunFrequencyOutputId">{{this.sunFrequency}}</output>
+              </div>
+              <div class="form-group">
+                Shooter
+                <input type="range" class="form-control input-md" name="isShooter" id="isShooter" value="{{this.isShooter}}" min="0" max="1" oninput="isShooterOutputId.value = isShooter.value" required>
+                <output name="isShooterOutputName" id="isShooterOutputId">{{this.isShooter}}</output>
+              </div>
+              <div class="form-group">
+                Shooter Rate
+                <input type="range" class="form-control input-md" name="shootingFrequency" id="shootingFrequency" value="{{this.shootingFrequency}}" min="1" max="20" oninput="shootingFrequencyOutputId.value = shootingFrequency.value" required>
+                <output name="shootingFrequencyOutputName" id="shootingFrequencyOutputId">{{this.shootingFrequency}}</output>
+              </div>
+              <div class="form-group">
+                Exploding
+                <input type="range" class="form-control input-md" name="isExploding" id="isExploding" value="{{this.isExploding}}" min="0" max="1" oninput="isExplodingOutputId.value = isExploding.value" required>
+                <output name="isExplodingOutputName" id="isExplodingOutputId">{{this.isExploding}}</output>
+              </div>
+              <div class="form-group">
+                Damage
+                <input type="range" class="form-control input-md" name="damage" id="damage" value="{{this.damage}}" min="1" max="100" oninput="damageOutputId.value = damage.value" required>
+                <output name="damageOutputName" id="damageOutputId">{{this.damage}}</output>
+              </div>
+              <div class="form-group">
+                <button class="btn btn-success btn-lg btn-block">Enter New Hero</button>
+              </div>
+          </form>
+        </div>
+        <div class="modal-footer">&nbsp;</div>
+      </div>
+    </div>
+  </div>
+  <!-- End Heroes Section -->
+</div>

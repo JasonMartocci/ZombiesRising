@@ -25,6 +25,13 @@ router.get('/admin', function(req,res) {
 	});
 });
 
+router.get('/zombieSocial', function(req,res) {
+	projectX.allUsers(function(data){
+		var hbsObject = {users : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
+		res.render('zombieSocial', hbsObject);
+	});
+});
+
 router.get('/users', function(req,res) {
 	projectX.allUsers(function(data){
 		var hbsObject = {users : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
@@ -345,12 +352,22 @@ router.get('/api/enemies', function(req,res) {
 	});
 });
 
-// Start I need to figure out how to pass the user id into these two router.gets
+// 	Need to figure out how to pass the user id into these two router.gets
+// 	Then figure out how to have both session and params of userId features to work at same time.
+// 	The files involed to make this work include the following:
+// 	controllers>projectX_controller.js
+// 	public>assets>javascript>startGame.js
+// 	public>assets>javascript>zombies-enemies.js
+// 	public>assets>javascript>zombies-heroes.js
 
 // router.get('/api/heroes/:userId', function(req,res) {
 	
 // 	// hardcoded to work
 // 	var condition = 'userId = 79';
+
+// 	// what I need to work
+// 	var condition = 'userId = ' + req.params.userId;
+
 // 	projectX.allHeroes(condition, function(data){
 // 		var hbsObject = {heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
 // 		// console.log(data);
@@ -362,6 +379,10 @@ router.get('/api/enemies', function(req,res) {
 
 // 	// hardcoded to work
 // 	var condition = 'userId = 79';
+
+// 	// what I need to work
+// 	var condition = 'userId = ' + req.params.userId;
+
 // 	projectX.allEnemies(condition, function(data){
 // 		var hbsObject = {enemies : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
 // 		// console.log(data);
@@ -369,7 +390,7 @@ router.get('/api/enemies', function(req,res) {
 // 	});
 // });
 
-// End I need to figure out how to pass the user id into these two router.gets
+// End Need to figure out how to pass the user id into these two router.gets
 
 router.get('/api/characters', function(req,res) {
 	projectX.allCharacters(function(data){
