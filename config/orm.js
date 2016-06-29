@@ -153,32 +153,18 @@ var orm = {
     var queryString = 'SELECT * FROM ' + tableInput;
     queryString += ' WHERE ';
     queryString += condition;
-    console.log(queryString);
+    console.log('This is allGameData (orm): ' + queryString);
     connection.query(queryString, function(err, result) {
         if (err) throw err;
         cb(result);
     });
   },
 
-  // allUsersGameData: function(condition, cb) {
-  //   var queryString = 'SELECT * FROM enemies, heroes';
-  //   queryString += ' WHERE enemies.userId = ';
-  //   queryString += condition;
-  //   queryString += ' && ';
-  //   queryString += 'heroes.userId = ';
-  //   queryString += condition;
-  //   console.log(queryString);
-  //   connection.query(queryString, function(err, result) {
-  //       if (err) throw err;
-  //       cb(result);
-  //   });
-  // },
-
   allHeroes: function(tableInput, condition, cb) {
     var queryString = 'SELECT * FROM ' + tableInput;
     queryString += ' WHERE ';
     queryString += condition;
-    console.log('This is all heroes ' + queryString);
+    console.log('This is allHeroes (orm): ' + queryString);
     connection.query(queryString, function(err, result) {
         if (err) throw err;
         cb(result);
@@ -189,7 +175,7 @@ var orm = {
     var queryString = 'SELECT * FROM ' + tableInput;
     queryString += ' WHERE ';
     queryString += condition;
-    console.log('This is all enemies ' + queryString);
+    console.log('This is allEnemies (orm): ' + queryString);
     connection.query(queryString, function(err, result) {
         if (err) throw err;
         cb(result);

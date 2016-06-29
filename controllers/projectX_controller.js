@@ -34,7 +34,7 @@ router.get('/users', function(req,res) {
 
 router.delete('/users/delete/:userId', function(req,res) {
 	var condition = 'userId = ' + req.params.userId;
-	console.log('condition', condition);
+	// console.log('condition', condition);
 	projectX.deleteUser(condition, function(data){
 		res.redirect('/users')
 	});
@@ -42,7 +42,7 @@ router.delete('/users/delete/:userId', function(req,res) {
 
 router.put('/users/update/:userId', function(req,res) {
 	var condition = 'userId = ' + req.params.userId;
-	console.log('condition', condition);
+	// console.log('condition', condition);
 	projectX.updateUser({'userName ' : req.body.username, ', name ' : req.body.name, ', emailAddress ' : req.body.emailAddress, ', role ' : req.body.role}, condition, function(data){
 		res.redirect('/users');
 	});
@@ -76,8 +76,8 @@ router.post('/heroes/createNewHeroes', function(req,res) {
 	var form = new formidable.IncomingForm();
 
 	form.parse(req, function(err, fields, files) {
-		console.log(fields);
-		console.log(files);
+		// console.log(fields);
+		// console.log(files);
 
 		// Load the AWS SDK for Node.js
 		var AWS = require('aws-sdk');
@@ -91,7 +91,7 @@ router.post('/heroes/createNewHeroes', function(req,res) {
 		AWS.config.accessKeyId = 'AKIAIECXXO6BFSUJONGQ';
 		AWS.config.secretAccessKey = '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';
 
-		console.log(newFilename);
+		// console.log(newFilename);
 
 		fileStream.on('error', function (err) {
 		  if (err) { throw err; }
@@ -119,7 +119,7 @@ router.post('/heroes/createNewHeroes', function(req,res) {
 
 router.delete('/heroes/delete/:heroesId', function(req,res) {
 	var condition = 'heroesId = ' + req.params.heroesId;
-	console.log('condition', condition);
+	// console.log('condition', condition);
 	projectX.deleteHeroes(condition, function(data){
 		res.redirect('/heroes')
 	});
@@ -127,7 +127,7 @@ router.delete('/heroes/delete/:heroesId', function(req,res) {
 
 router.put('/heroes/update/:heroesId', function(req,res) {
 	var condition = 'heroesId = ' + req.params.heroesId;
-	console.log('condition', condition);
+	// console.log('condition', condition);
 	projectX.updateHeroes({'plantTypes ' : req.body.plantTypes, ', asset ' : req.body.asset, ', cost ' : req.body.cost, ', energy ' : req.body.energy, ', isSunProducer ' : req.body.isSunProducer, ', isShooter ' : req.body.isShooter, ', isExploding ' : req.body.isExploding, ', sunFrequency ' : req.body.sunFrequency, ', shootingFrequency ' : req.body.shootingFrequency, ', damage ' : req.body.damage}, condition, function(data){
 		res.redirect('/heroes');
 	});
@@ -141,8 +141,8 @@ router.post('/heroes/updateImage/:heroesId/:plantTypes/:cost/:energy/:isSunProdu
 	var form = new formidable.IncomingForm();
 
 	form.parse(req, function(err, fields, files) {
-		console.log(fields);
-		console.log(files);
+		// console.log(fields);
+		// console.log(files);
 
 		// Load the AWS SDK for Node.js
 		var AWS = require('aws-sdk');
@@ -157,7 +157,7 @@ router.post('/heroes/updateImage/:heroesId/:plantTypes/:cost/:energy/:isSunProdu
 		AWS.config.accessKeyId = 'AKIAIECXXO6BFSUJONGQ';
 		AWS.config.secretAccessKey = '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';
 
-		console.log(newFilename);
+		// console.log(newFilename);
 
 		fileStream.on('error', function (err) {
 		  if (err) { throw err; }
@@ -174,7 +174,7 @@ router.post('/heroes/updateImage/:heroesId/:plantTypes/:cost/:energy/:isSunProdu
 					console.log("Successfully uploaded data to zombiesrising/myKey");
 					
 					var condition = 'heroesId = ' + req.params.heroesId;
-					console.log('condition', condition);
+					// console.log('condition', condition);
 					projectX.updateHeroes({'plantTypes ' : req.params.plantTypes, ', asset ' : newFilename, ', cost ' : req.params.cost, ', energy ' : req.params.energy, ', isSunProducer ' : req.params.isSunProducer, ', isShooter ' : req.params.isShooter, ', isExploding ' : req.params.isExploding, ', sunFrequency ' : req.params.sunFrequency, ', shootingFrequency ' : req.params.shootingFrequency, ', damage ' : req.params.damage}, condition, function(data){
 						res.redirect('/heroes');
 					});
@@ -201,8 +201,8 @@ router.post('/enemies/createNewEnemies', function(req,res) {
 	var form = new formidable.IncomingForm();
 
 	form.parse(req, function(err, fields, files) {
-		console.log(fields);
-		console.log(files);
+		// console.log(fields);
+		// console.log(files);
 
 		// Load the AWS SDK for Node.js
 		var AWS = require('aws-sdk');
@@ -216,7 +216,7 @@ router.post('/enemies/createNewEnemies', function(req,res) {
 		AWS.config.accessKeyId = 'AKIAIECXXO6BFSUJONGQ';
 		AWS.config.secretAccessKey = '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';
 
-		console.log(newFilename);
+		// console.log(newFilename);
 
 		fileStream.on('error', function (err) {
 		  if (err) { throw err; }
@@ -244,7 +244,7 @@ router.post('/enemies/createNewEnemies', function(req,res) {
 
 router.delete('/enemies/delete/:enemiesId', function(req,res) {
 	var condition = 'enemiesId = ' + req.params.enemiesId;
-	console.log('condition', condition);
+	// console.log('condition', condition);
 	projectX.deleteEnemies(condition, function(data){
 		res.redirect('/enemies')
 	});
@@ -252,7 +252,7 @@ router.delete('/enemies/delete/:enemiesId', function(req,res) {
 
 router.put('/enemies/update/:enemiesId', function(req,res) {
 	var condition = 'enemiesId = ' + req.params.enemiesId;
-	console.log('condition', condition);
+	// console.log('condition', condition);
 	projectX.updateEnemies({'zombieTypes ' : req.body.zombieTypes, ', damage ' : req.body.damage, ', vx ' : req.body.vx, ', energy ' : req.body.energy}, condition, function(data){
 		res.redirect('/enemies');
 	});
@@ -266,8 +266,8 @@ router.post('/enemies/updateImage/:enemiesId/:zombieTypes/:vx/:damage/:energy', 
 	var form = new formidable.IncomingForm();
 
 	form.parse(req, function(err, fields, files) {
-		console.log(fields);
-		console.log(files);
+		// console.log(fields);
+		// console.log(files);
 
 		// Load the AWS SDK for Node.js
 		var AWS = require('aws-sdk');
@@ -282,7 +282,7 @@ router.post('/enemies/updateImage/:enemiesId/:zombieTypes/:vx/:damage/:energy', 
 		AWS.config.accessKeyId = 'AKIAIECXXO6BFSUJONGQ';
 		AWS.config.secretAccessKey = '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';
 
-		console.log(newFilename);
+		// console.log(newFilename);
 
 		fileStream.on('error', function (err) {
 		  if (err) { throw err; }
@@ -299,7 +299,7 @@ router.post('/enemies/updateImage/:enemiesId/:zombieTypes/:vx/:damage/:energy', 
 					console.log("Successfully uploaded data to zombiesrising/myKey");
 					
 					var condition = 'enemiesId = ' + req.params.enemiesId;
-					console.log('condition', condition);
+					// console.log('condition', condition);
 					projectX.updateEnemies({'zombieTypes ' : req.params.zombieTypes, ', asset ' : newFilename, ', damage ' : req.params.damage, ', vx ' : req.params.vx, ', energy ' : req.params.energy}, condition, function(data){
 						res.redirect('/enemies');
 					});
@@ -312,6 +312,15 @@ router.post('/enemies/updateImage/:enemiesId/:zombieTypes/:vx/:damage/:energy', 
 
 router.get('/game', function(req,res) {
 	var condition = 'userId = ' + req.session.user_id;
+	projectX.allGameData(condition, function(data){
+		var hbsObject = {heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
+		res.render('game', hbsObject);
+	});
+});
+
+router.get('/game/:userId', function(req,res) {
+	var condition = 'userId = ' + req.params.userId;
+	console.log('This is game get (projectX_controller): ' + condition);
 	projectX.allGameData(condition, function(data){
 		var hbsObject = {heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
 		res.render('game', hbsObject);
@@ -336,38 +345,29 @@ router.get('/api/enemies', function(req,res) {
 	});
 });
 
-router.get('/game/:userId', function(req,res) {
-	var condition = 'userId = ' + req.params.userId;
-	console.log('This is game get: ' + condition);
-	projectX.allGameData(condition, function(data){
-		var hbsObject = {heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
-		res.render('game', hbsObject);
-	});
-});
-
 // Start I need to figure out how to pass the user id into these two router.gets
 
-router.get('/api/heroes/:userId', function(req,res) {
+// router.get('/api/heroes/:userId', function(req,res) {
 	
-	// hardcoded to work
-	var condition = 'userId = 76';
-	projectX.allHeroes(condition, function(data){
-		var hbsObject = {heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
-		// console.log(data);
-		res.send(hbsObject);
-	});
-});
+// 	// hardcoded to work
+// 	var condition = 'userId = 79';
+// 	projectX.allHeroes(condition, function(data){
+// 		var hbsObject = {heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
+// 		// console.log(data);
+// 		res.send(hbsObject);
+// 	});
+// });
 
-router.get('/api/enemies/:userId', function(req,res) {
+// router.get('/api/enemies/:userId', function(req,res) {
 
-	// hardcoded to work
-	var condition = 'userId = 76';
-	projectX.allEnemies(condition, function(data){
-		var hbsObject = {enemies : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
-		// console.log(data);
-		res.send(hbsObject);
-	});
-});
+// 	// hardcoded to work
+// 	var condition = 'userId = 79';
+// 	projectX.allEnemies(condition, function(data){
+// 		var hbsObject = {enemies : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
+// 		// console.log(data);
+// 		res.send(hbsObject);
+// 	});
+// });
 
 // End I need to figure out how to pass the user id into these two router.gets
 
