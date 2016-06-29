@@ -1,4 +1,7 @@
 <div class="container">
+  <script type="text/javascript" src="/assets/javascript/chat.js"></script>
+  <script type="text/javascript" src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+  
   <div class="row tableHeader">
     <div class="col-md-2">
       <a href="/admin"><img src="/assets/images/logo.png" alt="Zombies Rising"></a>
@@ -36,9 +39,30 @@
     <div class="col-md-12">&nbsp;</div>
   </div>
   <div class="row inventory tableDetails">
-    <div class="col-md-12">
-      WOrkin HaRd To BUiLd tHis.
+    <div class="col-md-2">WOrkin HaRd To BUiLd tHis.</div>
+    <div class="col-md-8">
+      
+      {{#if logged_in}}
+        <!--This is our template. -->
+        <!--Data will be inserted in its according place, replacing the brackets.-->
+        <script id="address-template" type="text/x-handlebars-template">
+          <p>Welcome {{firstName}} {{lastName}}.</p>
+        </script>
+
+        <!--Your new content will be displayed in here-->
+        <div class="content-placeholder"></div> 
+      {{/if}}
+      
+      <div class="chatBoard">
+        <input type='hidden' id='nameInput' placeholder='Name' value="Test Name">
+        <input type='text' id='messageInput' placeholder=" What's on your mind?">
+        <div>&nbsp;</div>
+        <div id='messagesDiv'></div>
+      </div>
     </div>
+    <div class="col-md-2">&nbsp;</div>
+  </div>
+  <div class="row inventory tableDetails">
     <div class="col-md-12">&nbsp;</div>
   </div>
 

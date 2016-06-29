@@ -55,7 +55,83 @@ input:checked + .slider:before {
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
-
+/* =========Start Chat styles=========*/
+#nameInput{
+}
+#messageInput{
+    width:100%;
+    height: 60px;
+}
+.chatBoard{
+    position: relative;
+    background-color: #ffffff;
+    margin: 0 auto;
+    z-index:10;
+}
+.chatMsg{
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #ACB2C1;
+    margin: 12px 0 0 0;
+    padding: 5px;
+}
+#messagesDiv{
+    overflow: scroll;
+    height: 100%;
+    border: 1px solid #ACB2C1;
+    padding: 5px;
+    z-index: 10;
+    background-color: #EDEEF1;
+}
+.hideSearch {
+    background-color: #3379B5;
+    background-image: -webkit-gradient(linear, left left bottom, color-stop(0%, #3379B5), color-stop(100%, #cbe0f5));
+    background-image: -webkit-linear-gradient(#3379B5, #265A89);
+    background-image: -moz-linear-gradient(#3379B5, #265A89);
+    background-image: -ms-linear-gradient(#3379B5, #265A89);
+    background-image: -o-linear-gradient(#3379B5, #265A89);
+    background-image: linear-gradient(#3379B5, #265A89);
+    border: 1px solid #245580;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-shadow: inset 0 1px 0 0 white;
+    -moz-box-shadow: inset 0 1px 0 0 white;
+    box-shadow: inset 0 1px 0 0 white;
+    color: #ffffff;
+    margin-bottom: 10px;
+    padding: 6px 0 7px 0;
+    text-align: center;
+    float:right;
+    width: 80px;
+    cursor: pointer;
+}
+.showSearch {
+    background-color: #3379B5;
+    background-image: -webkit-gradient(linear, left left bottom, color-stop(0%, #3379B5), color-stop(100%, #cbe0f5));
+    background-image: -webkit-linear-gradient(#3379B5, #265A89);
+    background-image: -moz-linear-gradient(#3379B5, #265A89);
+    background-image: -ms-linear-gradient(#3379B5, #265A89);
+    background-image: -o-linear-gradient(#3379B5, #265A89);
+    background-image: linear-gradient(#3379B5, #265A89);
+    border: 1px solid #245580;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-shadow: inset 0 1px 0 0 white;
+    -moz-box-shadow: inset 0 1px 0 0 white;
+    box-shadow: inset 0 1px 0 0 white;
+    color: #ffffff;
+    margin-bottom: 10px;
+    padding: 6px 0 7px 0;
+    text-align: center;
+    float:right;
+    width: 80px;
+    display: none;
+    cursor: pointer;
+}
+/* =========Stop Chat styles=========*/
 /* Rounded sliders */
 .slider.round {
   border-radius: 34px;
