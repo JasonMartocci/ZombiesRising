@@ -25,13 +25,6 @@ router.get('/admin', function(req,res) {
 	});
 });
 
-router.get('/zombieSocial', function(req,res) {
-	projectX.allUsers(function(data){
-		var hbsObject = {users : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
-		res.render('zombieSocial', hbsObject);
-	});
-});
-
 router.get('/users', function(req,res) {
 	projectX.allUsers(function(data){
 		var hbsObject = {users : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
@@ -334,6 +327,14 @@ router.get('/game/:userId', function(req,res) {
 	});
 });
 
+router.get('/zombieSocial', function(req,res) {
+	var condition = 'userId = ' + req.session.user_id;
+	projectX.allUsersSocial(condition, function(data){
+		var hbsObject = {users : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
+		res.render('zombieSocial', hbsObject);
+	});
+});
+
 router.get('/api/heroes', function(req,res) {
 	var condition = 'userId = ' + req.session.user_id;
 	projectX.allHeroes(condition, function(data){
@@ -347,6 +348,15 @@ router.get('/api/enemies', function(req,res) {
 	var condition = 'userId = ' + req.session.user_id;
 	projectX.allEnemies(condition, function(data){
 		var hbsObject = {enemies : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
+		// console.log(data);
+		res.send(hbsObject);
+	});
+});
+
+router.get('/api/users', function(req,res) {
+	var condition = 'userId = ' + req.session.user_id;
+	projectX.allUsersSocial(condition, function(data){
+		var hbsObject = {users : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
 		// console.log(data);
 		res.send(hbsObject);
 	});

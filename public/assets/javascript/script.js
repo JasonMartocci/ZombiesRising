@@ -1,26 +1,4 @@
 $(document).ready(function() {
-
-  $(function () {
-    // Grab the template script
-    var theTemplateScript = $("#address-template").html();
-
-    // Compile the template
-    var theTemplate = Handlebars.compile(theTemplateScript);
-
-    // Define our data object
-    var context = {
-      "firstName": "Jason",
-      "lastName": "Martocci"
-    };
-    console.log('This is the context data: ' + context.firstName + ' ' + context.lastName);
-
-    // Pass our data to the template
-    var theCompiledHtml = theTemplate(context);
-
-    // Add the compiled html to the page
-    $('.content-placeholder').html(context.firstName + ' ' + context.lastName);
-  });
-
   // DataTables for inventory management
   $('#inventory').DataTable();
   $('#enemies').DataTable();

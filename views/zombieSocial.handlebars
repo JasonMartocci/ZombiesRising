@@ -31,31 +31,51 @@
   <div class="row inventory tableDetails">
     <div class="col-md-12">&nbsp;</div>
     <div class="col-md-12">
-      {{#if isAdmin}}
-        <button data-toggle="modal" data-target="#addNew" class="btn btn-success btn-md newUserBtn">Enter New Heroes</button>
-      {{/if}}
       <a href="/game" class="btn btn-warning  btn-md">Kill Time</a>
     </div>
     <div class="col-md-12">&nbsp;</div>
   </div>
   <div class="row inventory tableDetails">
-    <div class="col-md-2">WOrkin HaRd To BUiLd tHis.</div>
+    <div class="col-md-2">
+      <div class="boxModule">
+       {{#if logged_in}}
+          {{#each users}}
+            Welcome {{this.userName}}<br>
+            Email: <a href="mailto:{{this.emailAddress}}">{{this.emailAddress}}</a><br>
+            User Name: {{this.userName}}<br>
+            Role: {{this.role}}
+          {{/each}}
+        {{/if}}
+      </div>
+      <div>&nbsp;</div>
+      <div class="boxModule">
+       <h4>Your Heros</h4>
+        {{#each users}}
+          {{this.userId}}
+          <img src="http://s3.amazonaws.com/zombiesrising/{{this.asset}}" height="80" alt="{{this.plantTypes}}">
+        {{/each}}
+      </div>
+      <div>&nbsp;</div>
+      <div class="boxModule">
+       <h4>Your Enemies</h4>
+        {{#each enemies}}
+          <img src="http://s3.amazonaws.com/zombiesrising/{{this.asset}}" height="80">
+        {{/each}}
+      </div>
+      <div>&nbsp;</div>
+      <div class="boxModule">
+       <h4>Share Your Game</h4>
+        <span class='st_sharethis_large' st_url='/game/:userId' displayText='ShareThis'></span>
+        <span class='st_facebook_large' st_url='/game/:userId' displayText='Facebook'></span>
+        <span class='st_twitter_large' st_url='/game/:userId' displayText='Tweet'></span>
+        <span class='st_linkedin_large' st_url='/game/:userId' displayText='LinkedIn'></span>
+        <span class='st_email_large' st_url='/game/:userId' displayText='Email'></span>
+      </div>
+    </div>
     <div class="col-md-8">
-      
-      {{#if logged_in}}
-        <!--This is our template. -->
-        <!--Data will be inserted in its according place, replacing the brackets.-->
-        <script id="address-template" type="text/x-handlebars-template">
-          <p>Welcome {{firstName}} {{lastName}}.</p>
-        </script>
-
-        <!--Your new content will be displayed in here-->
-        <div class="content-placeholder"></div> 
-      {{/if}}
-      
       <div class="chatBoard">
-        <input type='hidden' id='nameInput' placeholder='Name' value="Test Name">
-        <input type='text' id='messageInput' placeholder=" What's on your mind?">
+        <input type='text' id='messageInput' class='boxModule' placeholder=" What's on your mind?">
+        <input type='hidden' id='nameInput' placeholder='Name' value="{{#each users}}{{this.userName}}{{/each}}">
         <div>&nbsp;</div>
         <div id='messagesDiv'></div>
       </div>

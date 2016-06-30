@@ -64,25 +64,35 @@ input:checked + .slider:before {
 }
 .chatBoard{
     position: relative;
-    background-color: #ffffff;
     margin: 0 auto;
     z-index:10;
+}
+.boxModule{
+    background-color: #ffffff;
+    color: #1D2129;
+    border-radius: 5px;
+    border-top: 1px solid #E5E6E9;
+    border-right: 1px solid #DFE0E4;
+    border-bottom: 1px solid #D0D1D5;
+    border-left: 1px solid #DFE0E4;
+    padding: 10px;
 }
 .chatMsg{
     width: 100%;
     background-color: #ffffff;
-    border-radius: 10px;
-    border: 1px solid #ACB2C1;
+    color: #1D2129;
+    border-radius: 5px;
+    border-top: 1px solid #E5E6E9;
+    border-right: 1px solid #DFE0E4;
+    border-bottom: 1px solid #D0D1D5;
+    border-left: 1px solid #DFE0E4;
     margin: 12px 0 0 0;
-    padding: 5px;
+    padding: 10px;
 }
 #messagesDiv{
-    overflow: scroll;
     height: 100%;
-    border: 1px solid #ACB2C1;
     padding: 5px;
     z-index: 10;
-    background-color: #EDEEF1;
 }
 .hideSearch {
     background-color: #3379B5;
@@ -184,7 +194,7 @@ canvas {
 
 /*Admin styles*/
 .tableDetails{
-  background-color: #ffffff;
+  background-color: #E9EBEE;
 }
 .tableHeader{
   background-color: #000000;

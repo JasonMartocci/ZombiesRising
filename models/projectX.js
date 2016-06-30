@@ -101,6 +101,12 @@ var projectX = {
 		orm.allGameData('heroes', condition, function(res){
 			cb(res);
 		});
+	},
+
+	allUsersSocial: function(condition, cb) {
+		orm.allUsers('users', condition, function(res){
+			cb(res);
+		});
 	}
 };
 

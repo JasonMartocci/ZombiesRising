@@ -181,6 +181,17 @@ var orm = {
         cb(result);
     });
   },
+
+  allUsers: function(tableInput, condition, cb) {
+    var queryString = 'SELECT * FROM ' + tableInput;
+    queryString += ' WHERE ';
+    queryString += condition;
+    console.log('This is allUsers (orm): ' + queryString);
+    connection.query(queryString, function(err, result) {
+        if (err) throw err;
+        cb(result);
+    });
+  },
 };
 
 module.exports = orm;
