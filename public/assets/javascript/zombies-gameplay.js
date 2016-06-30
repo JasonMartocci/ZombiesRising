@@ -1,14 +1,13 @@
-Quintus.ZombiesGameplay = function(Q) {
-    
+Quintus.ZombiesGameplay = function(Q) {    
   //game level
   Q.Sprite.extend('Level', {
     init: function(p) {
         this._super(p, { 
           asset: '/assets/images/background.jpg',
           type: Q.SPRITE_GROUND,
-          x: 90 + 1024/2,
+          x: 90 + 1400/2,
           y: 768/2,
-          w: 1024,
+          w: 1400,
           h: 768,
           sunFrequency: {min: 3,max: 10}, //min and max number of seconds for sun to appear   
         });

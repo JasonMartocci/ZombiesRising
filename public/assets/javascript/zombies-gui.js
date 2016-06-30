@@ -1,17 +1,16 @@
 Quintus.ZombiesGUI = function(Q) {
-    
     //side panel that shows stats and holds buttons
     Q.UI.Container.extend('SidePanel', {
       init: function(p) {
         this._super(Q._defaults(p, {
           fill: '#000000',
           x: 160/2,
-          y: 768/2,
+          y: 712/2,
           radius: 0,
           border: 0,
           shadow: 10,
           w: 160,
-          h: 768,
+          h: 712,
         }));
 
         this.on('inserted');

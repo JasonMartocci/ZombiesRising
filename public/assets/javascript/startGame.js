@@ -3,8 +3,8 @@ window.addEventListener("load",function() {
     .include('Sprites, Scenes, 2D, UI, Input, Touch, Audio')
     .include('ZombiesEnemies, ZombiesGUI, ZombiesHeroes, ZombiesGameplay')
     .setup({ 
-      width: 1317,
-      height: 720,
+      width: 1400,
+      height: 712,
       scaleToFit: true
       // maximize: true 
     })
