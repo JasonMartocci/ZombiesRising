@@ -30,10 +30,6 @@
   <!-- Start zombieSocial Section -->
   <div class="row inventory tableDetails">
     <div class="col-md-12">&nbsp;</div>
-    <div class="col-md-12">
-      <a href="/game" class="btn btn-warning  btn-md">Kill Time</a>
-    </div>
-    <div class="col-md-12">&nbsp;</div>
   </div>
   <div class="row inventory tableDetails">
     <div class="col-md-2">
@@ -49,27 +45,37 @@
       </div>
       <div>&nbsp;</div>
       <div class="boxModule">
-       <h4>Your Heros</h4>
-        {{#each users}}
-          {{this.userId}}
-          <img src="http://s3.amazonaws.com/zombiesrising/{{this.asset}}" height="80" alt="{{this.plantTypes}}">
-        {{/each}}
-      </div>
-      <div>&nbsp;</div>
-      <div class="boxModule">
-       <h4>Your Enemies</h4>
-        {{#each enemies}}
-          <img src="http://s3.amazonaws.com/zombiesrising/{{this.asset}}" height="80">
-        {{/each}}
-      </div>
-      <div>&nbsp;</div>
-      <div class="boxModule">
        <h4>Share Your Game</h4>
-        <span class='st_sharethis_large' st_url='/game/:userId' displayText='ShareThis'></span>
-        <span class='st_facebook_large' st_url='/game/:userId' displayText='Facebook'></span>
-        <span class='st_twitter_large' st_url='/game/:userId' displayText='Tweet'></span>
-        <span class='st_linkedin_large' st_url='/game/:userId' displayText='LinkedIn'></span>
-        <span class='st_email_large' st_url='/game/:userId' displayText='Email'></span>
+        <span class='st_sharethis_large' st_url='/game/{{#each users}}{{this.userId}}{{/each}}' displayText='ShareThis'></span>
+        <span class='st_facebook_large' st_url='/game/{{#each users}}{{this.userId}}{{/each}}' displayText='Facebook'></span>
+        <span class='st_twitter_large' st_url='/game/{{#each users}}{{this.userId}}{{/each}}' displayText='Tweet'></span>
+        <span class='st_linkedin_large' st_url='/game/{{#each users}}{{this.userId}}{{/each}}' displayText='LinkedIn'></span>
+        <span class='st_email_large' st_url='/game/{{#each users}}{{this.userId}}{{/each}}' displayText='Email'></span>
+      </div>
+      <div>&nbsp;</div>
+      <div class="boxModule" id="yourHeroes">
+       <h4>Your Heroes</h4><br>
+
+<!-- Trigger the Modal -->
+<img id="myImg" src="img_fjords.jpg" alt="Trolltunga, Norway" width="300" height="200">
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- The Close Button -->
+  <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+
+  <!-- Modal Content (The Image) -->
+  <img class="modal-content" id="img01">
+
+  <!-- Modal Caption (Image Text) -->
+  <div id="caption"></div>
+</div>
+
+      </div>
+      <div>&nbsp;</div>
+      <div class="boxModule" id="yourEnemies">
+       <h4>Your Enemies</h4><br>
       </div>
     </div>
     <div class="col-md-8">
@@ -80,89 +86,98 @@
         <div id='messagesDiv'></div>
       </div>
     </div>
-    <div class="col-md-2">&nbsp;</div>
+    <div class="col-md-2">
+      <div class="boxModule">
+        <div>
+          <div class="row">
+            <div class="col-md-12">
+                <a href="/game" class="btn btn-success  btn-lg btn-block">Play Zombies Rising</a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">&nbsp;</div>
+          </div>
+            {{#if isAdmin}}
+              <div class="row">
+                <div class="col-md-12">
+                    <a href="/users" class="btn btn-info  btn-lg btn-block">Users Information</a>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">&nbsp;</div>
+              </div>
+            {{/if}}
+          <div class="row">
+            <div class="col-md-12">
+                <a href="/characters" class="btn btn-info  btn-lg btn-block">Character Editor</a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">&nbsp;</div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+                <a class="btn btn-warning  btn-lg btn-block" data-toggle="modal" href="#help">How To Play</a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">&nbsp;</div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+                <a href="/users/sign-out" class="btn btn-danger  btn-lg btn-block">Sign Out</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="row inventory tableDetails">
     <div class="col-md-12">&nbsp;</div>
   </div>
 
-  <!-- Modal Add New -->
-  <div id="addNew" class="modal fade" role="dialog">
+  <!-- Modal Help -->
+  <div id="help" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title whtText">Enter New Hero</h4>
+          <h4 class="modal-title whtText">How To Play</h4>
         </div>
         <div class="modal-body">
-          <form action="heroes/createNewHeroes" method="POST" class="form center-block" enctype="multipart/form-data">
-              <div class="form-group">
-                Character Type 
-                <select class="form-control input-md" value="{{this.plantTypes}}" name="plantTypes">
-                  <option value="heroOne">Hero One</option>
-                  <option value="heroTwo">Hero Two</option>
-                  <option value="heroThree">Hero Three</option>
-                  <option value="heroFour">Hero Four</option>
-                  <option value="heroFive">Hero Five</option>
-                  <option value="heroSix">Hero Six</option>
-                  <option value="heroSeven">Hero Seven</option>
-                  <option value="heroEight">Hero Eight</option>
-                  <option value="heroNine">Hero Nine</option>
-                  <option value="heroTen">Hero Ten</option>
-                </select>
-              </div>
-              <div class="form-group">
-                Character Image (max height 125px) <input type="file" id="newHeroes-file-input" class="form-control input-md" name="asset" accept="image/*" required>
-              </div>
-              <div class="form-group">
-                Cost
-                <input type="range" class="form-control input-md" name="cost" id="cost" value="{{this.cost}}" min="1" max="500" oninput="costOutputId.value = cost.value" required>
-                <output name="costOutputName" id="costOutputId">{{this.cost}}</output>
-              </div>
-              <div class="form-group">
-                Hit Points
-                <input type="range" class="form-control input-md" name="energy" id="energy" value="{{this.energy}}" min="1" max="50" oninput="energyOutputId.value = energy.value" required>
-                <output name="energyOutputName" id="energyOutputId">{{this.energy}}</output>
-              </div>
-              <div class="form-group">
-                Money Maker
-                <input type="range" class="form-control input-md" name="isSunProducer" id="isSunProducer" value="{{this.isSunProducer}}" min="0" max="1" oninput="isSunProducerOutputId.value = isSunProducer.value" required>
-                <output name="isSunProducerOutputName" id="isSunProducerOutputId">{{this.isSunProducer}}</output>
-              </div>
-              <div class="form-group">
-                Money Rate
-                <input type="range" class="form-control input-md" name="sunFrequency" id="sunFrequency" value="{{this.sunFrequency}}" min="1" max="20" oninput="sunFrequencyOutputId.value = sunFrequency.value" required>
-                <output name="sunFrequencyOutputName" id="sunFrequencyOutputId">{{this.sunFrequency}}</output>
-              </div>
-              <div class="form-group">
-                Shooter
-                <input type="range" class="form-control input-md" name="isShooter" id="isShooter" value="{{this.isShooter}}" min="0" max="1" oninput="isShooterOutputId.value = isShooter.value" required>
-                <output name="isShooterOutputName" id="isShooterOutputId">{{this.isShooter}}</output>
-              </div>
-              <div class="form-group">
-                Shooter Rate
-                <input type="range" class="form-control input-md" name="shootingFrequency" id="shootingFrequency" value="{{this.shootingFrequency}}" min="1" max="20" oninput="shootingFrequencyOutputId.value = shootingFrequency.value" required>
-                <output name="shootingFrequencyOutputName" id="shootingFrequencyOutputId">{{this.shootingFrequency}}</output>
-              </div>
-              <div class="form-group">
-                Exploding
-                <input type="range" class="form-control input-md" name="isExploding" id="isExploding" value="{{this.isExploding}}" min="0" max="1" oninput="isExplodingOutputId.value = isExploding.value" required>
-                <output name="isExplodingOutputName" id="isExplodingOutputId">{{this.isExploding}}</output>
-              </div>
-              <div class="form-group">
-                Damage
-                <input type="range" class="form-control input-md" name="damage" id="damage" value="{{this.damage}}" min="1" max="100" oninput="damageOutputId.value = damage.value" required>
-                <output name="damageOutputName" id="damageOutputId">{{this.damage}}</output>
-              </div>
-              <div class="form-group">
-                <button class="btn btn-success btn-lg btn-block">Enter New Hero</button>
-              </div>
-          </form>
+        You play the part of a home-owner in the midst of a typical zombie apocalypse, but exaggerated to a cartoon fever pitch. Beyond the regular zombies, you'll face zombies roller skating, zombies on skateboards, bicyclist zombies, and many more. The undead starving hordes are on the march, but your back yard is standing in the way. By placing various types of characters, you must raise an army of warrior misfits that can defend your brains from the imminent devouring.<br><br>
+
+        <strong>In game-play terms</strong>, you have six lanes to defend against the zombies, who enter on the right side of the screen and lurch slowly towards your home on the left. You select character types from your arsenal on the left and then place them strategically on the lawn where they can fire on the approaching undead, who will fight back by munching on anything in arm's reach. You will gradually unlock a wide variety of characters. Most of them act as stationary guns, periodically shooting peas. Some protect the others, like the lovable Barney, some explode, like Marge, and some serve more specific purposes. Certain characters are effective against certain zombies, and vice versa.<br><br>
+
+        Each character costs a certain amount of donuts to create. Actual donuts will fall periodically to the earth, and you must click on them to add to your supply. Homer will be your staple crop, providing another source of donuts that can be used to power the rest of your army. Watching for and collecting donuts occupies your time between placing new characters.<br><br>
+
+        <strong>Customize Game</strong><br>
+        Did you ever want to customize your own game? You have the ability to customize every character in your game from the speed they move to what they look like. You can even share your custom game with your friends. When you log in simply click the button "Character Editor", from there choose if you want to modify the heroes or the enemies. After your choice is made simply click on the edit icon in the characters row. Make your changes and click update. Your game will now reflect the new character changes the next time you play.<br><br>
+
+        Please feel free to contact us any time if you have questions on our chat board.
         </div>
-        <div class="modal-footer">&nbsp;</div>
+        <div class="modal-footer">&nbsp;
+          <button type="button" class="close" data-dismiss="modal">&times;</button></div>
       </div>
     </div>
   </div>
-  <!-- End Heroes Section -->
+
+  <!-- Modal Expand Image -->
+  <div id="expandImage" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title whtText">How To Play</h4>
+        </div>
+        <div class="modal-body">
+        
+        </div>
+        <div class="modal-footer">&nbsp;
+          <button type="button" class="close" data-dismiss="modal">&times;</button></div>
+      </div>
+    </div>
+  </div>
 </div>

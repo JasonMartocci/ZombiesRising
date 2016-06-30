@@ -1,24 +1,25 @@
 $(document).ready(function(Q) {
-  // Q.zombieTypes = {};
+// Get the modal
+var modal = document.getElementById('myModal');
 
-  // $.ajax({
-  //   url: '/api/enemies/',
-  //   method: 'get',
-  //   success: function(data){
-  //     for(var i = 0; i < data.enemies.length; i++) {
-  //       var enemiesData = data.enemies;
-  //       var enemiesTypes = enemiesData[i]['zombieTypes'];
-  //       var enemiesAssets = {
-  //         'asset': 'http://s3.amazonaws.com/zombiesrising/' + enemiesData[i].asset,
-  //         'damage': enemiesData[i].damage,
-  //         'vx': enemiesData[i].vx,
-  //         'energy': enemiesData[i].energy
-  //       };
-  //       Q.zombieTypes[enemiesTypes] = enemiesAssets;
-  //     }
-  //     console.log(enemiesData);
-  //   }
-  // }); 
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('myImg');
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    modalImg.alt = this.alt;
+    captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
 
   $.ajax({
     url: '/api/enemies/',
@@ -28,37 +29,29 @@ $(document).ready(function(Q) {
       var characterAssetsString = '';
       for(var i = 0; i < data.enemies.length; i++) {
         var enemiesData = data.enemies;
-        var enemiesAssets = 'http://s3.amazonaws.com/zombiesrising/' + enemiesData[i].asset + ', ';
-        console.log('Enemies assets with sessionId: ' + enemiesAssets);
+        var enemiesAssets = 'http://s3.amazonaws.com/zombiesrising/' + enemiesData[i].asset;
+        console.log('Enemies chat assets with sessionId: ' + enemiesAssets);
         characterAssets.push(enemiesAssets);        
         characterAssetsString = characterAssets.join(" ");
+        $('<img src=' + enemiesAssets + ' alt=' + enemiesData[i].zombieTypes + '>').addClass('enemiesImg').appendTo($('#yourEnemies'));
       }
     }
   });
-
-  Q.plantTypes = {};
 
   $.ajax({
     url: '/api/heroes/',
     method: 'get',
     success: function(data){
+      var characterAssets = [];
+      var characterAssetsString = '';
       for(var i = 0; i < data.heroes.length; i++) {
         var heroesData = data.heroes;
-        var heroesTypes = heroesData[i]['plantTypes'];
-        var heroesAssets = {
-          'asset': 'http://s3.amazonaws.com/zombiesrising/' + heroesData[i].asset,
-          'cost': heroesData[i].cost,
-          'energy': heroesData[i].energy,
-          'isShooter': heroesData[i].isShooter,
-          'shootingFrequency': heroesData[i].shootingFrequency,
-          'damage': heroesData[i].damage,
-          'isExploding': heroesData[i].isExploding,
-          'isSunProducer': heroesData[i].isSunProducer,
-          'sunFrequency': heroesData[i].sunFrequency
-        };
-        Q.plantTypes[heroesTypes] = heroesAssets;
+        var heroesAssets = 'http://s3.amazonaws.com/zombiesrising/' + heroesData[i].asset;
+        console.log('Heroes chat assets with sessionId: ' + heroesAssets);
+        characterAssets.push(heroesAssets);        
+        characterAssetsString = characterAssets.join(" ");
+        $('<img src=' + heroesAssets + ' alt=' + heroesData[i].plantTypes + '>').addClass('heroesImg').appendTo($('#yourHeroes'));
       }
-      console.log(heroesData);
     }
   });
 
