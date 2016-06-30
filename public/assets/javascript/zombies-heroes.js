@@ -112,7 +112,6 @@ Quintus.ZombiesHeroes = function(Q) {
 
       //clear grid
       Q("Level", 0).first().plantsGrid[this.p.gridRow][this.p.gridCol] = null;
-
       this._super();
     }
   });
@@ -164,7 +163,7 @@ Quintus.ZombiesHeroes = function(Q) {
     },
     step: function(dt) {
       //destroy if out of range
-      if(this.p.x >= $(window).width()) {
+      if(this.p.x >= 1317) {
         this.destroy();
       }
     }
