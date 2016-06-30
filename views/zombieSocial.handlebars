@@ -36,47 +36,32 @@
       <div class="boxModule">
        {{#if logged_in}}
           {{#each users}}
-            Welcome {{this.userName}}<br>
+            <h4>Welcome {{this.userName}}</h4>
             Email: <a href="mailto:{{this.emailAddress}}">{{this.emailAddress}}</a><br>
             User Name: {{this.userName}}<br>
-            Role: {{this.role}}
+            Role: {{this.role}}<br><br>
+            Your Custom Game: <a href="http://zombiesrising.herokuapp.com/game/{{this.userId}}">zombiesrising.herokuapp.com/game/{{this.userId}}</a>
           {{/each}}
         {{/if}}
       </div>
       <div>&nbsp;</div>
       <div class="boxModule">
        <h4>Share Your Game</h4>
-        <span class='st_sharethis_large' st_url='/game/{{#each users}}{{this.userId}}{{/each}}' displayText='ShareThis'></span>
-        <span class='st_facebook_large' st_url='/game/{{#each users}}{{this.userId}}{{/each}}' displayText='Facebook'></span>
-        <span class='st_twitter_large' st_url='/game/{{#each users}}{{this.userId}}{{/each}}' displayText='Tweet'></span>
-        <span class='st_linkedin_large' st_url='/game/{{#each users}}{{this.userId}}{{/each}}' displayText='LinkedIn'></span>
-        <span class='st_email_large' st_url='/game/{{#each users}}{{this.userId}}{{/each}}' displayText='Email'></span>
+        <span class='st_sharethis_large' st_image='http://zombiesrising.herokuapp.com/assets/images/logo.png' st_title='Check out this game I created: http://zombiesrising.herokuapp.com/game/{{#each users}}{{this.userId}}{{/each}}' st_url='http://zombiesrising.herokuapp.com/game/{{#each users}}{{this.userId}}{{/each}}' displayText='ShareThis'></span>
+        <span class='st_facebook_large' st_image='http://zombiesrising.herokuapp.com/assets/images/logo.png' st_title='Check out this game I created: http://zombiesrising.herokuapp.com/game/{{#each users}}{{this.userId}}{{/each}}' st_url='http://zombiesrising.herokuapp.com/game/{{#each users}}{{this.userId}}{{/each}}' displayText='Facebook'></span>
+        <span class='st_twitter_large' st_image='http://zombiesrising.herokuapp.com/assets/images/logo.png' st_title='Check out this game I created: http://zombiesrising.herokuapp.com/game/{{#each users}}{{this.userId}}{{/each}}' st_url='http://zombiesrising.herokuapp.com/game/{{#each users}}{{this.userId}}{{/each}}' displayText='Tweet'></span>
+        <span class='st_linkedin_large' st_image='http://zombiesrising.herokuapp.com/assets/images/logo.png' st_title='Check out this game I created: http://zombiesrising.herokuapp.com/game/{{#each users}}{{this.userId}}{{/each}}' st_url='http://zombiesrising.herokuapp.com/game/{{#each users}}{{this.userId}}{{/each}}' displayText='LinkedIn'></span>
+        <span class='st_email_large' st_image='http://zombiesrising.herokuapp.com/assets/images/logo.png' st_title='Check out this game I created: http://zombiesrising.herokuapp.com/game/{{#each users}}{{this.userId}}{{/each}}' st_url='http://zombiesrising.herokuapp.com/game/{{#each users}}{{this.userId}}{{/each}}' displayText='Email'></span>
       </div>
       <div>&nbsp;</div>
       <div class="boxModule" id="yourHeroes">
        <h4>Your Heroes</h4><br>
-
-<!-- Trigger the Modal -->
-<img id="myImg" src="img_fjords.jpg" alt="Trolltunga, Norway" width="300" height="200">
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- The Close Button -->
-  <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
-
-  <!-- Modal Content (The Image) -->
-  <img class="modal-content" id="img01">
-
-  <!-- Modal Caption (Image Text) -->
-  <div id="caption"></div>
-</div>
-
       </div>
       <div>&nbsp;</div>
       <div class="boxModule" id="yourEnemies">
        <h4>Your Enemies</h4><br>
       </div>
+      <div>&nbsp;</div>
     </div>
     <div class="col-md-8">
       <div class="chatBoard">
@@ -85,6 +70,7 @@
         <div>&nbsp;</div>
         <div id='messagesDiv'></div>
       </div>
+      <div>&nbsp;</div>
     </div>
     <div class="col-md-2">
       <div class="boxModule">
@@ -156,24 +142,6 @@
         Did you ever want to customize your own game? You have the ability to customize every character in your game from the speed they move to what they look like. You can even share your custom game with your friends. When you log in simply click the button "Character Editor", from there choose if you want to modify the heroes or the enemies. After your choice is made simply click on the edit icon in the characters row. Make your changes and click update. Your game will now reflect the new character changes the next time you play.<br><br>
 
         Please feel free to contact us any time if you have questions on our chat board.
-        </div>
-        <div class="modal-footer">&nbsp;
-          <button type="button" class="close" data-dismiss="modal">&times;</button></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Expand Image -->
-  <div id="expandImage" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title whtText">How To Play</h4>
-        </div>
-        <div class="modal-body">
-        
         </div>
         <div class="modal-footer">&nbsp;
           <button type="button" class="close" data-dismiss="modal">&times;</button></div>

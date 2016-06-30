@@ -57,36 +57,35 @@ input:checked + .slider:before {
 }
 
 /* =========Start Chat styles=========*/
-/* Style the Image Used to Trigger the Modal */
-#myImg {
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
+.characterPop{
+  width: 250px;
+  padding: 5px;
 }
-
-#myImg:hover {opacity: 0.7;}
-
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+#thumbwrap {
 }
-
-/* Modal Content (Image) */
-.modal-content {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
+.thumb {
+  position:relative;
+}
+.thumb img { 
+}
+.thumb:hover {
+  border:0; /* IE6 needs this to show large image */
+  z-index:1;
+}
+.thumb span { 
+  position:absolute;
+  visibility:hidden;
+}
+.thumb:hover span { 
+  visibility:visible;
+  background-color: #ffffff;
+  color: #1D2129;
+  border-radius: 5px;
+  border-top: 1px solid #E5E6E9;
+  border-right: 1px solid #DFE0E4;
+  border-bottom: 1px solid #D0D1D5;
+  border-left: 1px solid #DFE0E4;
+  top:-130px; left:80px; 
 }
 
 /* Caption of Modal Image (Image Text) - Same Width as the Image */
@@ -143,18 +142,10 @@ input:checked + .slider:before {
         width: 100%;
     }
 }
-
-
-
-
 .enemiesImg{
-  height: 120px;
-  width: 120px;
   padding: 2px;
 }
 .heroesImg{
-  height: 120px;
-  width: 120px;
   padding: 2px;
 }
 #yourEnemies{
@@ -169,7 +160,6 @@ input:checked + .slider:before {
 .chatBoard{
     position: relative;
     margin: 0 auto;
-    z-index:10;
 }
 .boxModule{
     background-color: #ffffff;
