@@ -5,9 +5,9 @@ Quintus.ZombiesGameplay = function(Q) {
         this._super(p, { 
           asset: '/assets/images/background.jpg',
           type: Q.SPRITE_GROUND,
-          x: 90 + 1370/2,
+          x: 90 + 1412/2,
           y: 720/2,
-          w: 1370,
+          w: 1412,
           h: 720,
           sunFrequency: {min: 3,max: 10}, //min and max number of seconds for sun to appear   
         });
