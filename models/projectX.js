@@ -109,7 +109,7 @@ var projectX = {
 		});
 	},
 
-	allUsers: function(condition, cb) {
+	user: function(condition, cb) {
 		orm.allUsers('users', condition, function(res){
 			cb(res);
 		});

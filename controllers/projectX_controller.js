@@ -364,7 +364,7 @@ router.get('/api/users', function(req,res) {
 
 router.get('/api/user', function(req,res) {
 	var condition = 'userId = ' + req.session.user_id;
-	projectX.allUsers(condition, function(data){
+	projectX.user(condition, function(data){
 		var hbsObject = {users : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
 		// console.log(data);
 		res.send(hbsObject);
