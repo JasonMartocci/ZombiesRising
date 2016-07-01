@@ -33,25 +33,12 @@
   </div>
   <div class="row inventory tableDetails">
     <div class="col-md-2">
-      <div class="boxModule">
-       {{#if logged_in}}
-          {{#each users}}
-            <h4>Welcome {{this.userName}}</h4>
-            Email: <a href="mailto:{{this.emailAddress}}">{{this.emailAddress}}</a><br>
-            User Name: {{this.userName}}<br>
-            Role: {{this.role}}<br><br>
-            Your Custom Game: <a href="http://zombiesrising.herokuapp.com/game/{{this.userId}}">zombiesrising.herokuapp.com/game/{{this.userId}}</a>
-          {{/each}}
-        {{/if}}
+      <div class="boxModule" id="yourUserInfo">
       </div>
       <div>&nbsp;</div>
-      <div class="boxModule">
+      <div class="boxModule shareYourGame">
        <h4>Share Your Game</h4>
-        <span class='st_sharethis_large' st_image='http://zombiesrising.herokuapp.com/assets/images/logo.png' st_title='Check out this game I created: http://zombiesrising.herokuapp.com/game/{{#each users}}{{this.userId}}{{/each}}' st_url='http://zombiesrising.herokuapp.com/game/{{#each users}}{{this.userId}}{{/each}}' displayText='ShareThis'></span>
-        <span class='st_facebook_large' st_image='http://zombiesrising.herokuapp.com/assets/images/logo.png' st_title='Check out this game I created: http://zombiesrising.herokuapp.com/game/{{#each users}}{{this.userId}}{{/each}}' st_url='http://zombiesrising.herokuapp.com/game/{{#each users}}{{this.userId}}{{/each}}' displayText='Facebook'></span>
-        <span class='st_twitter_large' st_image='http://zombiesrising.herokuapp.com/assets/images/logo.png' st_title='Check out this game I created: http://zombiesrising.herokuapp.com/game/{{#each users}}{{this.userId}}{{/each}}' st_url='http://zombiesrising.herokuapp.com/game/{{#each users}}{{this.userId}}{{/each}}' displayText='Tweet'></span>
-        <span class='st_linkedin_large' st_image='http://zombiesrising.herokuapp.com/assets/images/logo.png' st_title='Check out this game I created: http://zombiesrising.herokuapp.com/game/{{#each users}}{{this.userId}}{{/each}}' st_url='http://zombiesrising.herokuapp.com/game/{{#each users}}{{this.userId}}{{/each}}' displayText='LinkedIn'></span>
-        <span class='st_email_large' st_image='http://zombiesrising.herokuapp.com/assets/images/logo.png' st_title='Check out this game I created: http://zombiesrising.herokuapp.com/game/{{#each users}}{{this.userId}}{{/each}}' st_url='http://zombiesrising.herokuapp.com/game/{{#each users}}{{this.userId}}{{/each}}' displayText='Email'></span>
+        
       </div>
       <div>&nbsp;</div>
       <div class="boxModule" id="yourHeroes">
@@ -66,13 +53,23 @@
     <div class="col-md-8">
       <div class="chatBoard">
         <input type='text' id='messageInput' class='boxModule' placeholder=" What's on your mind?">
-        <input type='hidden' id='nameInput' placeholder='Name' value="{{#each users}}{{this.userName}}{{/each}}">
+        <input type='hidden' id='nameInput' value="{{#each users}}{{this.userName}}{{/each}}">
         <div>&nbsp;</div>
         <div id='messagesDiv'></div>
       </div>
       <div>&nbsp;</div>
     </div>
     <div class="col-md-2">
+      <div class="boxModule">
+       <h4>Users Games</h4>
+        <div id="yourFriends">
+          {{#each users}}
+            <h5><b>{{userName}}</b></h5>
+            <a href="http://zombiesrising.herokuapp.com/game/{{this.userId}}">Click Here</a> to play {{userName}} game.
+          {{/each}}
+        </div>
+      </div>
+      <div>&nbsp;</div>
       <div class="boxModule">
         <div>
           <div class="row">

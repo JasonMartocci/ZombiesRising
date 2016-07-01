@@ -192,6 +192,15 @@ var orm = {
         cb(result);
     });
   },
+
+  allUsersSocial: function(tableInput, condition, cb) {
+    var queryString = 'SELECT * FROM ' + tableInput;
+    console.log('This is allUsersSocial (orm): ' + queryString);
+    connection.query(queryString, function(err, result) {
+        if (err) throw err;
+        cb(result);
+    });
+  },
 };
 
 module.exports = orm;

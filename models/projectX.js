@@ -104,6 +104,12 @@ var projectX = {
 	},
 
 	allUsersSocial: function(condition, cb) {
+		orm.allUsersSocial('users', condition, function(res){
+			cb(res);
+		});
+	},
+
+	allUsers: function(condition, cb) {
 		orm.allUsers('users', condition, function(res){
 			cb(res);
 		});

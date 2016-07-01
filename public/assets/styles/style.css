@@ -57,6 +57,10 @@ input:checked + .slider:before {
 }
 
 /* =========Start Chat styles=========*/
+#yourFriends{
+  height: 450px;
+  overflow: scroll;
+}
 .characterPop{
   width: 250px;
   padding: 5px;
@@ -237,6 +241,7 @@ input:checked + .slider:before {
     cursor: pointer;
 }
 /* =========Stop Chat styles=========*/
+
 /* Rounded sliders */
 .slider.round {
   border-radius: 34px;
@@ -325,7 +330,7 @@ canvas {
 
 #loading_progress {
   width:0%;
-  background-color: #9FCE0E;
+  background-color: blue;
   position:absolute;
   height:30px;
   top:0px;
