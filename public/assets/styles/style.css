@@ -265,8 +265,6 @@ input:checked + .slider:before {
 }
 canvas {
   margin: 0px;
-  border-top: 8px solid green;
-  border-bottom: 8px solid green;
 }
 .sidePanel {
   border: 1px solid green;
