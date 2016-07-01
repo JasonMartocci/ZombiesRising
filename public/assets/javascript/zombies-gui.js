@@ -8,7 +8,7 @@ Quintus.ZombiesGUI = function(Q) {
           y: 720/2,
           radius: 0,
           border: 0,
-          shadow: 10,
+          shadow: 5,
           w: 160,
           h: 720,
         }));
