@@ -1,52 +1,62 @@
 Quintus.ZombiesHeroes = function(Q) {
 
+  var newURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname;
+  var pathArray = window.location.pathname.split( '/' );
+  var secondLevelLocation = pathArray[0];
+  var newUserId = "";
+  for (i = 0; i < 1; i++) {
+    newUserId += pathArray[2];
+  };
+
   Q.plantTypes = {};
 
-  $.ajax({
-    url: '/api/heroes/',
-    method: 'get',
-    success: function(data){
-      for(var i = 0; i < data.heroes.length; i++) {
-        var heroesData = data.heroes;
-        var heroesTypes = heroesData[i]['plantTypes'];
-        var heroesAssets = {
-          'asset': 'http://s3.amazonaws.com/zombiesrising/' + heroesData[i].asset,
-          'cost': heroesData[i].cost,
-          'energy': heroesData[i].energy,
-          'isShooter': heroesData[i].isShooter,
-          'shootingFrequency': heroesData[i].shootingFrequency,
-          'damage': heroesData[i].damage,
-          'isExploding': heroesData[i].isExploding,
-          'isSunProducer': heroesData[i].isSunProducer,
-          'sunFrequency': heroesData[i].sunFrequency
-        };
-        Q.plantTypes[heroesTypes] = heroesAssets;
+  if (newUserId === "undefined") {
+    $.ajax({
+      url: '/api/heroes/',
+      method: 'get',
+      success: function(data){
+        for(var i = 0; i < data.heroes.length; i++) {
+          var heroesData = data.heroes;
+          var heroesTypes = heroesData[i]['plantTypes'];
+          var heroesAssets = {
+            'asset': 'http://s3.amazonaws.com/zombiesrising/' + heroesData[i].asset,
+            'cost': heroesData[i].cost,
+            'energy': heroesData[i].energy,
+            'isShooter': heroesData[i].isShooter,
+            'shootingFrequency': heroesData[i].shootingFrequency,
+            'damage': heroesData[i].damage,
+            'isExploding': heroesData[i].isExploding,
+            'isSunProducer': heroesData[i].isSunProducer,
+            'sunFrequency': heroesData[i].sunFrequency
+          };
+          Q.plantTypes[heroesTypes] = heroesAssets;
+        }
       }
-    }
-  });
-
-  // $.ajax({
-  //   url: '/api/heroes/:userId',
-  //   method: 'get',
-  //   success: function(data){
-  //     for(var i = 0; i < data.heroes.length; i++) {
-  //       var heroesData = data.heroes;
-  //       var heroesTypes = heroesData[i]['plantTypes'];
-  //       var heroesAssets = {
-  //         'asset': 'http://s3.amazonaws.com/zombiesrising/' + heroesData[i].asset,
-  //         'cost': heroesData[i].cost,
-  //         'energy': heroesData[i].energy,
-  //         'isShooter': heroesData[i].isShooter,
-  //         'shootingFrequency': heroesData[i].shootingFrequency,
-  //         'damage': heroesData[i].damage,
-  //         'isExploding': heroesData[i].isExploding,
-  //         'isSunProducer': heroesData[i].isSunProducer,
-  //         'sunFrequency': heroesData[i].sunFrequency
-  //       };
-  //       Q.plantTypes[heroesTypes] = heroesAssets;
-  //     }
-  //   }
-  // });
+    });
+  }else{
+    $.ajax({
+      url: '/api/heroes/' + newUserId,
+      method: 'get',
+      success: function(data){
+        for(var i = 0; i < data.heroes.length; i++) {
+          var heroesData = data.heroes;
+          var heroesTypes = heroesData[i]['plantTypes'];
+          var heroesAssets = {
+            'asset': 'http://s3.amazonaws.com/zombiesrising/' + heroesData[i].asset,
+            'cost': heroesData[i].cost,
+            'energy': heroesData[i].energy,
+            'isShooter': heroesData[i].isShooter,
+            'shootingFrequency': heroesData[i].shootingFrequency,
+            'damage': heroesData[i].damage,
+            'isExploding': heroesData[i].isExploding,
+            'isSunProducer': heroesData[i].isSunProducer,
+            'sunFrequency': heroesData[i].sunFrequency
+          };
+          Q.plantTypes[heroesTypes] = heroesAssets;
+        }
+      }
+    });
+  };
 
   //plant
   Q.Sprite.extend('Plant', {

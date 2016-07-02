@@ -379,35 +379,25 @@ router.get('/api/user', function(req,res) {
 // 	public>assets>javascript>zombies-enemies.js
 // 	public>assets>javascript>zombies-heroes.js
 
-// router.get('/api/heroes/:userId', function(req,res) {
+router.get('/api/heroes/:userId', function(req,res) {
 	
-// 	// hardcoded to work
-// 	var condition = 'userId = 79';
+	var condition = 'userId = ' + req.params.userId;
+	projectX.allHeroes(condition, function(data){
+		var hbsObject = {heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
+		// console.log(data);
+		res.send(hbsObject);
+	});
+});
 
-// 	// what I need to work
-// 	var condition = 'userId = ' + req.params.userId;
+router.get('/api/enemies/:userId', function(req,res) {
 
-// 	projectX.allHeroes(condition, function(data){
-// 		var hbsObject = {heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
-// 		// console.log(data);
-// 		res.send(hbsObject);
-// 	});
-// });
-
-// router.get('/api/enemies/:userId', function(req,res) {
-
-// 	// hardcoded to work
-// 	var condition = 'userId = 79';
-
-// 	// what I need to work
-// 	var condition = 'userId = ' + req.params.userId;
-
-// 	projectX.allEnemies(condition, function(data){
-// 		var hbsObject = {enemies : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
-// 		// console.log(data);
-// 		res.send(hbsObject);
-// 	});
-// });
+	var condition = 'userId = ' + req.params.userId;
+	projectX.allEnemies(condition, function(data){
+		var hbsObject = {enemies : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
+		// console.log(data);
+		res.send(hbsObject);
+	});
+});
 
 // End Need to figure out how to pass the user id into these two router.gets
 
