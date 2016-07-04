@@ -46,7 +46,7 @@ window.addEventListener("load",function() {
     newUserId += pathArray[2];
   };
 
-  if (newUserId === "undefined") {
+  if (newUserId == undefined) {
     $.ajax({
         url: '/api/enemies/',
         method: 'get',
