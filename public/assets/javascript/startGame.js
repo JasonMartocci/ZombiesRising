@@ -89,7 +89,7 @@ window.addEventListener("load",function() {
           }
             Q.load(characterAssetsString + '/assets/data/level5.json', function() {
               Q.state.reset({sun: 200, currentPlant: null});
-              Q.stageScene('level', {levelData: Q.assets['/assets/data/level5.json']});  
+              Q.stageScene('level', {levelData: Q.assets['/assets/data/level1.json']});  
               Q.stageScene("sun",1);                
             },
             {
