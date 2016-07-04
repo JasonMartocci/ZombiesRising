@@ -60,7 +60,7 @@ window.addEventListener("load",function() {
             characterAssets.push(enemiesAssets);        
             characterAssetsString = characterAssets.join(" ");
           }
-          Q.load(characterAssetsString + '/assets/audio/ZombiesOnYourLawn.mp3, /assets/audio/brainzzz.mp3, /assets/images/scoreBoard.png, /assets/audio/Homer_Mmmm_donuts.mp3, /assets/images/background.jpg, /assets/images/buttonBg1.png, /assets/images/sun.png, /assets/images/bullet.png, /assets/data/level1.json, /assets/data/level2.json, /assets/data/level3.json, /assets/data/level4.json, /assets/data/level5.json, /assets/audio/boom.mp3, /assets/audio/hit.mp3', function() {
+          Q.load(characterAssetsString + '/assets/audio/brainzzz.mp3, /assets/images/scoreBoard.png, /assets/audio/Homer_Mmmm_donuts.mp3, /assets/images/background.jpg, /assets/images/buttonBg1.png, /assets/images/sun.png, /assets/images/bullet.png, /assets/data/level1.json, /assets/data/level2.json, /assets/data/level3.json, /assets/data/level4.json, /assets/data/level5.json, /assets/audio/boom.mp3, /assets/audio/hit.mp3', function() {
                 Q.state.reset({sun: 200, currentPlant: null});
                 Q.stageScene('level', {levelData: Q.assets['/assets/data/level1.json']});  
                 Q.stageScene("sun",1);                
@@ -87,7 +87,7 @@ window.addEventListener("load",function() {
             characterAssets.push(heroesAssets);        
             characterAssetsString = characterAssets.join(" ");
           }
-            Q.load(characterAssetsString + '/assets/audio/ZombiesOnYourLawn.mp3, /assets/audio/brainzzz.mp3, /assets/images/scoreBoard.png, /assets/audio/Homer_Mmmm_donuts.mp3, /assets/images/background.jpg, /assets/images/buttonBg1.png, /assets/images/sun.png, /assets/images/bullet.png, /assets/data/level1.json, /assets/data/level2.json, /assets/data/level3.json, /assets/data/level4.json, /assets/data/level5.json, /assets/audio/boom.mp3, /assets/audio/hit.mp3', function() {
+            Q.load(characterAssetsString + '/assets/audio/brainzzz.mp3, /assets/images/scoreBoard.png, /assets/audio/Homer_Mmmm_donuts.mp3, /assets/images/background.jpg, /assets/images/buttonBg1.png, /assets/images/sun.png, /assets/images/bullet.png, /assets/data/level1.json, /assets/data/level2.json, /assets/data/level3.json, /assets/data/level4.json, /assets/data/level5.json, /assets/audio/boom.mp3, /assets/audio/hit.mp3', function() {
               Q.state.reset({sun: 200, currentPlant: null});
               Q.stageScene('level', {levelData: Q.assets['/assets/data/level1.json']});  
               Q.stageScene("sun",1);                
@@ -114,7 +114,7 @@ window.addEventListener("load",function() {
             characterAssets.push(enemiesAssets);        
             characterAssetsString = characterAssets.join(" ");
           }
-          Q.load(characterAssetsString + '/assets/audio/ZombiesOnYourLawn.mp3, /assets/audio/brainzzz.mp3, /assets/images/scoreBoard.png, /assets/audio/Homer_Mmmm_donuts.mp3, /assets/images/background.jpg, /assets/images/buttonBg1.png, /assets/images/sun.png, /assets/images/bullet.png, /assets/data/level1.json, /assets/data/level2.json, /assets/data/level3.json, /assets/data/level4.json, /assets/data/level5.json, /assets/audio/boom.mp3, /assets/audio/hit.mp3', function() {
+          Q.load(characterAssetsString + '/assets/audio/brainzzz.mp3, /assets/images/scoreBoard.png, /assets/audio/Homer_Mmmm_donuts.mp3, /assets/images/background.jpg, /assets/images/buttonBg1.png, /assets/images/sun.png, /assets/images/bullet.png, /assets/data/level1.json, /assets/data/level2.json, /assets/data/level3.json, /assets/data/level4.json, /assets/data/level5.json, /assets/audio/boom.mp3, /assets/audio/hit.mp3', function() {
                 Q.state.reset({sun: 200, currentPlant: null});
                 Q.stageScene('level', {levelData: Q.assets['/assets/data/level1.json']});  
                 Q.stageScene("sun",1);                
@@ -141,7 +141,7 @@ window.addEventListener("load",function() {
             characterAssets.push(heroesAssets);        
             characterAssetsString = characterAssets.join(" ");
           }
-          Q.load(characterAssetsString + '/assets/audio/ZombiesOnYourLawn.mp3, /assets/audio/brainzzz.mp3, /assets/images/scoreBoard.png, /assets/audio/Homer_Mmmm_donuts.mp3, /assets/images/background.jpg, /assets/images/buttonBg1.png, /assets/images/sun.png, /assets/images/bullet.png, /assets/data/level1.json, /assets/data/level2.json, /assets/data/level3.json, /assets/data/level4.json, /assets/data/level5.json, /assets/audio/boom.mp3, /assets/audio/hit.mp3', function() {
+          Q.load(characterAssetsString + '/assets/audio/brainzzz.mp3, /assets/images/scoreBoard.png, /assets/audio/Homer_Mmmm_donuts.mp3, /assets/images/background.jpg, /assets/images/buttonBg1.png, /assets/images/sun.png, /assets/images/bullet.png, /assets/data/level1.json, /assets/data/level2.json, /assets/data/level3.json, /assets/data/level4.json, /assets/data/level5.json, /assets/audio/boom.mp3, /assets/audio/hit.mp3', function() {
             Q.state.reset({sun: 200, currentPlant: null});
             Q.stageScene('level', {levelData: Q.assets['/assets/data/level1.json']});  
             Q.stageScene("sun",1);                
