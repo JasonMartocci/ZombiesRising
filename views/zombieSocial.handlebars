@@ -64,21 +64,13 @@
         <div id="yourFriends">
           {{#each users}}
             <h5><b>{{userName}}</b></h5>
-            <a href="http://zombiesrising.herokuapp.com/game/{{this.userId}}">Click Here</a> to play {{userName}} game.
+            <a href="/game/{{this.userId}}" class="btn btn-success  btn-sm btn-block">Play {{userName}}'s Game!</a>
           {{/each}}
         </div>
       </div>
       <div>&nbsp;</div>
       <div class="boxModule">
         <div>
-          <div class="row">
-            <div class="col-md-12">
-                <a href="/game" class="btn btn-success  btn-lg btn-block">Zombies Rising</a>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">&nbsp;</div>
-          </div>
             {{#if isAdmin}}
               <div class="row">
                 <div class="col-md-12">

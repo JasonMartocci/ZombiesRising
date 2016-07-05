@@ -8,7 +8,7 @@ router.get('/', function(req,res) {
 	res.render('signIn', hbsObject);
 });
 
-router.get('/index', function(req,res) {
+router.get('/index', checkUserSession, function(req,res) {
 	var hbsObject = {logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
 	res.render('index', hbsObject);
 });
@@ -18,14 +18,14 @@ router.get('/signInFail', function(req,res) {
 	res.render('signInFail', hbsObject);
 });
 
-router.get('/admin', function(req,res) {
+router.get('/admin', checkUserSession, function(req,res) {
 	projectX.allUsers(function(data){
 		var hbsObject = {users : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
 		res.render('admin', hbsObject);
 	});
 });
 
-router.get('/users', function(req,res) {
+router.get('/users', checkUserSession, function(req,res) {
 	projectX.allUsers(function(data){
 		var hbsObject = {users : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
 		res.render('users', hbsObject);
@@ -48,19 +48,19 @@ router.put('/users/update/:userId', function(req,res) {
 	});
 });
 
-router.get('/levels', function(req,res) {
+router.get('/levels', checkUserSession, function(req,res) {
 	projectX.allLevels(function(data){
 		var hbsObject = {levels : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
 		res.render('levels', hbsObject);
 	});
 });
 
-router.get('/characters', function(req,res) {
+router.get('/characters', checkUserSession, function(req,res) {
 	var hbsObject = {logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
 	res.render('characters', hbsObject);
 });
 
-router.get('/heroes', function(req,res) {
+router.get('/heroes', checkUserSession, function(req,res) {
 	var condition = 'userId = ' + req.session.user_id;
 	projectX.allHeroes(condition, function(data){
 		var hbsObject = {heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
@@ -185,7 +185,7 @@ router.post('/heroes/updateImage/:heroesId/:plantTypes/:cost/:energy/:isSunProdu
     });
 });
 
-router.get('/enemies', function(req,res) {
+router.get('/enemies', checkUserSession, function(req,res) {
 	var condition = 'userId = ' + req.session.user_id;
 	projectX.allEnemies(condition, function(data){
 		var hbsObject = {enemies : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
@@ -326,18 +326,6 @@ router.get('/game', checkUserSession, function(req,res) {
 	});
 });
 
-function checkUserSession( req, res, next )
-{
-    if( req.session.user_id )
-    {
-        next();
-    }
-    else
-    {
-        res.redirect('/');
-    }
-}//checkUserSession()
-
 router.get('/game/:userId', function(req,res) {
 	var condition = 'userId = ' + req.params.userId;
 	console.log('This is game get (projectX_controller): ' + condition);
@@ -347,7 +335,7 @@ router.get('/game/:userId', function(req,res) {
 	});
 });
 
-router.get('/zombieSocial', function(req,res) {
+router.get('/zombieSocial', checkUserSession, function(req,res) {
 	var condition = 'userId = ' + req.session.user_id;
 	projectX.allUsersSocial(condition, function(data){
 		var hbsObject = {users : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
@@ -433,5 +421,17 @@ router.get('/signIn', function(req,res) {
 	var hbsObject = {logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
 	res.render('signIn', hbsObject);
 });
+
+function checkUserSession( req, res, next )
+{
+    if( req.session.user_id )
+    {
+        next();
+    }
+    else
+    {
+        res.redirect('/');
+    }
+}//checkUserSession()
 
 module.exports = router;
