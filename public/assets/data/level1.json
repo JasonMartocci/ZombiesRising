@@ -1,7 +1,7 @@
 {
-    "availablePlants": ["heroOne", "heroTwo", "heroThree"],
+    "availablePlants": ["heroOne", "heroThree"],
     "nextLevel" : "/assets/data/level2.json",
-    "duration": 180,
+    "duration": 140,
     "zombies": [
       {
          "time": 2,
@@ -19,14 +19,79 @@
          "row": 0
      },
      {
+         "time": 10,
+         "type": "zombieTwo",
+         "row": 3
+     },
+     {
+         "time": 19,
+         "type": "zombieThree",
+          "row": 5
+      },
+      {
+         "time": 20,
+         "type": "zombieOne",
+         "row": 4
+     },
+     {
+         "time": 22,
+         "type": "zombieThree",
+          "row": 1
+      },
+      {
+         "time": 26,
+         "type": "zombieOne",
+         "row": 0
+     },
+     {
+         "time": 28,
+         "type": "zombieThree",
+         "row": 3
+     },
+     {
          "time": 29,
          "type": "zombieThree",
-         "row": 4
+         "row": 2
      },
      {
          "time": 32,
          "type": "zombieTwo",
-          "row": 2
+          "row": 5
+      },
+      {
+          "time": 35,
+          "type": "zombieTwo",
+          "row": 0
+      },
+      {
+          "time": 40,
+          "type": "zombieOne",
+          "row": 3
+      },
+      {
+          "time": 44,
+          "type": "zombieOne",
+          "row": 1
+      },
+      {
+          "time": 45,
+         "type": "zombieTwo",
+         "row": 2
+     },
+     {
+         "time": 47,
+         "type": "zombieOne",
+         "row": 5
+     },
+     {
+         "time": 50,
+         "type": "zombieThree",
+         "row": 3
+     },
+     {
+         "time": 52,
+         "type": "zombieTwo",
+          "row": 5
       },
       {
           "time": 56,
@@ -54,29 +119,54 @@
           "row": 5
       },
       {
-          "time": 66,
+          "time": 70,
           "type": "zombieOne",
-          "row": 2
+          "row": 0
       },
       {
           "time": 69,
-          "type": "zombieOne",
+          "type": "zombieThree",
           "row": 2
-      },
-      {
-          "time": 65,
-          "type": "zombieOne",
-          "row": 3
-      },
-      {
-          "time": 69,
-          "type": "zombieOne",
-          "row": 1
       },
       {
           "time": 72,
           "type": "zombieOne",
-          "row": 4
+          "row": 3
+      },
+      {
+          "time": 74,
+          "type": "zombieOne",
+          "row": 1
+      },
+      {
+          "time": 76,
+          "type": "zombieTwo",
+          "row": 0
+      },
+      {
+          "time": 77,
+          "type": "zombieOne",
+          "row": 2
+      },
+      {
+          "time": 78,
+          "type": "zombieOne",
+          "row": 5
+      },
+      {
+          "time": 79,
+          "type": "zombieThree",
+          "row": 1
+      },
+      {
+          "time": 79,
+          "type": "bossOne",
+          "row": 3
+      },
+      {
+          "time": 80,
+          "type": "zombieOne",
+          "row": 0
       },
       {
           "time": 83,
@@ -84,84 +174,99 @@
           "row": 5
       },
       {
-          "time": 79,
-          "type": "bossOne",
-          "row": 2
-      },
-      {
-          "time": 100,
-          "type": "zombieOne",
-          "row": 2
-      },
-      {
-          "time": 50,
-          "type": "zombieOne",
-          "row": 3
-      },
-      {
-          "time": 80,
-          "type": "zombieFour",
-          "row": 1
-      },
-      {
           "time": 84,
          "type": "zombieTwo",
-         "row": 2
+         "row": 4
      },
      {
          "time": 87,
-         "type": "zombieFour",
+         "type": "zombieOne",
          "row": 0
      },
      {
          "time": 93,
-         "type": "zombieFour",
+         "type": "zombieThree",
          "row": 3
      },
-     {
+      {
+          "time": 100,
+          "type": "zombieThree",
+          "row": 0
+      },
+      {
          "time": 100,
-         "type": "zombieFour",
+         "type": "zombieTwo",
           "row": 5
       },
       {
+         "time": 105,
+         "type": "zombieOne",
+         "row": 3
+     },
+      {
          "time": 110,
-         "type": "zombieFour",
+         "type": "zombieTwo",
          "row": 4
      },
      {
          "time": 110,
-         "type": "zombieFour",
+         "type": "zombieTwo",
          "row": 2
      },
      {
-         "time": 120,
-         "type": "zombieFour",
-          "row": 1
-      },
-      {
-         "time": 105,
-         "type": "zombieFour",
-         "row": 4
-     },
-     {
          "time": 115,
-         "type": "zombieFour",
+         "type": "zombieThree",
           "row": 1
       },
-      {
-         "time": 125,
-         "type": "zombieFour",
-         "row": 0
-     },
      {
          "time": 118,
-         "type": "zombieFour",
+         "type": "zombieThree",
          "row": 3
      },
      {
          "time": 120,
-         "type": "zombieFour",
+         "type": "zombieOne",
+          "row": 4
+      },
+     {
+         "time": 120,
+         "type": "zombieThree",
+          "row": 5
+      },
+      {
+         "time": 122,
+         "type": "zombieTwo",
+         "row": 1
+      },
+      {
+         "time": 124,
+         "type": "zombieTwo",
+         "row": 5
+     },
+      {
+         "time": 125,
+         "type": "zombieOne",
+         "row": 0
+     },
+     {
+         "time": 126,
+         "type": "zombieThree",
+         "row": 3
+     },
+     {
+         "time": 128,
+         "type": "zombieTwo",
+         "row": 2
+     },
+     {
+         "time": 130,
+         "type": "zombieThree",
           "row": 1
-      }
+      },
+      {
+         "time": 130,
+         "type": "zombieOne",
+         "row": 4
+     }
     ] 
 }

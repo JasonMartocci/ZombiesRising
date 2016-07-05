@@ -70,11 +70,15 @@ $(document).ready(function(Q) {
     }
   });
 
-
-
-
   // Chat feature
   var myDataRef = new Firebase('https://vivid-torch-7282.firebaseio.com/chat');
+
+  // Attach an asynchronous callback to read the data at our posts reference
+  myDataRef.on("value", function(snapshot) {
+    console.log(snapshot.val());
+  }, function (errorObject) {
+    console.log("The read failed: " + errorObject.code);
+  });
 
   // Chat box add data on keypress
   $('#messageInput').keypress(function (e) {

@@ -1,5 +1,5 @@
 {
-    "availablePlants": ["heroOne", "heroTwo", "heroThree", "heroFour"],
+    "availablePlants": ["heroOne", "heroEight", "heroNine", "heroTen"],
     "nextLevel" : "/assets/data/level5.json",
     "duration": 180,
     "zombies": [
@@ -15,12 +15,12 @@
      },
      {
          "time": 45,
-         "type": "zombieThree",
+         "type": "zombieFour",
          "row": 0
      },
      {
          "time": 29,
-         "type": "zombieThree",
+         "type": "zombieFour",
          "row": 4
      },
      {
@@ -125,12 +125,12 @@
       },
       {
          "time": 110,
-         "type": "zombieFour",
+         "type": "zombieTwo",
          "row": 4
      },
      {
          "time": 110,
-         "type": "zombieFour",
+         "type": "zombieTwo",
          "row": 2
      },
      {
@@ -145,7 +145,7 @@
      },
      {
          "time": 115,
-         "type": "zombieFour",
+         "type": "zombieTwo",
           "row": 1
       },
       {
@@ -155,7 +155,7 @@
      },
      {
          "time": 118,
-         "type": "zombieFour",
+         "type": "zombieTwo",
          "row": 3
      },
      {

@@ -1,16 +1,16 @@
 {
-    "availablePlants": ["heroOne", "heroTwo", "heroThree", "heroFour"],
+    "availablePlants": ["heroTwo", "heroFive", "heroSix", "heroSeven"],
     "nextLevel" : "/assets/data/level4.json",
     "duration": 180,
     "zombies": [
       {
          "time": 15,
-         "type": "zombieTwo",
+         "type": "zombieFive",
          "row": 1
       },
       {
          "time": 32,
-         "type": "zombieTwo",
+         "type": "zombieFive",
          "row": 2
      },
      {
@@ -25,12 +25,12 @@
      },
      {
          "time": 32,
-         "type": "zombieTwo",
+         "type": "zombieFive",
           "row": 2
       },
       {
           "time": 56,
-          "type": "zombieTwo",
+          "type": "zombieFive",
           "row": 4
       },
       {
@@ -70,7 +70,7 @@
       },
       {
           "time": 69,
-          "type": "zombieOne",
+          "type": "zombieFive",
           "row": 1
       },
       {
@@ -85,7 +85,7 @@
       },
       {
           "time": 83,
-          "type": "zombieOne",
+          "type": "zombieFive",
           "row": 5
       },
       {
@@ -100,67 +100,67 @@
       },
       {
           "time": 80,
-          "type": "zombieFour",
+          "type": "zombieThree",
           "row": 1
       },
       {
           "time": 84,
-         "type": "zombieTwo",
+         "type": "zombieFive",
          "row": 2
      },
      {
          "time": 87,
-         "type": "zombieFour",
+         "type": "zombieThree",
          "row": 0
      },
      {
          "time": 93,
-         "type": "zombieFour",
+         "type": "zombieThree",
          "row": 3
      },
      {
          "time": 100,
-         "type": "zombieFour",
+         "type": "zombieFive",
           "row": 5
       },
       {
          "time": 110,
-         "type": "zombieFour",
+         "type": "zombieThree",
          "row": 4
      },
      {
          "time": 110,
-         "type": "zombieFour",
+         "type": "zombieThree",
          "row": 2
      },
      {
          "time": 120,
-         "type": "zombieFour",
+         "type": "zombieFive",
           "row": 1
       },
       {
          "time": 105,
-         "type": "zombieFour",
+         "type": "zombieFive",
          "row": 4
      },
      {
          "time": 115,
-         "type": "zombieFour",
+         "type": "zombieOne",
           "row": 1
       },
       {
          "time": 125,
-         "type": "zombieFour",
+         "type": "zombieFive",
          "row": 0
      },
      {
          "time": 118,
-         "type": "zombieFour",
+         "type": "zombieOne",
          "row": 3
      },
      {
          "time": 120,
-         "type": "zombieFour",
+         "type": "zombieFive",
           "row": 1
       }
     ] 
