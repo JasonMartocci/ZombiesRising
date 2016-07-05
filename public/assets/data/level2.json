@@ -1,23 +1,38 @@
 {
     "availablePlants": ["heroOne", "heroTwo", "heroFour"],
     "nextLevel" : "/assets/data/level3.json",
-    "duration": 180,
+    "duration": 140,
     "zombies": [
+      {
+         "time": 5,
+         "type": "zombieTwo",
+         "row": 0
+      },
+      {
+         "time": 10,
+         "type": "zombieTwo",
+         "row": 5
+      },
       {
          "time": 15,
          "type": "zombieTwo",
-         "row": 1
+         "row": 3
       },
       {
-         "time": 32,
-         "type": "zombieTwo",
+         "time": 20,
+         "type": "zombieThree",
          "row": 2
      },
-     {
-         "time": 45,
+      {
+         "time": 22,
          "type": "zombieThree",
-         "row": 0
+         "row": 4
      },
+      {
+         "time": 24,
+         "type": "zombieTwo",
+         "row": 1
+      },
      {
          "time": 29,
          "type": "zombieThree",
@@ -35,7 +50,22 @@
       },
       {
           "time": 42,
-          "type": "zombieOne",
+          "type": "zombieThree",
+          "row": 0
+      },
+      {
+         "time": 45,
+         "type": "zombieThree",
+         "row": 0
+      },
+      {
+          "time": 50,
+          "type": "zombieTwo",
+          "row": 3
+      },
+      {
+          "time": 50,
+          "type": "zombieTwo",
           "row": 0
       },
       {
@@ -44,14 +74,14 @@
           "row": 4
       },
       {
-          "time": 50,
-          "type": "zombieTwo",
-          "row": 3
-      },
-      {
           "time": 55,
           "type": "zombieTwo",
           "row": 5
+      },
+      {
+          "time": 65,
+          "type": "zombieThree",
+          "row": 3
       },
       {
           "time": 66,
@@ -64,11 +94,6 @@
           "row": 2
       },
       {
-          "time": 65,
-          "type": "zombieThree",
-          "row": 3
-      },
-      {
           "time": 69,
           "type": "zombieThree",
           "row": 1
@@ -79,19 +104,9 @@
           "row": 4
       },
       {
-          "time": 83,
-          "type": "zombieThree",
-          "row": 5
-      },
-      {
-          "time": 100,
-          "type": "zombieTwo",
+          "time": 79,
+          "type": "bossTwo",
           "row": 2
-      },
-      {
-          "time": 50,
-          "type": "zombieTwo",
-          "row": 3
       },
       {
           "time": 80,
@@ -99,9 +114,9 @@
           "row": 1
       },
       {
-          "time": 79,
-          "type": "bossTwo",
-          "row": 2
+          "time": 83,
+          "type": "zombieThree",
+          "row": 5
       },
       {
           "time": 84,
@@ -119,10 +134,20 @@
          "row": 3
      },
      {
+          "time": 100,
+          "type": "zombieTwo",
+          "row": 2
+     },
+     {
          "time": 100,
          "type": "zombieFour",
           "row": 5
       },
+      {
+         "time": 105,
+         "type": "zombieFour",
+         "row": 4
+     },
       {
          "time": 110,
          "type": "zombieTwo",
@@ -134,25 +159,10 @@
          "row": 2
      },
      {
-         "time": 120,
-         "type": "zombieFour",
-          "row": 1
-      },
-      {
-         "time": 105,
-         "type": "zombieFour",
-         "row": 4
-     },
-     {
          "time": 115,
          "type": "zombieFour",
           "row": 1
       },
-      {
-         "time": 125,
-         "type": "zombieFour",
-         "row": 0
-     },
      {
          "time": 118,
          "type": "zombieFour",
@@ -162,6 +172,36 @@
          "time": 120,
          "type": "zombieFour",
           "row": 1
+      },
+      {
+         "time": 125,
+         "type": "zombieFour",
+         "row": 0
+     },
+     {
+         "time": 120,
+         "type": "zombieFour",
+          "row": 1
+      },
+     {
+         "time": 122,
+         "type": "zombieTwo",
+          "row": 5
+      },
+     {
+         "time": 124,
+         "type": "zombieFour",
+          "row": 3
+      },
+     {
+         "time": 126,
+         "type": "zombieTwo",
+          "row": 2
+      },
+     {
+         "time": 128,
+         "type": "zombieThree",
+          "row": 0
       }
     ] 
 }
