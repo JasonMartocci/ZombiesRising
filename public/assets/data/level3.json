@@ -1,7 +1,7 @@
 {
     "availablePlants": ["heroTwo", "heroFive", "heroSix", "heroSeven"],
     "nextLevel" : "/assets/data/level4.json",
-    "duration": 180,
+    "duration": 140,
     "zombies": [
       {
          "time": 15,

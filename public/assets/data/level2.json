@@ -44,11 +44,6 @@
           "row": 2
       },
       {
-          "time": 56,
-          "type": "zombieTwo",
-          "row": 4
-      },
-      {
           "time": 42,
           "type": "zombieThree",
           "row": 0
@@ -56,7 +51,7 @@
       {
          "time": 45,
          "type": "zombieThree",
-         "row": 0
+         "row": 5
       },
       {
           "time": 50,
@@ -77,6 +72,11 @@
           "time": 55,
           "type": "zombieTwo",
           "row": 5
+      },
+      {
+          "time": 56,
+          "type": "zombieTwo",
+          "row": 4
       },
       {
           "time": 65,
