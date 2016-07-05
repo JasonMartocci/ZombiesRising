@@ -173,7 +173,7 @@ Quintus.ZombiesHeroes = function(Q) {
     },
     step: function(dt) {
       //destroy if out of range
-      if(this.p.x >= 1317) {
+      if(this.p.x >= 1423) {
         this.destroy();
       }
     }
