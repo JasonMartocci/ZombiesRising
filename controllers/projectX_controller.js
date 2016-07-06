@@ -310,14 +310,6 @@ router.post('/enemies/updateImage/:enemiesId/:zombieTypes/:vx/:damage/:energy', 
     });
 });
 
-// router.get('/game', function(req,res) {
-// 	console.log(req.session.user_id);
-// 	if (req.session.user_id === undefined) {
-// 		res.redirect('/');
-// 	}else{
-// 	};
-// });
-
 router.get('/game', checkUserSession, function(req,res) {
 	var condition = 'userId = ' + req.session.user_id;
 	projectX.allGameData(condition, function(data){
@@ -335,7 +327,7 @@ router.get('/game/:userId', function(req,res) {
 	});
 });
 
-router.get('/zombieSocial', checkUserSession, function(req,res) {
+router.get('/zombieSocial', function(req,res) {
 	var condition = 'userId = ' + req.session.user_id;
 	projectX.allUsersSocial(condition, function(data){
 		var hbsObject = {users : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}

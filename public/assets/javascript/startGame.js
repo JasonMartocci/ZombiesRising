@@ -1,6 +1,3 @@
-$(document).ready(function() {
-    $("body").css("background-color","green"); //edit, body must be in quotes!
-});
 window.addEventListener("load",function() {
   var Q = window.Q = Quintus({development: true})
     .include('Sprites, Scenes, 2D, UI, Input, Touch, Audio')

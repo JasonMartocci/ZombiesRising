@@ -5,8 +5,6 @@ $(document).ready(function() {
   $('#heroes').DataTable();
   $("#register").hide();
 
-  $("body").css("background-image", "url('/assets/images/background_side.jpg')"); //edit, body must be in quotes!
-
   $("#register_btn").click(function(){
       $("#sign_in").hide();
       $("#register").show();
