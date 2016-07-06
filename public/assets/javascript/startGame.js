@@ -1,3 +1,6 @@
+$(document).ready(function() {
+    $("body").css("background-color","green"); //edit, body must be in quotes!
+});
 window.addEventListener("load",function() {
   var Q = window.Q = Quintus({development: true})
     .include('Sprites, Scenes, 2D, UI, Input, Touch, Audio')
@@ -8,7 +11,7 @@ window.addEventListener("load",function() {
       scaleToFit: true
       // maximize: true 
     })
-    
+
   //enable sound  , this will find the best way to play audio according to the device 
   Q.enableSound();
 
