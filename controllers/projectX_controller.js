@@ -327,7 +327,7 @@ router.get('/game/:userId', function(req,res) {
 	});
 });
 
-router.get('/zombieSocial', function(req,res) {
+router.get('/zombieSocial', checkUserSession, function(req,res) {
 	var condition = 'userId = ' + req.session.user_id;
 	projectX.allUsersSocial(condition, function(data){
 		var hbsObject = {users : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
