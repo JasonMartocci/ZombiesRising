@@ -75,7 +75,7 @@ $(document).ready(function(Q) {
 
   // Attach an asynchronous callback to read the data at our posts reference
   myDataRef.on("value", function(snapshot) {
-    console.log('this is snapshot.val ' + snapshot.val());
+    // console.log('this is snapshot.val ' + snapshot.val());
   }, function (errorObject) {
     console.log("The read failed: " + errorObject.code);
   });
@@ -93,6 +93,7 @@ $(document).ready(function(Q) {
   // Comment box add data on keypress
   $('.commentInput').keypress(function (e) {
     if (e.keyCode == 13) {
+      alert('keypress')
       var commentName = $('#nameInput').val();
       var commentText = $('.commentInput').val();
       myDataRef.push({commentName: commentName, commentText: commentText});
@@ -102,14 +103,15 @@ $(document).ready(function(Q) {
 
   myDataRef.on('child_added', function(snapshot) {
     var message = snapshot.val();
-    displayChatMessage(message.name, message.text);
+    displayChatMessage(message.name, message.text, message.commentName, message.commentText);
   });
 
   function displayChatMessage(name, text, commentName, commentText) {
+    // console.log(displayChatMessage);
     $('<div/>').addClass('chatMsg').text(text).prepend($('<em/>').text(name + ': ')).prependTo($('#messagesDiv'));
     $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
 
-    $('<div/>').addClass('commentMsg boxModule').text(commentText).prepend($('<em/>').text(commentName + ': ')).appendTo($('.chatMsg'));
+    $('<div/>').addClass('commentMsg boxModule').text(commentText).prepend($('<em/>')).appendTo($('.chatMsg'));
     
     $('<br><input type="text" class="commentInput" placeholder=" Write a comment..">').appendTo($('.commentMsg'));
   }; 
