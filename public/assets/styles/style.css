@@ -58,6 +58,9 @@ input:checked + .slider:before {
 }
 
 /* =========Start Chat styles=========*/
+.commentMsg{
+  margin-bottom: 10px;
+}
 #yourFriends{
   height: 450px;
   overflow: scroll;
