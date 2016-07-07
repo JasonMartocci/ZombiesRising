@@ -71,50 +71,67 @@ $(document).ready(function(Q) {
   });
 
   // Chat feature
-  var myDataRef = new Firebase('https://vivid-torch-7282.firebaseio.com/chat');
+  var rootRef = new Firebase('https://vivid-torch-7282.firebaseio.com/chat');
 
-  // Attach an asynchronous callback to read the data at our posts reference
-  myDataRef.on("value", function(snapshot) {
-    // console.log('this is snapshot.val ' + snapshot.val());
-  }, function (errorObject) {
-    console.log("The read failed: " + errorObject.code);
-  });
+// // delete record when a tag is clicked
+// jQuery('body').on('click', 'a', function() {
+//    var $rec = $(this).closest('[data-id]');
+//     var id = $rec.attr('data-id') || null;
+//     if( id ) {
+//        // remove any nested children
+//        $rec.find('[data-id]').each(function() {
+//           rootRef.child($(this).attr('data-id')).remove(); 
+//        });
+       
+//        // remove the record
+//        rootRef.child(id).remove();
+//     }
+//     return false;
+// });
 
-  // Chat box add data on keypress
-  $('#messageInput').keypress(function (e) {
-    if (e.keyCode == 13) {
-      var name = $('#nameInput').val();
-      var text = $('#messageInput').val();
-      myDataRef.push({name: name, text: text});
-      $('#messageInput').val('');
+// add new records at the appropriate level when a button is clicked
+jQuery('body').on('click', 'button', function () {
+    var $input = $(this).prev('input');
+    var title = $input.val();
+    var parent = $input.closest('[data-id]').attr('data-id') || null;
+    console.log('creating', parent, title);
+    if (title) {
+        rootRef.push({ 'title': title, 'parent': parent });
     }
-  });
+    $input.val('');
+    return false;
+})
 
-  // Comment box add data on keypress
-  $('.commentInput').keypress(function (e) {
-    if (e.keyCode == 13) {
-      alert('keypress')
-      var commentName = $('#nameInput').val();
-      var commentText = $('.commentInput').val();
-      myDataRef.push({commentName: commentName, commentText: commentText});
-      $('.commentInput').val('');
-    }
-  });
-
-  myDataRef.on('child_added', function(snapshot) {
+rootRef.on('child_added', function (snapshot) {
     var message = snapshot.val();
-    displayChatMessage(message.name, message.text);
-    displayCommentMessage(message.commentName, message.commentText);
-    console.log('This is it ' + message.commentText);
-  });
+    console.log('child_added', message);
+    displayTitleMessage(snapshot.key(), message.title, message.parent);
+});
 
-  function displayChatMessage(name, text) {
-    $('<div/>').addClass('chatMsg').text(text).prepend($('<em/>').text(name + ': ')).prependTo($('#messagesDiv'));
-    $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
-  }; 
+rootRef.on('child_removed', function(snapshot) {
+    $('#records').find('[data-id="'+snapshot.key()+'"]').remove();
+});
 
-  function displayCommentMessage(commentName, commentText) {
-    $('<div/>').addClass('commentMsg boxModule').text(commentText).prepend($('<em/>')).text(commentName + ': ').appendTo($('.chatMsg'));    
-    $('<br><input type="text" class="commentInput" placeholder=" Write a comment..">').appendTo($('.commentMsg'));
-  }; 
+function displayTitleMessage(id, title, parentId) {
+    var $parent = parentId ? findParent(parentId) : $('#records');
+    var $el = makeListItem(title);
+    console.log('displaying', id, parentId, $parent, title);
+    // add a data-parent attribute, which we use to locate parent elements
+    $el.appendTo($parent).attr('data-id', id);
+}
+
+function findParent(parentId) {
+    return $('#records').find('[data-id="' + parentId + '"] > ul');
+}
+
+function makeListItem(title) {
+    return $('#recordTemplate').clone()
+    // remove the id attr
+    .attr('id', null)
+    // enter the <span> tag and use .text() to escape title
+    .find('span').text(title)
+    // navigate back to the cloned element and return it
+    .end();
+}
+
 });

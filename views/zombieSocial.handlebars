@@ -52,6 +52,23 @@
     </div>
     <div class="col-md-6">
       <div class="chatBoard">
+      <ul id="records"></ul>
+<form><input type="text"><button>add</button></form>
+    
+<li id="recordTemplate"> 
+    <span></span> <a href="#">X</a>
+    <ul></ul>
+    <form><input type="text"><button>add</button></form>
+</li>
+    
+<!-- after parsing the records, they look like this 
+     (the hash is stored in data-id):
+<li data-id="-iZjYl...."> 
+    <span>Title here</span> <a href="#">X</a>
+    <ul>... children here... </ul>
+    <form><input type="text"><button>add</button></form>
+</li>
+-->
         <input type='text' id='messageInput' class='boxModule' placeholder=" What's on your mind?">
         <div>&nbsp;</div>
         <div id='messagesDiv'></div>
