@@ -103,16 +103,18 @@ $(document).ready(function(Q) {
 
   myDataRef.on('child_added', function(snapshot) {
     var message = snapshot.val();
-    displayChatMessage(message.name, message.text, message.commentName, message.commentText);
+    displayChatMessage(message.name, message.text);
+    displayCommentMessage(message.commentName, message.commentText);
+    console.log('This is it ' + message.commentText);
   });
 
-  function displayChatMessage(name, text, commentName, commentText) {
-    // console.log(displayChatMessage);
+  function displayChatMessage(name, text) {
     $('<div/>').addClass('chatMsg').text(text).prepend($('<em/>').text(name + ': ')).prependTo($('#messagesDiv'));
     $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+  }; 
 
-    $('<div/>').addClass('commentMsg boxModule').text(commentText).prepend($('<em/>')).appendTo($('.chatMsg'));
-    
+  function displayCommentMessage(commentName, commentText) {
+    $('<div/>').addClass('commentMsg boxModule').text(commentText).prepend($('<em/>')).text(commentName + ': ').appendTo($('.chatMsg'));    
     $('<br><input type="text" class="commentInput" placeholder=" Write a comment..">').appendTo($('.commentMsg'));
   }; 
 });
