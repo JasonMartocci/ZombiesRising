@@ -52,26 +52,29 @@
     </div>
     <div class="col-md-6">
       <div class="chatBoard">
-      <ul id="records"></ul>
-<form><input type="text"><button>add</button></form>
-    
-<li id="recordTemplate"> 
-    <span></span> {{#if isAdmin}}<a class="deleteThis" href="#">X</a>{{/if}}
-    <ul></ul>
-    <form><input type="text"><button>add</button></form>
-</li>
-    
-<!-- after parsing the records, they look like this 
-     (the hash is stored in data-id):
-<li data-id="-iZjYl...."> 
-    <span>Title here</span> <a href="#">X</a>
-    <ul>... children here... </ul>
-    <form><input type="text"><button>add</button></form>
-</li>
--->
-        <input type='text' id='messageInput' class='boxModule' placeholder=" What's on your mind?">
+        <div class="boxModule">
+          <form><input class="chatBox" type="text" placeholder=" What's on your mind?"><button class="btn btn-sm btn-primary chatButton">Post</button></form>
+        </div>
         <div>&nbsp;</div>
-        <div id='messagesDiv'></div>
+        <ul id="records" class="list-group"></ul>
+        <div class="hidden">  
+          <li id="recordTemplate" class="list-group-item"> 
+              <span></span> {{#if isAdmin}}<a class="deleteThis" href="#">X</a>{{/if}}<br><br>
+              <ul></ul>
+              <div class="input-group chatDisplay">
+                <form><input type="text" class='chatBoxModule' placeholder=" Write a comment.."><button class="btn btn-sm btn-primary chatButton">Post</button></form>
+              </div>
+          </li>
+        </div>
+    
+        <!-- after parsing the records, they look like this 
+             (the hash is stored in data-id):
+        <li data-id="-iZjYl...."> 
+            <span>Title here</span> <a href="#">X</a>
+            <ul>... children here... </ul>
+            <form><input type="text"><button>add</button></form>
+        </li>
+        -->
       </div>
       <div>&nbsp;</div>
     </div>

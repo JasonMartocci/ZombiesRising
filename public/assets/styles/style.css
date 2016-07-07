@@ -169,6 +169,22 @@ input:checked + .slider:before {
     position: relative;
     margin: 0 auto;
 }
+.chatBox{
+  width: 100%;
+  border: 0px;
+  padding: 10px;
+}
+.chatButton{
+}
+.chatDisplay{
+  padding-top: 5px;
+}
+.chatBoxModule{
+    background-color: #ffffff;
+    margin: 5px;
+    padding: 3px;
+    clear: both;
+}
 .boxModule{
     background-color: #ffffff;
     color: #1D2129;
@@ -178,7 +194,7 @@ input:checked + .slider:before {
     border-bottom: 1px solid #D0D1D5;
     border-left: 1px solid #DFE0E4;
     padding: 10px;
-   clear: both;
+    clear: both;
 }
 .chatMsg{
     width: 100%;

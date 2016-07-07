@@ -95,7 +95,6 @@ $(document).ready(function(Q) {
     var name = $('#nameInput').val();
     var title = $input.val();
     var parent = $input.closest('[data-id]').attr('data-id') || null;
-    console.log('creating', parent, title, name);
     if (title) {
         rootRef.push({ 'name': name, 'title': title, 'parent': parent });
     }
@@ -105,7 +104,6 @@ $(document).ready(function(Q) {
 
   rootRef.on('child_added', function (snapshot) {
     var message = snapshot.val();
-    console.log('child_added', message);
     displayTitleMessage(snapshot.key(), message.name, message.title, message.parent);
   });
 
@@ -116,7 +114,6 @@ $(document).ready(function(Q) {
   function displayTitleMessage(id, name, title, parentId) {
     var $parent = parentId ? findParent(parentId) : $('#records');
     var $el = makeListItem(name, title);
-    console.log('displaying', id, name, parentId, $parent, title);
     // add a data-parent attribute, which we use to locate parent elements
     $el.appendTo($parent).attr('data-id', id);
   }
@@ -126,7 +123,6 @@ $(document).ready(function(Q) {
   }
 
   function makeListItem(name, title) {
-    console.log('This is name: ' + name);
     return $('#recordTemplate').clone()
     // remove the id attr
     .attr('id', null)
