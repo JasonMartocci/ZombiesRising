@@ -56,7 +56,7 @@
 <form><input type="text"><button>add</button></form>
     
 <li id="recordTemplate"> 
-    <span></span> <a href="#">X</a>
+    <span></span> {{#if isAdmin}}<a class="deleteThis" href="#">X</a>{{/if}}
     <ul></ul>
     <form><input type="text"><button>add</button></form>
 </li>
