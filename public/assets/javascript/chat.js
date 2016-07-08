@@ -115,7 +115,7 @@ $(document).ready(function(Q) {
     var $parent = parentId ? findParent(parentId) : $('#records');
     var $el = makeListItem(name, title);
     // add a data-parent attribute, which we use to locate parent elements
-    $el.appendTo($parent).attr('data-id', id);
+    $el.prependTo($parent).attr('data-id', id);
   }
 
   function findParent(parentId) {
