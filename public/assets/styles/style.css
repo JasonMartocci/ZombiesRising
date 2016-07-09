@@ -1,19 +1,19 @@
 /* Fullscreen */
 html:-moz-full-screen {
-    background: red;
+    background: green;
 }
 
 html:-webkit-full-screen {
-    background: red;
+    background: green;
 }
 
 html:-ms-fullscreen {
-    background: red;
+    background: green;
     width: 100%; /* needed to center contents in IE */
 }
 
 html:fullscreen {
-    background: red;
+    background: green;
 }
 
 /* Space out content a bit */
