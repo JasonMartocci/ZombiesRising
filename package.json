@@ -24,6 +24,7 @@
     "nodemon": "^1.9.2",
     "normalize.css": "^4.1.1",
     "quintus": "^0.2.0",
+    "screenfull": "^3.0.0",
     "shortid": "^2.2.6",
     "sweetalert2": "^3.3.8",
     "underscore": "^1.8.3"
