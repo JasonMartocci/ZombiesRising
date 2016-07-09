@@ -1,13 +1,4 @@
 $(document).ready(function() {
-  /**
- *
- * javascript full-screen window technology - fullscreen mode
- *
- * Copyright 2013, Dhiraj kumar
- * http://www.css-jquery-design.com/
- */
-
-
 // (function () {
 //     var viewFullScreen = document.getElementById("view-fullscreen");
 //     if (viewFullScreen) {

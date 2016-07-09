@@ -25,7 +25,7 @@
       }
     }
     $('#fullscreenToggle').hide();
-    document.location.reload();
+    // document.location.reload();
   }
 
   // keydown event handler
@@ -42,9 +42,9 @@ window.addEventListener("load",function() {
     .include('ZombiesEnemies, ZombiesGUI, ZombiesHeroes, ZombiesGameplay')
     .setup({ 
       width: 1423,
-      height: 720,
-      scaleToFit: true
-      // maximize: true 
+      height: 1100,
+      scaleToFit: true,
+      maximize: true 
     })
 
   //enable sound  , this will find the best way to play audio according to the device 
