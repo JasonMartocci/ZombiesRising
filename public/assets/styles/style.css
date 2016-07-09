@@ -1,3 +1,14 @@
+
+#warning-message { display: none; }
+@media only screen and (orientation:portrait){
+    #wrapper { display:none; }
+    #warning-message { display:block; }
+}
+@media only screen and (orientation:landscape){
+    #warning-message { display:none; }
+}
+
+
 /* Fullscreen */
 /* Fullscreen */
 @import url(http://fonts.googleapis.com/css?family=Cherry+Swash);
