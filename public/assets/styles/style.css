@@ -30,7 +30,6 @@ html, body {
 
 #warning-message { display: none; }
 @media only screen and (orientation:portrait){
-    #startGame { display:none; }
     #warning-message { 
       background-color: red;
       display:block; }
