@@ -13,7 +13,7 @@ html, body {
 #warning-message { display: none; }
 @media only screen and (orientation:portrait){
   #warning-message { 
-    font-size: 1.5em;
+    font-size: 1em;
     text-align: center;
     color: white;
     background-color: red;
