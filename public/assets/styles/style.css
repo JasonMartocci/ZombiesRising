@@ -31,6 +31,7 @@ html, body {
 #warning-message { display: none; }
 @media only screen and (orientation:portrait){
     #warning-message { 
+      text-align: center;
       background-color: red;
       display:block; }
 }
