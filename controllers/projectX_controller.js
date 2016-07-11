@@ -76,8 +76,7 @@ router.post('/heroes/createNewHeroes', function(req,res) {
 	var form = new formidable.IncomingForm();
 
 	form.parse(req, function(err, fields, files) {
-		// console.log(fields);
-		// console.log(files);
+		if (err) { throw err; }
 
 		// Load the AWS SDK for Node.js
 		var AWS = require('aws-sdk');
@@ -141,8 +140,7 @@ router.post('/heroes/updateImage/:heroesId/:plantTypes/:cost/:energy/:isSunProdu
 	var form = new formidable.IncomingForm();
 
 	form.parse(req, function(err, fields, files) {
-		// console.log(fields);
-		// console.log(files);
+		if (err) { throw err; };
 
 		// Load the AWS SDK for Node.js
 		var AWS = require('aws-sdk');
@@ -201,8 +199,7 @@ router.post('/enemies/createNewEnemies', function(req,res) {
 	var form = new formidable.IncomingForm();
 
 	form.parse(req, function(err, fields, files) {
-		// console.log(fields);
-		// console.log(files);
+		if (err) { throw err; };
 
 		// Load the AWS SDK for Node.js
 		var AWS = require('aws-sdk');
@@ -266,8 +263,7 @@ router.post('/enemies/updateImage/:enemiesId/:zombieTypes/:vx/:damage/:energy', 
 	var form = new formidable.IncomingForm();
 
 	form.parse(req, function(err, fields, files) {
-		// console.log(fields);
-		// console.log(files);
+		if (err) { throw err; }
 
 		// Load the AWS SDK for Node.js
 		var AWS = require('aws-sdk');
@@ -371,16 +367,7 @@ router.get('/api/user', function(req,res) {
 	});
 });
 
-// 	Need to figure out how to pass the user id into these two router.gets
-// 	Then figure out how to have both session and params of userId features to work at same time.
-// 	The files involed to make this work include the following:
-// 	controllers>projectX_controller.js
-// 	public>assets>javascript>startGame.js
-// 	public>assets>javascript>zombies-enemies.js
-// 	public>assets>javascript>zombies-heroes.js
-
 router.get('/api/heroes/:userId', function(req,res) {
-	
 	var condition = 'userId = ' + req.params.userId;
 	projectX.allHeroes(condition, function(data){
 		var hbsObject = {heroes : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
@@ -390,7 +377,6 @@ router.get('/api/heroes/:userId', function(req,res) {
 });
 
 router.get('/api/enemies/:userId', function(req,res) {
-
 	var condition = 'userId = ' + req.params.userId;
 	projectX.allEnemies(condition, function(data){
 		var hbsObject = {enemies : data, logged_in: req.session.logged_in, isUser: req.session.isUser, isAdmin: req.session.isAdmin}
@@ -398,8 +384,6 @@ router.get('/api/enemies/:userId', function(req,res) {
 		res.send(hbsObject);
 	});
 });
-
-// End Need to figure out how to pass the user id into these two router.gets
 
 router.get('/api/characters', function(req,res) {
 	projectX.allCharacters(function(data){
@@ -414,14 +398,11 @@ router.get('/signIn', function(req,res) {
 	res.render('signIn', hbsObject);
 });
 
-function checkUserSession( req, res, next )
-{
-    if( req.session.user_id )
-    {
+function checkUserSession( req, res, next ) {
+    if( req.session.user_id ){
         next();
-    }
-    else
-    {
+        return false;
+    }else{
         res.redirect('/');
     }
 }//checkUserSession()

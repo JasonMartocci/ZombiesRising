@@ -56,8 +56,6 @@ Quintus.ZombiesGameplay = function(Q) {
           Q.stage().pause();
           // Q.stage().unpause();
         }else {
-          console.log('YOU WON!');
-  
           swal({
             title: 'YOU WON!<br>All work and no play makes Homer a dull boy.',
             text: 'All work and no play makes Homer a dull boy',

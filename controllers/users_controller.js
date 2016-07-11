@@ -67,6 +67,7 @@ router.post('/create', function(req,res) {
 
 		}else{
 			bcrypt.genSalt(10, function(err, salt) {
+			if (err) throw err;
 				bcrypt.hash(req.body.password, salt, function(err, hash) {
       				if (err) throw err;
 	              	user.createUser(['name','userName', 'emailAddress', 'password', 'role'], [req.body.name, req.body.username, req.body.emailAddress, hash, req.body.role], function(user){
