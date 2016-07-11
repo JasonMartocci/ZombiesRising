@@ -39,7 +39,7 @@ Did you ever want to customize your own game? You have the ability to customize 
 
 Please feel free to contact us any time if you have questions on <a href="http://zombiesrising.herokuapp.com/">Zombie Social</a>.
 
-# Screenshot 
+# Screenshots
 
 <img src="http://zombiesrising.herokuapp.com/assets/images/zombiesRising.jpg"><br><br>
 
