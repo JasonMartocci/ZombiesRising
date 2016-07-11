@@ -10,7 +10,7 @@ Quintus.ZombiesGUI = function(Q) {
           border: 0,
           shadow: 5,
           w: 160,
-          h: 720,
+          h: 720
         }));
 
         this.on('inserted');

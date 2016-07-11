@@ -76,7 +76,7 @@ Quintus.ZombiesGameplay = function(Q) {
           Q.stage().pause();
           // Q.stage().unpause();
         }
-      };
+      }
 
       //create zombies at the defined times
       if(this.zombieIndex < this.numZombies) {
