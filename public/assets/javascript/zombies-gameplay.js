@@ -9,7 +9,7 @@ Quintus.ZombiesGameplay = function(Q) {
           y: 720/2,
           w: 1423,
           h: 720,
-          sunFrequency: {min: 3,max: 10}, //min and max number of seconds for sun to appear   
+          sunFrequency: {min: 3,max: 10} //min and max number of seconds for sun to appear   
         });
 
         this.timeNextSun = this.getTimeNextSun(); //time for the next sun to appear
@@ -77,8 +77,8 @@ Quintus.ZombiesGameplay = function(Q) {
 
           Q.stage().pause();
           // Q.stage().unpause();
-        };
-      }
+        }
+      };
 
       //create zombies at the defined times
       if(this.zombieIndex < this.numZombies) {
@@ -125,6 +125,6 @@ Quintus.ZombiesGameplay = function(Q) {
     },
     getTimeNextSun: function() {
       return this.p.sunFrequency.min + Math.random()*(this.p.sunFrequency.max - this.p.sunFrequency.min);
-    },
+    }
   });
 }
