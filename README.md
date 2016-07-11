@@ -3,8 +3,7 @@
 # [![Current Version](https://img.shields.io/badge/version-0.8.0-green.svg)](https://github.com/JasonMartocci/ZombiesRising) [![Build Status](http://img.shields.io/travis/shama/gaze.svg)](http://zombiesrising.herokuapp.com/)
 
 # Installation
-
-# <img src="assets/images/npm.jpg">
+<img src="http://zombiesrising.herokuapp.com/assets/images/npm.jpg">
 
 <ul>
 	<li>aws-sdk: ^2.4.0</li>
@@ -28,7 +27,7 @@
 	<li>underscore: ^1.8.3</li>
 </ul>
 
-<strong>How To Play</strong><br>
+# How To Play
 You play the part of a home-owner in the midst of a typical zombie apocalypse, but exaggerated to a cartoon fever pitch. Beyond the regular zombies, you'll face zombies roller skating, zombies on skateboards, bicyclist zombies, and many more. The undead starving hordes are on the march, but your back yard is standing in the way. By placing various types of characters, you must raise an army of warrior misfits that can defend your brains from the imminent devouring.
 
 In game-play terms, you have six lanes to defend against the zombies, who enter on the right side of the screen and lurch slowly towards your home on the left. You select character types from your arsenal on the left and then place them strategically on the lawn where they can fire on the approaching undead, who will fight back by munching on anything in arm's reach. You will gradually unlock a wide variety of characters. Most of them act as stationary guns, periodically shooting peas. Some protect the others, like the lovable Barney, some explode, like Marge, and some serve more specific purposes. Certain characters are effective against certain zombies, and vice versa.
