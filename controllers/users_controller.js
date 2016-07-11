@@ -20,6 +20,7 @@ router.get('/profile/:id', function(req, res){
 
 router.get('/sign-out', function(req,res) {
   req.session.destroy(function(err) {
+     if (err) throw err;
      res.redirect('/')
   })
 });
@@ -30,18 +31,17 @@ router.post('/login', function(req, res) {
 
 	user.findOne(condition, function(user){
 		if (user.length > 0){
-			bcrypt.compare(req.body.password, user[0].password, function(err, result) {
-					if (result == true){
+			bcrypt.compare(req.body.password, user[0].password, function(err, result) {			
+      			if (err) throw err;
+					if (result === true){
 						req.session.logged_in = true;
 						req.session.user_id = user[0].userId;
 						req.session.user_email = user[0].email;
-						if (user[0].role == 'admin') {
+						if (user[0].role === 'admin') {
 							req.session.isAdmin = true;
-							debugger;
 							console.log('This is admin - ', req.session.isAdmin);
-						} else if (user[0].role == 'user') {
+						} else if (user[0].role === 'user') {
 							req.session.isUser = true;
-							debugger;
 							console.log('This is user - ', req.session.isUser);
 						}
 						res.redirect('/index');
@@ -68,6 +68,7 @@ router.post('/create', function(req,res) {
 		}else{
 			bcrypt.genSalt(10, function(err, salt) {
 				bcrypt.hash(req.body.password, salt, function(err, hash) {
+      				if (err) throw err;
 	              	user.createUser(['name','userName', 'emailAddress', 'password', 'role'], [req.body.name, req.body.username, req.body.emailAddress, hash, req.body.role], function(user){
 		                req.session.username = req.body.username;//we need to grab the username from the form because we don't get it back from MySQL. If we wanted to grab it, then we'd have to do another sql query but it's unnecessary since we already have it here.
 		                req.session.user_email = req.body.email; //we need to grab the email from the form because we don't get it back from MySQL. If we wanted to grab it, then we'd have to do another sql query but it's unnecessary since we already have it here.

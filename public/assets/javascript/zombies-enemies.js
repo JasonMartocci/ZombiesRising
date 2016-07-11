@@ -8,7 +8,7 @@ Quintus.ZombiesEnemies = function(Q) {
   var newUserId = "";
   for (i = 0; i < 1; i++) {
     newUserId += pathArray[2];
-  };
+  }
  
   if (newUserId === "undefined") {
     $.ajax({
@@ -46,7 +46,7 @@ Quintus.ZombiesEnemies = function(Q) {
         }
       }
     });    
-  };
+  }
 
   //zombie
   Q.Sprite.extend('Zombie', {
@@ -54,7 +54,7 @@ Quintus.ZombiesEnemies = function(Q) {
       this._super(p, { 
           type: Q.SPRITE_ZOMBIE,
           collisionMask: Q.SPRITE_PLANT | Q.SPRITE_BULLET,
-          x: 1485,
+          x: 1485
           // x: $(window).width()+30,
       });
       this.add('2d');

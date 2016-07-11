@@ -1,4 +1,4 @@
-window.addEventListener("load",function() {
+window.addEventListener("load", function() {
   var Q = window.Q = Quintus({development: true})
     .include('Sprites, Scenes, 2D, UI, Input, Touch, Audio')
     .include('ZombiesEnemies, ZombiesGUI, ZombiesHeroes, ZombiesGameplay')
@@ -43,7 +43,7 @@ window.addEventListener("load",function() {
   var newUserId = "";
   for (i = 0; i < 1; i++) {
     newUserId += pathArray[2];
-  };
+  }
 
   if (newUserId === "undefined") {
     $.ajax({
@@ -130,13 +130,5 @@ window.addEventListener("load",function() {
           });
         }
       });
-  };
-
-  var newURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname;
-  var pathArray = window.location.pathname.split( '/' );
-  var secondLevelLocation = pathArray[0];
-  var newUserId = "";
-  for (i = 0; i < 1; i++) {
-    newUserId += pathArray[2];
-  };
+  }
 });

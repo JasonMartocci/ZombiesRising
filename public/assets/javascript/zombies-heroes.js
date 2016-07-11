@@ -6,7 +6,7 @@ Quintus.ZombiesHeroes = function(Q) {
   var newUserId = "";
   for (i = 0; i < 1; i++) {
     newUserId += pathArray[2];
-  };
+  }
 
   Q.plantTypes = {};
 
@@ -56,13 +56,13 @@ Quintus.ZombiesHeroes = function(Q) {
         }
       }
     });
-  };
+  }
 
   //plant
   Q.Sprite.extend('Plant', {
     init: function(p) {
       this._super(p, {
-        type: Q.SPRITE_PLANT,
+        type: Q.SPRITE_PLANT
       });
       this.add('2d');  
 
