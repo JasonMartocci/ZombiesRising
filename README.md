@@ -2,6 +2,11 @@
 
 # [![Current Version](https://img.shields.io/badge/version-0.8.0-green.svg)](https://github.com/JasonMartocci/ZombiesRising) [![Build Status](http://img.shields.io/travis/shama/gaze.svg)](http://zombiesrising.herokuapp.com/)
 
+# Installation
+
+# [![npm](https://img.shields.io/badge/version-aws-sdk-green.svg)](https://github.com/JasonMartocci/ZombiesRising)
+
+
 <strong>How To Play</strong><br>
 You play the part of a home-owner in the midst of a typical zombie apocalypse, but exaggerated to a cartoon fever pitch. Beyond the regular zombies, you'll face zombies roller skating, zombies on skateboards, bicyclist zombies, and many more. The undead starving hordes are on the march, but your back yard is standing in the way. By placing various types of characters, you must raise an army of warrior misfits that can defend your brains from the imminent devouring.
 
@@ -12,4 +17,4 @@ Each character costs a certain amount of donuts to create. Actual donuts will fa
 <strong>Customize Game</strong><br>
 Did you ever want to customize your own game? You have the ability to customize every character in your game from the speed they move to what they look like. You can even share your custom game with your friends. When you log in simply click the button "Character Editor", from there choose if you want to modify the heroes or the enemies. After your choice is made simply click on the edit icon in the characters row. Make your changes and click update. Your game will now reflect the new character changes the next time you play.
 
-Please feel free to contact us any time if you have questions on our <a href="http://zombiesrising.herokuapp.com/">Zombie Social message board</a>.
+Please feel free to contact us any time if you have questions on <a href="http://zombiesrising.herokuapp.com/">Zombie Social</a>.

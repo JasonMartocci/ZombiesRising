@@ -1,59 +1,61 @@
-<div class="container siginInHdr">
-	<div class="row">
-		<div class="col-md-12"><a href="/admin"><img src="/assets/images/logo.png" alt="Zombies Rising"></a></div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">&nbsp;</div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-		    <a href="/game" class="btn btn-success btn-lg btn-block" id="playZombiesRising">Play Zombies Rising</a>
+<div id="wrapper">
+	<div class="container siginInHdr">
+		<div class="row">
+			<div class="col-md-12"><a href="/admin"><img src="/assets/images/logo.png" alt="Zombies Rising"></a></div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">&nbsp;</div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-		    <a href="/zombieSocial" class="btn btn-primary btn-lg btn-block">Zombie Social</a>
+		<div class="row">
+			<div class="col-md-12">&nbsp;</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">&nbsp;</div>
-	</div>
-	{{#if isAdmin}}
 		<div class="row">
 			<div class="col-md-12">
-			    <a href="/users" class="btn btn-info btn-lg btn-block">Users Information</a>
+			    <a href="/game" class="btn btn-success btn-lg btn-block" id="playZombiesRising">Play Zombies Rising</a>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-12">&nbsp;</div>
 		</div>
-	{{/if}}
-	<div class="row">
-		<div class="col-md-12">
-		    <a href="/characters" class="btn btn-info  btn-lg btn-block">Character Editor</a>
+		<div class="row">
+			<div class="col-md-12">
+			    <a href="/zombieSocial" class="btn btn-primary btn-lg btn-block">Zombie Social</a>
+			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">&nbsp;</div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-		    <a class="btn btn-warning  btn-lg btn-block" data-toggle="modal" href="#help">How To Play</a>
+		<div class="row">
+			<div class="col-md-12">&nbsp;</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">&nbsp;</div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-		    <a href="/users/sign-out" class="btn btn-danger  btn-lg btn-block">Sign Out</a>
+		{{#if isAdmin}}
+			<div class="row">
+				<div class="col-md-12">
+				    <a href="/users" class="btn btn-info btn-lg btn-block">Users Information</a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">&nbsp;</div>
+			</div>
+		{{/if}}
+		<div class="row">
+			<div class="col-md-12">
+			    <a href="/characters" class="btn btn-info  btn-lg btn-block">Character Editor</a>
+			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">&nbsp;</div>
+		<div class="row">
+			<div class="col-md-12">&nbsp;</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+			    <a class="btn btn-warning  btn-lg btn-block" data-toggle="modal" href="#help">How To Play</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">&nbsp;</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+			    <a href="/users/sign-out" class="btn btn-danger  btn-lg btn-block">Sign Out</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">&nbsp;</div>
+		</div>
 	</div>
 </div>
 
@@ -77,7 +79,7 @@
       <strong>Customize Game</strong><br>
       Did you ever want to customize your own game? You have the ability to customize every character in your game from the speed they move to what they look like. You can even share your custom game with your friends. When you log in simply click the button "Character Editor", from there choose if you want to modify the heroes or the enemies. After your choice is made simply click on the edit icon in the characters row. Make your changes and click update. Your game will now reflect the new character changes the next time you play.<br><br>
 
-      Please feel free to contact us any time if you have questions on our chat board.
+      Please feel free to contact us any time if you have questions on <a href="/zombieSocial">Zombie Social</a>.
       </div>
       <div class="modal-footer">&nbsp;
         <button type="button" class="close" data-dismiss="modal">&times;</button></div>
