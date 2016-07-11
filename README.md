@@ -38,3 +38,10 @@ Each character costs a certain amount of donuts to create. Actual donuts will fa
 Did you ever want to customize your own game? You have the ability to customize every character in your game from the speed they move to what they look like. You can even share your custom game with your friends. When you log in simply click the button "Character Editor", from there choose if you want to modify the heroes or the enemies. After your choice is made simply click on the edit icon in the characters row. Make your changes and click update. Your game will now reflect the new character changes the next time you play.
 
 Please feel free to contact us any time if you have questions on <a href="http://zombiesrising.herokuapp.com/">Zombie Social</a>.
+
+# Screenshot 
+
+<img src="http://zombiesrising.herokuapp.com/assets/images/zombiesRising.jpg"><br><br>
+
+
+<img src="http://zombiesrising.herokuapp.com/assets/images/zombiesRisingTwo.jpg">
