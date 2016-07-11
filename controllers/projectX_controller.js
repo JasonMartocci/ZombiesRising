@@ -140,7 +140,7 @@ router.post('/heroes/updateImage/:heroesId/:plantTypes/:cost/:energy/:isSunProdu
 	var form = new formidable.IncomingForm();
 
 	form.parse(req, function(err, fields, files) {
-		if (err) { throw err; };
+		if (err) throw err;
 
 		// Load the AWS SDK for Node.js
 		var AWS = require('aws-sdk');
@@ -199,7 +199,7 @@ router.post('/enemies/createNewEnemies', function(req,res) {
 	var form = new formidable.IncomingForm();
 
 	form.parse(req, function(err, fields, files) {
-		if (err) { throw err; };
+		if (err) throw err;
 
 		// Load the AWS SDK for Node.js
 		var AWS = require('aws-sdk');
@@ -216,7 +216,7 @@ router.post('/enemies/createNewEnemies', function(req,res) {
 		// console.log(newFilename);
 
 		fileStream.on('error', function (err) {
-		  if (err) { throw err; }
+		  if (err) throw err;
 		});
 
 		fileStream.on('open', function () {
