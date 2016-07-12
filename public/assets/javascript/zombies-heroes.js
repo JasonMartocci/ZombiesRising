@@ -109,7 +109,6 @@ Quintus.ZombiesHeroes = function(Q) {
           }));
         }
       }
-
       //check for death
       if(this.p.energy <= 0) {
         this.destroy();
@@ -119,7 +118,6 @@ Quintus.ZombiesHeroes = function(Q) {
       this.p.energy -= damage/50; 
     },
     destroy: function() {
-
       //clear grid
       Q("Level", 0).first().plantsGrid[this.p.gridRow][this.p.gridCol] = null;
       this._super();
