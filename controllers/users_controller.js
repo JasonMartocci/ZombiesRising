@@ -44,7 +44,7 @@ router.post('/login', function(req, res) {
 							req.session.isUser = true;
 							console.log('This is user - ', req.session.isUser);
 						}
-						res.redirect('/index');
+						res.redirect('/zombieSocial');
 					}else{
 						res.redirect('/signInFail');
           		}			
@@ -117,7 +117,7 @@ router.post('/create', function(req,res) {
 						projectX.createNewUserEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy', 'userId'], ["bossFour", "SJKgBPOH_bossFour.png", 2.75, -15, 45, req.session.user_id], function(data){});
 
 						projectX.createNewUserEnemies(['zombieTypes', 'asset', 'damage', 'vx', 'energy', 'userId'], ["bossFive", "H1eM8vur_bossFive.png", 3, -15, 45, req.session.user_id], function(data){
-		                	res.redirect('/index')
+		                	res.redirect('/zombieSocial')
 						});
 
 						console.log(req.session);
