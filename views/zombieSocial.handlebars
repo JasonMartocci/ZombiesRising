@@ -37,50 +37,6 @@
       <div>&nbsp;</div>
       <div class="boxModule shareYourGame">
        <h4>Share Your Custom Game</h4>
-        
-      </div>
-      <div>&nbsp;</div>
-      <div class="boxModule" id="yourHeroes">
-       <h4>Your Heroes</h4><br>
-      </div>
-      <div>&nbsp;</div>
-      <div class="boxModule" id="yourEnemies">
-       <h4>Your Enemies</h4><br>
-      </div>
-      <div>&nbsp;</div>
-    </div>
-    <div class="col-md-6">
-      <div class="chatBoard">
-        <div class="boxModule">
-          <form><input class="chatBox" type="text" placeholder=" What's on your mind?"><button class="btn btn-sm btn-primary chatButton">Post</button></form>
-        </div>
-        <div>&nbsp;</div>
-        <ul id="records" class="list-group"></ul>
-        <div class="hidden">  
-          <li id="recordTemplate" class="list-group-item"> 
-              <span></span> {{#if isAdmin}}<a class="deleteThis" href="#">X</a>{{/if}}<br><br>
-              <ul></ul>
-              <div class="input-group chatDisplay">
-                <form><input type="text" class='chatBoxModule' placeholder=" Write a comment.."><button class="btn btn-sm btn-primary chatButton">Comment</button></form>
-              </div>
-          </li>
-        </div>
-    
-        <!-- after parsing the records, they look like this 
-             (the hash is stored in data-id):
-        <li data-id="-iZjYl...."> 
-            <span>Title here</span> <a href="#">X</a>
-            <ul>... children here... </ul>
-            <form><input type="text"><button>add</button></form>
-        </li>
-        -->
-      </div>
-      <div>&nbsp;</div>
-    </div>
-    <div class="col-md-3">
-      <div class="boxModule">
-       <h4>Advertisement</h4>
-        <div class="advertisement"><script type="text/javascript" language="javascript" src="http://www.dpbolvw.net/placeholder-22137349?target=_top&mouseover=N"></script></div>
       </div>
       <div>&nbsp;</div>
       <div class="boxModule">
@@ -128,6 +84,41 @@
           </div>
         </div>
       </div>
+      <div>&nbsp;</div>
+    </div>
+    <div class="col-md-6">
+      <div class="chatBoard">
+        <div class="boxModule">
+          <form><input class="chatBox" type="text" placeholder=" What's on your mind?"><button class="btn btn-sm btn-primary chatButton">Post</button></form>
+        </div>
+        <div>&nbsp;</div>
+        <ul id="records" class="list-group"></ul>
+        <div class="hidden">  
+          <li id="recordTemplate" class="list-group-item"> 
+              <span></span> {{#if isAdmin}}<a class="deleteThis" href="#">X</a>{{/if}}<br><br>
+              <ul></ul>
+              <div class="input-group chatDisplay">
+                <form><input type="text" class='chatBoxModule' placeholder=" Write a comment.."><button class="btn btn-sm btn-primary chatButton">Comment</button></form>
+              </div>
+          </li>
+        </div>
+      </div>
+      <div>&nbsp;</div>
+    </div>
+    <div class="col-md-3">
+      <div class="boxModule">
+       <h4>Advertisement</h4>
+        <div class="advertisement"><script type="text/javascript" language="javascript" src="http://www.dpbolvw.net/placeholder-22137349?target=_top&mouseover=N"></script></div>
+      </div>
+      <div>&nbsp;</div>
+      <div class="boxModule" id="yourHeroes">
+       <h4>Your Heroes</h4><br>
+      </div>
+      <div>&nbsp;</div>
+      <div class="boxModule" id="yourEnemies">
+       <h4>Your Enemies</h4><br>
+      </div>
+      <div>&nbsp;</div>
     </div>
   </div>
   <div class="row inventory tableDetails">

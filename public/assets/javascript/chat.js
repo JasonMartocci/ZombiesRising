@@ -127,7 +127,7 @@ $(document).ready(function(Q) {
     // remove the id attr
     .attr('id', null)
     // enter the <span> tag and use .text() to escape title
-    .find('span').text(name + " : "+ title)
+    .find('span').text(name + " : " + title)
     // navigate back to the cloned element and return it
     .end();
   }
