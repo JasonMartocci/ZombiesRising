@@ -11,7 +11,7 @@ $(document).ready(function(Q) {
         // console.log('Enemies chat assets with sessionId: ' + enemiesAssets);
         characterAssets.push(enemiesAssets);        
         characterAssetsString = characterAssets.join(" ");
-        $('<a class="thumb" href="#"><img width="120" height="120" src=' + enemiesAssets + ' alt=' + enemiesData[i].plantTypes + '><span class="characterPop"><img height="112" src=' + enemiesAssets + ' alt=' + enemiesData[i].zombieTypes + '><h3>' + enemiesData[i].zombieTypes + '</h3> Damage: ' + enemiesData[i].damage + '<br> Zombie Speed - Lower Faster: ' + enemiesData[i].vx + '<br> Energy: ' + enemiesData[i].energy + '</span>').addClass('enemiesImg').appendTo($('#yourEnemies'));
+        $('<a class="thumb" href="/enemies"><img width="120" height="120" src=' + enemiesAssets + ' alt=' + enemiesData[i].plantTypes + '><span class="characterPop"><img height="112" src=' + enemiesAssets + ' alt=' + enemiesData[i].zombieTypes + '><h3>' + enemiesData[i].zombieTypes + '</h3> Damage: ' + enemiesData[i].damage + '<br> Zombie Speed - Lower Faster: ' + enemiesData[i].vx + '<br> Energy: ' + enemiesData[i].energy + '</span>').addClass('enemiesImg').appendTo($('#yourEnemies'));
       }
     }
   });
@@ -28,7 +28,7 @@ $(document).ready(function(Q) {
         // console.log('Heroes chat assets with sessionId: ' + heroesAssets);
         characterAssets.push(heroesAssets);        
         characterAssetsString = characterAssets.join(" ");
-        $('<a class="thumb" href="#"><img width="120" height="120" src=' + heroesAssets + ' alt=' + heroesData[i].plantTypes + '><span class="characterPop"><img height="112" src=' + heroesAssets + ' alt=' + heroesData[i].plantTypes + '><h3>' + heroesData[i].plantTypes + '</h3> Cost: ' + heroesData[i].cost + '<br> Energy: ' + heroesData[i].energy + '<br> Money Maker: ' + heroesData[i].isSunProducer + '<br> Shooter: ' + heroesData[i].isShooter + '<br> Exploding: ' + heroesData[i].isExploding + '</span>').addClass('heroesImg').appendTo($('#yourHeroes'));
+        $('<a class="thumb" href="/heroes"><img width="120" height="120" src=' + heroesAssets + ' alt=' + heroesData[i].plantTypes + '><span class="characterPop"><img height="112" src=' + heroesAssets + ' alt=' + heroesData[i].plantTypes + '><h3>' + heroesData[i].plantTypes + '</h3> Cost: ' + heroesData[i].cost + '<br> Energy: ' + heroesData[i].energy + '<br> Money Maker: ' + heroesData[i].isSunProducer + '<br> Shooter: ' + heroesData[i].isShooter + '<br> Exploding: ' + heroesData[i].isExploding + '</span>').addClass('heroesImg').appendTo($('#yourHeroes'));
       }
     }
   });
