@@ -89,13 +89,7 @@
         <div id="yourFriends">
           {{#each users}}
             <h5><b>{{userName}}</b></h5>
-            <div class="col-md-6">
-              <a href="/game/{{this.userId}}" class="btn btn-success  btn-sm btn-block">Play {{userName}}'s Game!</a>
-            </div>
-            <div class="col-md-6">
-            <a href="mailto:{{emailAddress}}?subject={{userName}} I play Zombies Rising and its GREAT!&body=I Love your game and have a few suggestions." class="btn btn-info  btn-sm btn-block">Reach out to {{userName}}.</a>
-              </form>
-            </div><br><br>
+            <a href="/game/{{this.userId}}" class="btn btn-success  btn-sm btn-block">Play {{userName}}'s Game!</a>
           {{/each}}
         </div>
       </div>
